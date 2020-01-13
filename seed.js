@@ -3,10 +3,16 @@ const {User, Product} = require('./server/db/models')
 
 const users = [
   {
+    firstName: 'Liana',
+    lastName: 'Chan',
+    address: '123 Magnolia Ave.,NY 11206',
     email: 'liana.andreea97@yahoo.com',
     password: '123'
   },
   {
+    firstName: 'Oscar',
+    lastName: 'Chan',
+    address: '123 Magnolia Ave.,NY 11206',
     email: 'oscar_19@yahoo.com',
     password: '123'
   }

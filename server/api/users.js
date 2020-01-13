@@ -26,10 +26,16 @@ router.get('/:userId', async (req, res, next) => {
 router.put('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
-    const user = await User.findAll({
-      where: {userId}
+    const user = await User.findOne({
+      where: {
+        id: userId
+      }
     })
-    user.update(req.body)
+    if (user === null) {
+      res.sendStatus(404)
+    }
+    await user.update(req.body)
+    res.json(user)
   } catch (err) {
     next(err)
   }
