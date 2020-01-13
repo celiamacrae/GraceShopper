@@ -11,8 +11,8 @@ export const getAllProducts = products => ({type: GET_ALL_PRODUCTS, products})
 export const loadAllProducts = () => async dispatch => {
   try {
     //check with backend!!!!!
-    const {allProducts} = await axios.get('/api/products')
-    dispatch(getAllProducts(allProducts))
+    const {data} = await axios.get('/api/products')
+    dispatch(getAllProducts(data))
   } catch (error) {
     console.error(error)
   }
@@ -22,7 +22,8 @@ export const loadAllProducts = () => async dispatch => {
 const defaultProducts = []
 
 //PRODUCTS REDUCER
-export default function productsReducer(state = defaultProducts, action) {
+export default function(state = defaultProducts, action) {
+  console.log(action)
   switch (action.type) {
     case GET_ALL_PRODUCTS:
       return action.products

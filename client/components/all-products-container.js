@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import loadAllProducts from '../store/products'
+import {loadAllProducts} from '../store/products'
 import allProducts from './all-products'
 
 const mapStateToProps = function(state) {
