@@ -21,6 +21,9 @@ const Product = db.define('product', {
   category: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  description: {
+    type: Sequelize.TEXT
   }
 })
 Product.prototype.getQuantity = function() {
