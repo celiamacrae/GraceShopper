@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link, Route} from 'react-router-dom'
 import {loadSingleProduct} from '../store/products'
+
 class SingleProduct extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.productId
@@ -21,7 +22,7 @@ class SingleProduct extends React.Component {
               <div className="card_content">
                 <Link to={`/products/${product.id}`}>{product.name}</Link>
                 <h4> ${product.price}</h4>
-                <button> Add </button>
+                <button type="submit"> Add </button>
               </div>
             </div>
           </li>
