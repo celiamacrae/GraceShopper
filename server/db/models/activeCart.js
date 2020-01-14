@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const activeCart = db.define('activeCart', {})
+const ActiveCart = db.define('activeCart', {})
 
-module.exports = activeCart
+module.exports = ActiveCart
