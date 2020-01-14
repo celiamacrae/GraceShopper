@@ -19,29 +19,46 @@ const users = [
 ]
 const products = [
   {
-    name: 'Banana',
+    name: 'Mango',
     price: 2.59,
     imgSrc:
-      'http://www.pngplay.com/wp-content/uploads/2/Banana-Transparent-File.png',
+      'https://www.myemarket.in/image/cache/data/Vegetables/Mango-600x600.jpg',
     category: 'fruit'
   },
   {
     name: 'Tomato',
     price: 1.89,
-    imgSrc: 'https://www.shrestaindiangrocery.com/product/tomato-1lb-2/',
+    imgSrc:
+      'https://www.myemarket.in/image/cache/data/Vegetables/10000200_16-fresho-tomato-hybrid-600x600.jpg',
     category: 'vegetable'
   },
   {
     name: 'Mushroom',
     price: 2.99,
-    imgSrc: 'https://www.shrestaindiangrocery.com/product/tomato-1lb-2/',
+    imgSrc:
+      'https://www.myemarket.in/image/cache/data/Vegetables/MUSHRUMS-600x600.jpg',
     category: 'vegetable'
   },
   {
-    name: 'Beef',
-    price: 8.59,
-    imgSrc: 'https://www.shrestaindiangrocery.com/product/tomato-1lb-2/',
+    name: 'Chicken',
+    price: 7.59,
+    imgSrc:
+      'https://www.myemarket.in/image/cache/data/Vegetables/chicken-600x600.jpg',
     category: 'meat'
+  },
+  {
+    name: 'Eggs',
+    price: 3.29,
+    imgSrc:
+      'https://www.myemarket.in/image/cache/data/Vegetables/eggs%20new-600x600.jpg',
+    category: 'dairy'
+  },
+  {
+    name: 'Onions',
+    price: 1.29,
+    imgSrc:
+      'https://www.myemarket.in/image/cache/data/Vegetables/fresh-onion-red-v-1-kg-1-600x600.png',
+    category: 'Vegetable'
   }
 ]
 const seed = () =>

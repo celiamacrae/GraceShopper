@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 export default class Products extends React.Component {
   componentDidMount() {
     this.props.onLoadAllProducts()
@@ -8,15 +8,26 @@ export default class Products extends React.Component {
   render() {
     const products = this.props.products
     return (
-      <div>
+      <div id="mainBody">
         <h1>Products: </h1>
-        {products.map(product => {
-          return (
-            <div className="product row" key={product.id}>
-              <p>{product.name}</p>
-            </div>
-          )
-        })}
+        <ul className="cards">
+          {products.map(product => {
+            return (
+              <li key={product.id}>
+                <div className="card">
+                  <img src={product.imgSrc} height="200px" width="200px" />
+                  <div className="card_content">
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                    <h4 className="price"> ${product.price}</h4>
+                    <p>
+                      <button>Add to Cart</button>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     )
   }
