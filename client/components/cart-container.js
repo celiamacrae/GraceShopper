@@ -80,6 +80,13 @@ class Cart extends React.Component {
           </ol>
           <h2>Amount of Products: {amount}</h2>
           <h2>Total: {total.toFixed(2)} USD </h2>
+
+          <div className="card">
+            {' '}
+            <Link to="/checkout" className="button">
+              Proceed to checkout
+            </Link>
+          </div>
         </div>
       )
     }
