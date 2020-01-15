@@ -62,6 +62,17 @@ const createApp = () => {
   )
   app.use(passport.initialize())
   app.use(passport.session())
+  function requireLogin(req, res, next) {
+    if (req.session.passport) {
+      console.log('here', req.session)
+      next() // allow the next route to run
+    } else {
+      res.redirect('/login')
+    }
+  }
+  app.all('/api/*', requireLogin, function(req, res, next) {
+    next()
+  })
 
   // auth and api routes
   app.use('/auth', require('./auth'))
