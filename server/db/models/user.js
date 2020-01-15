@@ -5,21 +5,44 @@ const db = require('../db')
 const User = db.define('user', {
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true
+    }
+  },
+  status: {
+    type: Sequelize.STRING,
+    defaultValue: 'user',
+    validate: {
+      isIn: [['user', 'admin']]
+    }
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true
+    }
   },
   address: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   imageURL: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue:
+      'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
   },
   paymentInformation: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    validate: {
+      isCreditCard: true
+    }
   },
   email: {
     type: Sequelize.STRING,

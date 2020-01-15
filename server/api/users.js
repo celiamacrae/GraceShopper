@@ -54,6 +54,62 @@ router.get('/:userId/orderhistory', async (req, res, next) => {
   }
 })
 
+router.get('/:userId/cart', async (req, res, next) => {
+  try {
+    const order = await Order.findAll({
+      where: {
+        userId: req.params.userId,
+        status: 'pending'
+      },
+      include: [Product]
+    })
+    res.json(order)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.delete('/:userId/cart/remove', async (req, res, next) => {
+  try {
+    const userId = req.params.userId
+    await Order.destroy({
+      where: {
+        userId: userId,
+        status: 'pending'
+      }
+    })
+    res.status(204).end()
+  } catch (err) {
+    next(err)
+  }
+})
+
+///update the current pending order for a user or add a pending order
+router.put('/:userId/cart', async (req, res, next) => {
+  const userId = req.params.userId
+
+  //find or create order for the user
+  let data = await Order.findOrCreate({
+    where: {
+      userId: userId,
+      status: 'pending'
+    }
+  })
+
+  //getting active order id
+  const currentOrderId = parseInt(data[0].dataValues.id, 10)
+
+  //getting active order in right format
+  const currentOrder = await Order.findByPk(currentOrderId)
+
+  //getting all id's for every product in local cart
+  const productsIdArray = req.body.products.map(product => product.id)
+
+  //using a magic method to fill join table (CartProducts)
+  await currentOrder.addProduct(productsIdArray)
+  res.json(data)
+})
+
 // add an order to order history
 // link for guest checkout /guest/checkout
 // userId for guest in orders table equals NULL

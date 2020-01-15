@@ -4,19 +4,38 @@ const db = require('../db')
 const Order = db.define('order', {
   date: {
     type: Sequelize.DATE,
-    allowNull: false
+    allowNull: false,
+    defaultValue: Sequelize.NOW
+  },
+  status: {
+    type: Sequelize.STRING,
+    defaultValue: 'pending',
+    validate: {
+      isIn: [['pending', 'fulfilled']]
+    }
   },
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true
+    }
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true
+    }
   },
   address: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   paymentInformation: {
     type: Sequelize.STRING,
