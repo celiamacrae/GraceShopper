@@ -70,9 +70,9 @@ const createApp = () => {
       res.redirect('/login')
     }
   }
-  app.all('/api/*', requireLogin, function(req, res, next) {
-    next()
-  })
+  // app.all('/api/*', requireLogin, function(req, res, next) {
+  //   next()
+  // })
 
   // auth and api routes
   app.use('/auth', require('./auth'))
