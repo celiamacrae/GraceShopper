@@ -106,10 +106,10 @@ class UpdateUser extends React.Component {
             </div>
           </form>
 
-          {/* <div>
-            <p className='price'> Not satisfied with our services?</p>
+          <div>
+            <p className="price"> Not satisfied with our services?</p>
             <button className="button3">Delete Acoount</button>
-          </div> */}
+          </div>
         </div>
       </div>
     )
