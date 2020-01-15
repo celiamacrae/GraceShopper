@@ -13,6 +13,7 @@ const GET_CART_TOTAL = 'GET_CART_TOTAL'
 //ACTION CREATOR
 // export const getSavedCart = cart => ({type: GET_SAVED_CART, cart}) *//get cart from database
 
+//when user checkout
 export const emptyCart = () => ({type: EMPTY_CART})
 
 export const getItems = () => ({type: GET_ITEMS})
@@ -60,7 +61,8 @@ export default function(state = initialState, action) {
       return initialState
     case ADD_TO_CART:
       return {...state, items: [...state.items, action.product]}
-    case REMOVE_FROM_CART: { //have to test if these functions work
+    case REMOVE_FROM_CART: {
+      //have to test if these functions work
       const productIdx = state.items.findIndex(
         product => product.id === action.product.id
       ) //find product idx in cart
@@ -70,7 +72,8 @@ export default function(state = initialState, action) {
     }
     case GET_CART_AMOUNT: //have to test if these functions work
       return {...state, amount: state.items.length}
-    case GET_CART_TOTAL: { //have to test if these functions work
+    case GET_CART_TOTAL: {
+      //have to test if these functions work
       const totalPrice = state.items.reduce((total, product) => {
         return total + product.price
       }, 0)

@@ -41,7 +41,7 @@ router.put('/:userId', async (req, res, next) => {
   }
 })
 
-// Get all orders for the user
+// Get user order history
 router.get('/:userId/orderhistory', async (req, res, next) => {
   try {
     const orders = await Order.findAll({
