@@ -10,8 +10,7 @@ class UpdateUser extends React.Component {
       lastName: '',
       address: '',
       imageURL: '',
-      email: '',
-      password: ''
+      email: ''
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
