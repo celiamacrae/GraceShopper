@@ -8,7 +8,8 @@ import UpdateUser from './update-user'
  */
 export const UserHome = props => {
   const {email, firstName, lastName, address, imageURL} = props
-
+  const user_profile = {email, firstName, lastName, address, imageURL}
+  console.log(props)
   return (
     <div className="profiles">
       <div className="cards">
@@ -26,7 +27,7 @@ export const UserHome = props => {
               <Link to="/products">Order history</Link>
             </li>
             <li className="menu_item">
-              <Link to="/user/settings">Settings</Link>
+              <Link to="/user/settings">Update Profile</Link>
             </li>
           </ul>
         </div>
@@ -34,17 +35,21 @@ export const UserHome = props => {
           {props.location.pathname === '/user' ? (
             <div>
               <div className="card_content">
-                <h3>First Name: {firstName}</h3>
-                <h3>Last Name: {lastName}</h3>
-                <h3>Address: {address}</h3>
-                <h3>Email: {email}</h3>
+                <h3>First Name: </h3>
+                <p>{firstName}</p>
+                <h3>Last Name: </h3>
+                <p>{lastName}</p>
+                <h3>Address: </h3>
+                <p>{address}</p>
+                <h3>Email: </h3>
+                <p>{email}</p>
               </div>
             </div>
           ) : (
             <div>
               <Route
                 path={`${props.match.path}/settings`}
-                render={() => <UpdateUser />}
+                render={() => <UpdateUser user={user_profile} />}
               />
             </div>
           )}

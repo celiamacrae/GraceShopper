@@ -1,6 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', Helvetica, 'Lucida Grande', sans-serif;
+  font-family: 'Lato', 'sans-serif';
 }
 
 #app {
@@ -17,7 +18,12 @@ body {
     padding: 2em 1em;
   }
   line-height: 1.45;
+  font-family: 'Lato', 'sans-serif';
 }
+h3 {
+  font-family: 'Lato', 'sans-serif';
+}
+
 #mainBody {
   margin: 20px;
 }
@@ -111,8 +117,7 @@ img {
 .card button:hover {
   opacity: 0.7;
 }
-.profiles {
-}
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -148,7 +153,7 @@ img {
 .profile_option {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 600px;
-  height: 500px;
+  height: 600px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -164,5 +169,15 @@ img {
 }
 #mainP input {
   padding: 5px;
-  font-size: 20px;
+  font-size: 18px;
+}
+#secondP form {
+  display: flex;
+  flex-direction: column;
+}
+#secondP input {
+  padding: 5px;
+  font-size: 10px;
+  width: 400px;
+  font-family: 'Lato', 'sans-serif';
 }

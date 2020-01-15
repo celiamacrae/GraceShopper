@@ -17,15 +17,14 @@ class UpdateUser extends React.Component {
     this.changeHandle = this.changeHandle.bind(this)
   }
   componentDidMount() {
-    //   const data=this.props.campus
-    // this.setState({
-    //   firstName:data.firstName,
-    //   lastName:data.lastName,
-    //     address:data.address,
-    //     email:data.email,
-    //     imageURL:data.imageURL,
-    //     password:data.password
-    // })
+    const {email, firstName, lastName, address, imageURL} = this.props.user
+    this.setState({
+      firstName: firstName,
+      lastName: lastName,
+      address: address,
+      email: email,
+      imageURL: imageURL
+    })
   }
 
   changeHandle(event) {
@@ -38,28 +37,43 @@ class UpdateUser extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div id="secondP">
         <div className="profile_option">
           <form onSubmit={this.submitHandle}>
             <div>
               <label htmlFor="firstName">
                 <small>First Name</small>
               </label>
-              <input name="firstName" type="text" />
+              <input
+                name="firstName"
+                type="text"
+                value={this.state.firstName}
+                onChange={this.changeHandle}
+              />
             </div>
 
             <div>
               <label htmlFor="lastName">
                 <small>Last Name</small>
               </label>
-              <input name="lastName" type="text" />
+              <input
+                name="lastName"
+                type="text"
+                value={this.state.lastName}
+                onChange={this.changeHandle}
+              />
             </div>
 
             <div>
               <label htmlFor="email">
                 <small>Email</small>
               </label>
-              <input name="email" type="text" />
+              <input
+                name="email"
+                type="text"
+                value={this.state.email}
+                onChange={this.changeHandle}
+              />
             </div>
 
             <div>
@@ -73,20 +87,33 @@ class UpdateUser extends React.Component {
               <label htmlFor="address">
                 <small>Address</small>
               </label>
-              <input name="address" type="text" />
+              <input
+                name="address"
+                type="text"
+                value={this.state.address}
+                onChange={this.changeHandle}
+              />
             </div>
 
             <div>
               <label htmlFor="imageURL">
                 <small>Image URL:</small>
               </label>
-              <input name="imageURL" type="text" />
-            </div>
-
-            <div>
-              <button type="submit">Update</button>
+              <input
+                name="imageURL"
+                type="text"
+                value={this.state.imageURL}
+                onChange={this.changeHandle}
+              />
             </div>
           </form>
+          <div>
+            <button type="submit">Update</button>
+          </div>
+          <div>
+            <p> Not satisfied with our services?</p>
+            <button>Delete Acoount</button>
+          </div>
         </div>
       </div>
     )
