@@ -20,7 +20,12 @@ export default class Products extends React.Component {
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>
                     <p>
-                      <button>Add to Cart</button>
+                      <button
+                        onClick={() => this.props.add(product)}
+                        type="submit"
+                      >
+                        Add to Cart
+                      </button>
                     </p>
                   </div>
                 </div>

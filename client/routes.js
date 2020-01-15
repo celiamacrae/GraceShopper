@@ -4,6 +4,7 @@ import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Signup, AllProductsContainer, UserHome, Login} from './components'
 import SingleProduct from './components/single-product-view'
+import CartContainer from './components/cart-container'
 import {me} from './store'
 
 /**
@@ -23,7 +24,7 @@ class Routes extends Component {
         <Route path="/products" component={AllProductsContainer} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/cart" />
+        <Route path="/cart" component={CartContainer} />
 
         {isLoggedIn && (
           <Switch>
@@ -31,8 +32,7 @@ class Routes extends Component {
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
             <Route path="/user" component={UserHome} />
-
-            <Route path="/cart" />
+            <Route path="/cart" component={CartContainer} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
