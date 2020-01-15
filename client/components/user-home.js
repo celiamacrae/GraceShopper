@@ -7,8 +7,8 @@ import UpdateUser from './update-user'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email, firstName, lastName, address, imageURL} = props
-  const user_profile = {email, firstName, lastName, address, imageURL}
+  const {email, firstName, lastName, address, imageURL, id} = props
+  const user_profile = {email, firstName, lastName, address, imageURL, id}
   console.log(props)
   return (
     <div className="profiles">
@@ -21,7 +21,9 @@ export const UserHome = props => {
 
           <ul className="menu">
             <li className="menu_item">
-              <Link to="/user">Profile</Link>
+              <Link to="/user" className="button1">
+                Profile
+              </Link>
             </li>
             <li className="menu_item">
               <Link to="/products">Order history</Link>
@@ -68,7 +70,8 @@ const mapState = state => {
     firstName: state.user.firstName,
     lastName: state.user.lastName,
     address: state.user.address,
-    imageURL: state.user.imageURL
+    imageURL: state.user.imageURL,
+    id: state.user.id
   }
 }
 

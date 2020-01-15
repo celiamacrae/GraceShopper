@@ -26,10 +26,12 @@ const AuthForm = props => {
             <input name="password" type="password" />
           </div>
           <div>
-            <button type="submit">{displayName}</button>
+            <button type="submit" className="button3">
+              {displayName}
+            </button>
           </div>
 
-          <button>
+          <button className="button3">
             <a href="/auth/google">Login in with Google</a>
           </button>
 
@@ -89,10 +91,12 @@ const SignupForm = props => {
           </div>
 
           <div>
-            <button type="submit">Sign Up</button>
+            <button type="submit" className="button3">
+              Sign Up
+            </button>
           </div>
 
-          <button>
+          <button className="button3">
             <a href="/auth/google">Login in with Google</a>
           </button>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {updateUser} from '../store/user'
 import {connect} from 'react-redux'
 
 class UpdateUser extends React.Component {
@@ -34,6 +34,8 @@ class UpdateUser extends React.Component {
   }
   submitHandle(event) {
     event.preventDefault()
+    const id = this.props.user.id
+    this.props.updateUser(this.state, id)
   }
   render() {
     return (
@@ -75,14 +77,6 @@ class UpdateUser extends React.Component {
                 onChange={this.changeHandle}
               />
             </div>
-
-            <div>
-              <label htmlFor="password">
-                <small>Password</small>
-              </label>
-              <input name="password" type="password" />
-            </div>
-
             <div>
               <label htmlFor="address">
                 <small>Address</small>
@@ -106,19 +100,24 @@ class UpdateUser extends React.Component {
                 onChange={this.changeHandle}
               />
             </div>
+            <div>
+              <button type="submit" className="button3">
+                Update
+              </button>
+            </div>
           </form>
-          <div>
-            <button type="submit">Update</button>
-          </div>
-          <div>
-            <p> Not satisfied with our services?</p>
-            <button>Delete Acoount</button>
-          </div>
+
+          {/* <div>
+            <p className='price'> Not satisfied with our services?</p>
+            <button className="button3">Delete Acoount</button>
+          </div> */}
         </div>
       </div>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  updateUser: (user, id) => dispatch(updateUser(user, id))
+})
 export default connect(null, mapDispatchToProps)(UpdateUser)
