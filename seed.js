@@ -1,15 +1,14 @@
 const Sequelize = require('sequelize')
 const db = require('./server/db')
 const {User, Product, Order, ActiveCart} = require('./server/db/models')
-const {CartProduct} = require('./server/db/models')
 const ProductOrder = db.define('ProductOrder', {
   productId: Sequelize.INTEGER,
   orderId: Sequelize.INTEGER
 })
-// const CartProduct = db.define('CartProduct', {
-//   activeCartId: Sequelize.INTEGER,
-//   productId: Sequelize.INTEGER
-// })
+const CartProduct = db.define('CartProduct', {
+  activeCartId: Sequelize.INTEGER,
+  productId: Sequelize.INTEGER
+})
 
 const users = [
   {
@@ -174,15 +173,13 @@ const cartProduct = [
 const seed = () =>
   Promise.all(users.map(user => User.create(user))).then(() =>
     Promise.all(products.map(pr => Product.create(pr))).then(() =>
-      Promise.all(orders.map(order => Order.create(order))).then(
-        () =>
-          Promise.all(productOrder.map(po => ProductOrder.create(po)))
-            // .then(()=>
-            //   Promise.all(ActiveCart.create({userId:1}))
-            .then(() =>
-              Promise.all(cartProduct.map(cp => CartProduct.create(cp)))
-            )
-        // )
+      Promise.all(orders.map(order => Order.create(order))).then(() =>
+        Promise.all(productOrder.map(po => ProductOrder.create(po)))
+          // .then(()=>
+          //   Promise.all(ActiveCart.create({userId:1}))
+          .then(() =>
+            Promise.all(cartProduct.map(cp => CartProduct.create(cp)))
+          )
       )
     )
   )
