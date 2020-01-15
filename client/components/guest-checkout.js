@@ -2,26 +2,14 @@ import React from 'react'
 import {emptyCart, getItems} from '../store/cart'
 import {connect} from 'react-redux'
 
-class Checkout extends React.Component {
+class GuestCheckout extends React.Component {
   render() {
     const user = this.props.user
     return (
       <div>
-        {user.firstName ? (
+        {this.props.user.firstName ? (
           //if user logged in
-          <div>
-            <h1>My information</h1>
-            <h2>First Name: {user.firstName} </h2>
-            <h2>Last Name: {user.lastName}</h2>
-            <h2>Email: {user.email}</h2>
-            <h1>Shipping</h1>
-            <h2>Address: {user.address}</h2>
-            {/* <h1>Payment method</h1>
-      <form>
-        <input type="radio" name="payment" value="creditCard" >Credit/Debit card</input><br/>
-        <input type="radio" name="payment" value="paypal" >Paypal/venmo/Braintree</input><br/>
-      </form> */}
-          </div>
+          <div />
         ) : (
           //not authorized guest
           <div>
@@ -42,7 +30,6 @@ class Checkout extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
   cart: state.cart
 })
 

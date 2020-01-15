@@ -6,6 +6,7 @@ import {Signup, AllProductsContainer, UserHome, Login} from './components'
 import SingleProduct from './components/single-product-view'
 import CartContainer from './components/cart-container'
 import {me} from './store'
+import Checkout from './components/checkout'
 
 /**
  * COMPONENT
@@ -25,7 +26,6 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={CartContainer} />
-        <Redirect from="api/products" to="/" />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -33,6 +33,7 @@ class Routes extends Component {
             <Route path="/products" component={AllProductsContainer} />
             <Route path="/user" component={UserHome} />
             <Route path="/cart" component={CartContainer} />
+            <Route path="/checkout" component={Checkout} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
