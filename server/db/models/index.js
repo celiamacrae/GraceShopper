@@ -10,10 +10,11 @@ ActiveCart.belongsTo(User)
 Order.belongsTo(User)
 User.hasMany(Order)
 
-ActiveCart.hasMany(Product)
+ActiveCart.belongsToMany(Product, {through: 'CartProducts'})
+Product.belongsToMany(ActiveCart, {through: 'CartProducts'})
 
-Product.belongsToMany(Order, {through: 'ProductOrder'})
-Order.belongsToMany(Product, {through: 'ProductOrder'})
+Product.belongsToMany(Order, {through: 'ProductOrders'})
+Order.belongsToMany(Product, {through: 'ProductOrders'})
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -32,5 +33,6 @@ Order.belongsToMany(Product, {through: 'ProductOrder'})
 module.exports = {
   User,
   Product,
-  Order
+  Order,
+  ActiveCart
 }

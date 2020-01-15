@@ -1,10 +1,15 @@
 const Sequelize = require('sequelize')
 const db = require('./server/db')
-const {User, Product, Order} = require('./server/db/models')
+const {User, Product, Order, ActiveCart} = require('./server/db/models')
+const {CartProduct} = require('./server/db/models')
 const ProductOrder = db.define('ProductOrder', {
   productId: Sequelize.INTEGER,
   orderId: Sequelize.INTEGER
 })
+// const CartProduct = db.define('CartProduct', {
+//   activeCartId: Sequelize.INTEGER,
+//   productId: Sequelize.INTEGER
+// })
 
 const users = [
   {
@@ -122,7 +127,8 @@ const orders = [
     address: '309 E 52nd St',
     paymentInformation: '1234 5678 9012 3456',
     email: 'celiamacrae@gmail.com',
-    productId: 3
+    // productId: 3,
+    userId: 2
   },
   {
     date: '2015-02-09 18:05:28.989 +00:00',
@@ -139,17 +145,18 @@ const orders = [
     address: '309 E 52nd St',
     paymentInformation: '1234 5678 9012 3456',
     email: 'celia.macrae@gmail.com',
-    productId: 4
+    // productId: 4,
+    userId: 2
   }
 ]
 const productOrder = [
   {
     productId: 1,
-    orderId: 1
+    orderId: 2
   },
   {
     productId: 2,
-    orderId: 1
+    orderId: 2
   },
   {
     productId: 3,
@@ -157,16 +164,26 @@ const productOrder = [
   }
 ]
 
+const cartProduct = [
+  {
+    activeCartId: 1,
+    productId: 1
+  }
+]
+
 const seed = () =>
   Promise.all(users.map(user => User.create(user))).then(() =>
-    Promise.all(products.map(pr => Product.create(pr))).then(
-      () =>
-        Promise.all(orders.map(order => Order.create(order))).then(() =>
+    Promise.all(products.map(pr => Product.create(pr))).then(() =>
+      Promise.all(orders.map(order => Order.create(order))).then(
+        () =>
           Promise.all(productOrder.map(po => ProductOrder.create(po)))
-        )
-
-      // .then(() =>
-      // Promise.all(orders.map(o => ProductOrder.create(o))))
+            // .then(()=>
+            //   Promise.all(ActiveCart.create({userId:1}))
+            .then(() =>
+              Promise.all(cartProduct.map(cp => CartProduct.create(cp)))
+            )
+        // )
+      )
     )
   )
 

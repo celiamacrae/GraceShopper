@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User, activeCart} = require('../db/models')
+const {User, Order, Product} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -41,27 +41,30 @@ router.put('/:userId', async (req, res, next) => {
   }
 })
 
-router.get('/:userId/cart', async (req, res, next) => {
+// Get all orders for the user
+router.get('/:userId/orderhistory', async (req, res, next) => {
   try {
-    const userId = req.params.userId
-    const cart = await activeCart.findAll({
-      where: {cartOwner: userId}
+    const orders = await Order.findAll({
+      where: {userId: req.params.userId},
+      include: [Product]
     })
-    res.json(cart)
-  } catch (err) {
-    next(err)
+    res.json(orders)
+  } catch (error) {
+    next(error)
   }
 })
 
-router.delete('/:userId/cart/remove', async (req, res, next) => {
+// add an order to order history
+// link for guest checkout /guest/checkout
+// userId for guest in orders table equals NULL
+router.post('/:userId/checkout', async (req, res, next) => {
   try {
     const userId = req.params.userId
-    await activeCart.destroy({
-      where: {cartOwner: userId}
-    })
-    res.status(204).end()
-  } catch (err) {
-    next(err)
+    let data = await Order.create(req.body)
+    if (typeof userId === Number) data.userId = userId
+    res.json(data)
+  } catch (error) {
+    next(error)
   }
 })
 
