@@ -124,8 +124,6 @@ router.put('/:userId/cart', async (req, res, next) => {
       }
     })
 
-    console.log(productInOrder.dataValues.quantity)
-
     //increasing a quantity per product
     if (productInOrder.dataValues.quantity === null) {
       await productInOrder.update({quantity: 1})
