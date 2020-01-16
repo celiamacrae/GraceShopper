@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 class Checkout extends React.Component {
   render() {
     const user = this.props.user
+    console.log('HERE', this.props)
     return (
       <div>
         {user.firstName ? (
@@ -28,10 +29,14 @@ class Checkout extends React.Component {
             <h1>Guest</h1>
           </div>
         )}
-        <div>Price: {this.props.cart.amount}</div>
+        <div>Total Price: {this.props.cart.total} USD</div>
+        <div>Total Items in Order: {this.props.cart.amount}</div>
+
         <button
+          type="submit"
           onClick={() => {
             this.props.empty()
+            console.log('YYYY', event.target)
           }}
         >
           Place your order
