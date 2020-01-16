@@ -25,11 +25,7 @@ const User = db.define('user', {
     }
   },
   address: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
   },
   imageURL: {
     type: Sequelize.STRING,
@@ -81,6 +77,7 @@ User.prototype.correctPassword = function(candidatePwd) {
 /**
  * classMethods
  */
+
 User.generateSalt = function() {
   return crypto.randomBytes(16).toString('base64')
 }

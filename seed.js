@@ -14,6 +14,15 @@ const users = [
       'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
   },
   {
+    firstName: 'Kiana',
+    status: 'admin',
+    googleId: '101534905451896274735',
+    lastName: 'Wong',
+    email: 'kiwongdesigns@gmail.com',
+    imageURL:
+      'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
+  },
+  {
     firstName: 'Paul',
     lastName: 'Chan',
     status: 'user',
