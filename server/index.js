@@ -10,6 +10,7 @@ const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
+const {User} = require('./db/models')
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -63,18 +64,24 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  function auth(req, res, next) {
+  async function auth(req, res, next) {
     var ref = req.headers.referer
     const currentUser = req.session.passport
     if (!ref) {
       if (currentUser) {
-        if (currentUser.user === 1) {
+        const data = await User.findByPk(currentUser.user)
+        const status = data.status
+        if (status === 'admin') {
           return next()
         }
       }
       return res.redirect('/products')
-    } else return next()
+    } else {
+      return next()
+    }
   }
+
+  //COMMENT HERE TO BE ABLE TO TEST ROUTES!
   app.use('/api', auth, function(req, res, next) {
     next()
   })
