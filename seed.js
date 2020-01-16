@@ -14,11 +14,11 @@ const users = [
       'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
   },
   {
-    firstName: 'Oscar',
+    firstName: 'Paul',
     lastName: 'Chan',
     status: 'user',
     address: '123 Magnolia Ave.,NY 11206',
-    email: 'oscar_19@yahoo.com',
+    email: 'paultonchan@gmail.com',
     password: '123',
     imageURL:
       'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
@@ -41,7 +41,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Mango-600x600.jpg',
-    category: 'fruit'
+    category: 'fruit',
+    stockQuantity: 100
   },
   {
     name: 'Tomato',
@@ -49,7 +50,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/10000200_16-fresho-tomato-hybrid-600x600.jpg',
-    category: 'vegetable'
+    category: 'vegetable',
+    stockQuantity: 150
   },
   {
     name: 'Mushroom',
@@ -57,7 +59,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/MUSHRUMS-600x600.jpg',
-    category: 'vegetable'
+    category: 'vegetable',
+    stockQuantity: 200
   },
   {
     name: 'Chicken',
@@ -65,7 +68,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/chicken-600x600.jpg',
-    category: 'meat'
+    category: 'meat',
+    stockQuantity: 80
   },
   {
     name: 'Eggs',
@@ -73,7 +77,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/eggs%20new-600x600.jpg',
-    category: 'dairy'
+    category: 'dairy',
+    stockQuantity: 95
   },
   {
     name: 'Onions',
@@ -81,7 +86,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/fresh-onion-red-v-1-kg-1-600x600.png',
-    category: 'Vegetable'
+    category: 'Vegetable',
+    stockQuantity: 125
   },
   {
     name: 'Garlic',
@@ -89,7 +95,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Garlic-600x600.jpg',
-    category: 'Vegetable'
+    category: 'Vegetable',
+    stockQuantity: 190
   },
   {
     name: 'Potato',
@@ -97,7 +104,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Potato1-600x600.jpg',
-    category: 'Vegetable'
+    category: 'Vegetable',
+    stockQuantity: 240
   },
   {
     name: 'Beet Root',
@@ -105,7 +113,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/fresh-cut-beetroot-600x600.gif',
-    category: 'Big_Vegetable'
+    category: 'Big_Vegetable',
+    stockQuantity: 60
   },
   {
     name: 'Sweet Corn',
@@ -113,7 +122,8 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/sweet%20corn-600x600.jpg',
-    category: 'Big_Vegetable'
+    category: 'Big_Vegetable',
+    stockQuantity: 80
   },
   {
     name: 'Sweet Potato',
@@ -121,10 +131,29 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Beauregard-Sweet-Potato_0-600x600.png',
-    category: 'Big_Vegetable'
+    category: 'Big_Vegetable',
+    stockQuantity: 165
   }
 ]
 const orders = [
+  {
+    date: '2015-02-09 18:05:28.989 +00:00',
+    status: 'fulfilled',
+    firstName: 'Paul',
+    lastName: 'Chan',
+    address: '309 E 52nd St',
+    paymentInformation: '1234 5678 9012 3456',
+    email: 'paultonchan@gmail.com'
+  },
+  {
+    date: '2015-02-09 18:05:28.989 +00:00',
+    status: 'fulfilled',
+    firstName: 'Liana',
+    lastName: 'Chan',
+    address: '123 Magnolia Ave.,NY 11206',
+    paymentInformation: '1234 5678 9012 3456',
+    email: 'liana.andreea97@yahoo.com'
+  },
   {
     date: '2015-02-09 18:05:28.989 +00:00',
     status: 'fulfilled',
@@ -132,29 +161,7 @@ const orders = [
     lastName: 'Macrae',
     address: '309 E 52nd St',
     paymentInformation: '1234 5678 9012 3456',
-    email: 'celiamacrae@gmail.com',
-    // productId: 3,
-    userId: 2
-  },
-  {
-    date: '2015-02-09 18:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Cel',
-    lastName: 'Macr',
-    address: '309 E 52nd St',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'celia.macrae@gmail.com'
-  },
-  {
-    date: '2015-02-09 18:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Cel',
-    lastName: 'Macr',
-    address: '309 E 52nd St',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'celia.macrae@gmail.com',
-    // productId: 4,
-    userId: 2
+    email: 'celiamacrae@gmail.com'
   }
 ]
 const productOrder = [

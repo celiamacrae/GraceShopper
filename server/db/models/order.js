@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
-
+const User = require('./user')
 const Order = db.define('order', {
   date: {
     type: Sequelize.DATE,
@@ -52,5 +52,21 @@ const Order = db.define('order', {
     }
   }
 })
-
+async function findUserId(order) {
+  try {
+    const user = await User.findOne({
+      where: {
+        email: order.email
+      }
+    })
+    if (user !== null) order.userId = user.id
+  } catch (err) {
+    console.log(err)
+  }
+}
+Order.beforeCreate(findUserId)
+Order.beforeUpdate(findUserId)
+Order.beforeBulkCreate(order => {
+  order.forEach(findUserId)
+})
 module.exports = Order
