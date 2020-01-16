@@ -2,15 +2,6 @@ const router = require('express').Router()
 const {Product} = require('../db/models')
 
 module.exports = router
-function auth(req, res, next) {
-  if (req.session.passport) {
-    const userId = req.session.passport.user
-    if (userId !== 1) res.send('Not allowed')
-    next()
-  } else {
-    res.send('Not allowed')
-  }
-}
 router.get('/', async (req, res, next) => {
   try {
     const products = await Product.findAll()
@@ -36,7 +27,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.delete('/:id', auth, async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const product = await Product.findOne({
       where: {
@@ -53,7 +44,7 @@ router.delete('/:id', auth, async (req, res, next) => {
   }
 })
 
-router.post('/:id', auth, async (req, res, next) => {
+router.post('/:id', async (req, res, next) => {
   try {
     const product = await Product.findOne({
       where: {
@@ -70,7 +61,7 @@ router.post('/:id', auth, async (req, res, next) => {
   }
 })
 
-router.put('/', auth, async (req, res, next) => {
+router.put('/', async (req, res, next) => {
   try {
     const data = await Product.create(req.body)
     res.json(data)

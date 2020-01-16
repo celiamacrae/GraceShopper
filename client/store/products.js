@@ -1,5 +1,7 @@
 import axios from 'axios'
 import history from '../history'
+//INITIAL STATE
+const defaultProducts = []
 
 //ACTION TYPE
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
@@ -14,8 +16,8 @@ export const getSingleProduct = product => ({
 export const loadAllProducts = () => async dispatch => {
   try {
     //check with backend!!!!!
-    const {data} = await axios.get('/api/products')
-    dispatch(getAllProducts(data))
+    const res = await axios.get('/api/products', {user: true})
+    dispatch(getAllProducts(res.data || defaultProducts))
   } catch (error) {
     console.error(error)
   }
@@ -29,9 +31,6 @@ export const loadSingleProduct = id => async dispatch => {
     console.error(error)
   }
 }
-
-//INITIAL STATE
-const defaultProducts = []
 
 //PRODUCTS REDUCER
 export default function(state = defaultProducts, action) {
