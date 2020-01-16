@@ -21,7 +21,13 @@ export default class Products extends React.Component {
                     <h4 className="price"> ${product.price}</h4>
                     <p>
                       <button
-                        onClick={() => this.props.add(product)}
+                        onClick={() => {
+                          this.props.add(
+                            product,
+                            this.props.userId,
+                            products.length
+                          )
+                        }}
                         type="submit"
                       >
                         Add to Cart
