@@ -62,16 +62,20 @@ const createApp = () => {
   )
   app.use(passport.initialize())
   app.use(passport.session())
-  function protectUsers(req, res, next) {
-    if (req.session.passport) {
-      const userId = req.session.passport.user
-      if (userId !== 1) res.redirect('/products')
-      next()
-    } else {
-      res.redirect('/products')
-    }
+
+  function auth(req, res, next) {
+    var ref = req.headers.referer
+    const currentUser = req.session.passport
+    if (!ref) {
+      if (currentUser) {
+        if (currentUser.user === 1) {
+          return next()
+        }
+      }
+      return res.redirect('/products')
+    } else return next()
   }
-  app.use('/api/users', protectUsers, function(req, res, next) {
+  app.use('/api', auth, function(req, res, next) {
     next()
   })
 
