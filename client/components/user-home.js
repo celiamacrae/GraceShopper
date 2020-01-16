@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link, Route} from 'react-router-dom'
 import UpdateUser from './update-user'
+import OrderHistory from './order-history'
+import PasswordForm from './password-change'
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email, firstName, lastName, address, imageURL, id} = props
+  const {email, firstName, lastName, address, imageURL, id, status} = props
   const user_profile = {email, firstName, lastName, address, imageURL, id}
-  console.log(props)
   return (
     <div className="profiles">
       <div className="cards">
@@ -26,7 +27,7 @@ export const UserHome = props => {
               </Link>
             </li>
             <li className="menu_item">
-              <Link to="/products">Order history</Link>
+              <Link to="/user/orders">Order history</Link>
             </li>
             <li className="menu_item">
               <Link to="/user/settings">Update Profile</Link>
@@ -45,14 +46,33 @@ export const UserHome = props => {
                 <p>{address}</p>
                 <h3>Email: </h3>
                 <p>{email}</p>
+                {status === 'admin' ? (
+                  <div>
+                    <p>This user has {status.toUpperCase()} privilege.</p>
+                  </div>
+                ) : null}
+                <div>
+                  <PasswordForm user={user_profile} />
+                </div>
               </div>
             </div>
           ) : (
             <div>
-              <Route
-                path={`${props.match.path}/settings`}
-                render={() => <UpdateUser user={user_profile} />}
-              />
+              {props.location.pathname === '/user/orders' ? (
+                <div>
+                  <Route
+                    path={`${props.match.path}/orders`}
+                    render={() => <OrderHistory userid={id} />}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <Route
+                    path={`${props.match.path}/settings`}
+                    render={() => <UpdateUser user={user_profile} />}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -71,7 +91,8 @@ const mapState = state => {
     lastName: state.user.lastName,
     address: state.user.address,
     imageURL: state.user.imageURL,
-    id: state.user.id
+    id: state.user.id,
+    status: state.user.status
   }
 }
 

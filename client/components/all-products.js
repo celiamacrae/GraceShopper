@@ -6,6 +6,7 @@ export default class Products extends React.Component {
   }
 
   render() {
+    const userStatus = this.props.userStatus
     const products = this.props.products
     return (
       <div id="mainBody">
@@ -19,21 +20,35 @@ export default class Products extends React.Component {
                   <div className="card_content">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>
-                    <p>
-                      <button
-                        onClick={() => {
-                          this.props.add(
-                            product,
-                            this.props.userId,
-                            products.length
-                          )
-                        }}
-                        type="submit"
-                      >
-                        Add to Cart
-                        {console.log('after add to cart', this.props)}
-                      </button>
-                    </p>
+                    {userStatus === 'admin' ? (
+                      <div>
+                        <button
+                          onClick={() => {
+                            this.props.delete(product.id)
+                          }}
+                          type="submit"
+                        >
+                          Delete
+                        </button>
+                        <button> Update </button>
+                      </div>
+                    ) : (
+                      <div>
+                        <button
+                          onClick={() => {
+                            this.props.add(
+                              product,
+                              this.props.userId,
+                              products.length
+                            )
+                          }}
+                          type="submit"
+                        >
+                          Add to Cart
+                          {console.log('after add to cart', this.props)}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </li>

@@ -34,7 +34,10 @@ router.put('/:userId', async (req, res, next) => {
     if (user === null) {
       res.sendStatus(404)
     }
-    await user.update(req.body)
+    if (req.body.oldPassword !== undefined) {
+      if (user.correctPassword(req.body.oldPassword))
+        await user.update(req.body)
+    } else await user.update(req.body)
     res.json(user)
   } catch (err) {
     next(err)
