@@ -35,6 +35,7 @@ export default class Products extends React.Component {
                     ) : (
                       <div>
                         <button
+
                           onClick={() => {
                             this.props.add(
                               product,
@@ -42,6 +43,7 @@ export default class Products extends React.Component {
                               products.length
                             )
                           }}
+
                           type="submit"
                         >
                           Add to Cart
