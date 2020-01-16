@@ -42,6 +42,13 @@ const Product = db.define('product', {
     // validate: {
     //   notEmpty: false,
     // }
+  },
+  stockQuantity: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    validate: {
+      notEmpty: false
+    }
   }
 })
 
