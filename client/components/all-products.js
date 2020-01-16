@@ -25,6 +25,7 @@ export default class Products extends React.Component {
                         type="submit"
                       >
                         Add to Cart
+                        {console.log('after add to cart', this.props)}
                       </button>
                     </p>
                   </div>
