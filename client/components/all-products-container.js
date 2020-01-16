@@ -6,6 +6,7 @@ import allProducts from './all-products'
 const mapStateToProps = function(state) {
   return {
     products: state.products,
+    userId: state.user.id,
     userStatus: state.user.status
   }
 }
@@ -16,8 +17,8 @@ const mapDispatchToProps = function(dispatch) {
       const thunk = loadAllProducts()
       dispatch(thunk)
     },
-    add: function(product) {
-      const thunk = addToCart(product)
+    add: function(product, userId, quatity) {
+      const thunk = addToCart(product, userId, quatity)
       dispatch(thunk)
     },
     delete: id => dispatch(deletedProduct(id))
