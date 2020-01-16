@@ -1,11 +1,12 @@
 import {connect} from 'react-redux'
-import {loadAllProducts} from '../store/products'
+import {loadAllProducts, deletedProduct} from '../store/products'
 import {addToCart} from '../store/cart'
 import allProducts from './all-products'
 
 const mapStateToProps = function(state) {
   return {
-    products: state.products
+    products: state.products,
+    userStatus: state.user.status
   }
 }
 
@@ -18,7 +19,8 @@ const mapDispatchToProps = function(dispatch) {
     add: function(product) {
       const thunk = addToCart(product)
       dispatch(thunk)
-    }
+    },
+    delete: id => dispatch(deletedProduct(id))
   }
 }
 
