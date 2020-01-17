@@ -7,6 +7,7 @@ import {loadCart, emptyCart} from './cart'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const DELETED_USER = 'DELETED_USER'
 
 /**
  * INITIAL STATE
@@ -18,6 +19,7 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const deletedUser = () => ({type: DELETED_USER})
 
 /**
  * THUNK CREATORS
@@ -88,6 +90,16 @@ export const logout = () => async dispatch => {
     history.push('/login')
   } catch (err) {
     console.error(err)
+  }
+}
+
+export const deleteUser = userId => async dispatch => {
+  try {
+    await axios.delete(`/api/users/${userId}`)
+    dispatch(removeUser())
+    dispatch(emptyCart())
+  } catch (error) {
+    console.error(error)
   }
 }
 

@@ -10,7 +10,15 @@ import PasswordForm from './password-change'
  */
 export const UserHome = props => {
   const {email, firstName, lastName, address, imageURL, id, status} = props
-  const user_profile = {email, firstName, lastName, address, imageURL, id}
+  const user_profile = {
+    email,
+    firstName,
+    lastName,
+    address,
+    imageURL,
+    id,
+    status
+  }
   return (
     <div className="profiles">
       <div className="cards">
