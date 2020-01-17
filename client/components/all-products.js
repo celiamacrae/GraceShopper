@@ -10,7 +10,13 @@ export default class Products extends React.Component {
     const products = this.props.products
     return (
       <div id="mainBody">
-        <h1>Products: </h1>
+        {userStatus === 'admin' ? (
+          <button className="button3">
+            <Link to="/add">Add</Link>
+          </button>
+        ) : (
+          <h1>Products: </h1>
+        )}
         <ul className="cards">
           {products.map(product => {
             return (
@@ -30,7 +36,6 @@ export default class Products extends React.Component {
                         >
                           Delete
                         </button>
-                        <button> Update </button>
                       </div>
                     ) : (
                       <div>
