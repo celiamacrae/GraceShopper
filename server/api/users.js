@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User, Order, Product} = require('../db/models')
+const {User, Order, Product, ProductOrder} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -59,14 +59,15 @@ router.get('/:userId/orderhistory', async (req, res, next) => {
 
 router.get('/:userId/cart', async (req, res, next) => {
   try {
-    const order = await Order.findAll({
+    const order = await Order.findOrCreate({
       where: {
         userId: req.params.userId,
         status: 'pending'
       },
       include: [Product]
     })
-    res.json(order)
+    //sending cart items
+    res.json(order[0].dataValues.products)
   } catch (error) {
     next(error)
   }
@@ -89,28 +90,53 @@ router.delete('/:userId/cart/remove', async (req, res, next) => {
 
 ///update the current pending order for a user or add a pending order
 router.put('/:userId/cart', async (req, res, next) => {
-  const userId = req.params.userId
+  try {
+    const userId = req.params.userId
+    let user = await User.findOne({where: {id: userId}})
 
-  //find or create order for the user
-  let data = await Order.findOrCreate({
-    where: {
-      userId: userId,
-      status: 'pending'
+    //find or create pending order (active cart) for the user
+    let data = await Order.findOrCreate({
+      where: {
+        userId: userId,
+        status: 'pending'
+      },
+      defaults: {
+        firstName: user.dataValues.firstName,
+        lastName: user.dataValues.lastName,
+        address: user.dataValues.address,
+        paymentInformation: user.dataValues.paymentInformation,
+        email: user.dataValues.email
+      }
+    })
+    //getting active order id
+    const currentOrderId = parseInt(data[0].dataValues.id, 10)
+
+    //getting active order in right format
+    const currentOrder = await Order.findByPk(currentOrderId)
+
+    //using a magic method to fill join table (product)
+    await currentOrder.addProduct([req.body.id])
+
+    const productInOrder = await ProductOrder.findOne({
+      where: {
+        productId: req.body.id,
+        orderId: currentOrderId
+      }
+    })
+
+    //increasing a quantity per product
+    if (productInOrder.dataValues.quantity === null) {
+      await productInOrder.update({quantity: 1})
+    } else {
+      let quantity = productInOrder.dataValues.quantity
+      await productInOrder.update({
+        quantity: ++quantity
+      })
     }
-  })
-
-  //getting active order id
-  const currentOrderId = parseInt(data[0].dataValues.id, 10)
-
-  //getting active order in right format
-  const currentOrder = await Order.findByPk(currentOrderId)
-
-  //getting all id's for every product in local cart
-  const productsIdArray = req.body.products.map(product => product.id)
-
-  //using a magic method to fill join table (CartProducts)
-  await currentOrder.addProduct(productsIdArray)
-  res.json(data)
+    res.json(data)
+  } catch (error) {
+    next(error)
+  }
 })
 
 // add an order to order history

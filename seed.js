@@ -171,6 +171,24 @@ const orders = [
     address: '309 E 52nd St',
     paymentInformation: '1234 5678 9012 3456',
     email: 'celiamacrae@gmail.com'
+  },
+  {
+    date: '2015-03-09 16:05:28.989 +00:00',
+    status: 'fulfilled',
+    firstName: 'Celia',
+    lastName: 'Macrae',
+    address: '309 E 52nd St',
+    paymentInformation: '1234 5678 9012 3456',
+    email: 'celiamacrae@gmail.com'
+  },
+  {
+    date: '2015-01-09 16:05:28.989 +00:00',
+    status: 'fulfilled',
+    firstName: 'Celia',
+    lastName: 'Macrae',
+    address: '309 E 52nd St',
+    paymentInformation: '1234 5678 9012 3456',
+    email: 'celiamacrae@gmail.com'
   }
 ]
 const productOrder = [
@@ -186,8 +204,28 @@ const productOrder = [
   },
   {
     productId: 3,
+    quantity: 2,
+    orderId: 1
+  },
+  {
+    productId: 6,
     quantity: 1,
     orderId: 1
+  },
+  {
+    productId: 3,
+    quantity: 1,
+    orderId: 4
+  },
+  {
+    productId: 1,
+    quantity: 1,
+    orderId: 5
+  },
+  {
+    productId: 1,
+    quantity: 1,
+    orderId: 3
   }
 ]
 
