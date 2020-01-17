@@ -1,5 +1,5 @@
 import React from 'react'
-import {updateUser} from '../store/user'
+import {updateUser, deleteUser} from '../store/user'
 import {connect} from 'react-redux'
 
 class UpdateUser extends React.Component {
@@ -107,10 +107,19 @@ class UpdateUser extends React.Component {
             </div>
           </form>
 
-          <div>
-            <p className="price"> Not satisfied with our services?</p>
-            <button className="button3">Delete Acoount</button>
-          </div>
+          {this.props.user.status === 'admin' ? (
+            ''
+          ) : (
+            <div>
+              <p className="price"> Not satisfied with our services?</p>
+              <button
+                className="button3"
+                onClick={() => this.props.deleteUser(this.props.user.id)}
+              >
+                Delete Acoount
+              </button>
+            </div>
+          )}
         </div>
       </div>
     )
@@ -118,6 +127,7 @@ class UpdateUser extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (user, id) => dispatch(updateUser(user, id))
+  updateUser: (user, id) => dispatch(updateUser(user, id)),
+  deleteUser: userId => dispatch(deleteUser(userId))
 })
 export default connect(null, mapDispatchToProps)(UpdateUser)
