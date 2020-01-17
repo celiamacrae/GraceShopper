@@ -7,6 +7,7 @@ const defaultProducts = []
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const GET_SINGLE_PRODUCT = 'GET_SINGLE_PRODUCT'
 const DELETE_PRODUCT = 'DELETE_PRODUCT'
+const ADD_PRODUCT = 'ADD_PRODUCT'
 //ACTION CREATOR
 export const deleteProduct = productId => ({type: DELETE_PRODUCT, productId})
 export const getAllProducts = products => ({type: GET_ALL_PRODUCTS, products})
@@ -14,7 +15,22 @@ export const getSingleProduct = product => ({
   type: GET_SINGLE_PRODUCT,
   product
 })
+export const createProduct = product => ({
+  type: ADD_PRODUCT,
+  product
+})
 //THUNK CREATOR
+
+export const addProduct = product => async dispatch => {
+  try {
+    //check with backend!!!!!
+    const res = await axios.put('/api/products', product)
+    dispatch(createProduct(res.data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const loadAllProducts = () => async dispatch => {
   try {
     //check with backend!!!!!
@@ -42,6 +58,15 @@ export const deletedProduct = id => async dispatch => {
     console.error(error)
   }
 }
+export const updateSingleProduct = (id, product) => async dispatch => {
+  try {
+    //check with backend!!!!!
+    const {data} = await axios.post(`/api/products/${id}`, product)
+    dispatch(getSingleProduct(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
 //PRODUCTS REDUCER
 export default function(state = defaultProducts, action) {
   console.log(action)
@@ -54,6 +79,8 @@ export default function(state = defaultProducts, action) {
 
     case DELETE_PRODUCT:
       return state.filter(el => el.id !== action.productId)
+    case ADD_PRODUCT:
+      return [...state, action.product]
     default:
       return state
   }
