@@ -1,11 +1,13 @@
 import axios from 'axios'
 import history from '../history'
+import {loadCart} from './cart'
 
 /**
  * ACTION TYPES
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+
 /**
  * INITIAL STATE
  */
@@ -39,6 +41,8 @@ export const auth = (email, password) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
+    const thunk = loadCart(res.data.id)
+    dispatch(thunk)
     history.push('/products')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)

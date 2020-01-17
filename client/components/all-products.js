@@ -26,7 +26,6 @@ export default class Products extends React.Component {
                   <div className="card_content">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>
-
                     {userStatus === 'admin' ? (
                       <div>
                         <button
@@ -41,7 +40,15 @@ export default class Products extends React.Component {
                     ) : (
                       <div>
                         <button
-                          onClick={() => this.props.add(product)}
+
+                          onClick={() => {
+                            this.props.add(
+                              product,
+                              this.props.userId,
+                              products.length
+                            )
+                          }}
+
                           type="submit"
                         >
                           Add to Cart

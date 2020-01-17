@@ -39,7 +39,7 @@ const Order = db.define('order', {
   },
   paymentInformation: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: true /*false*/
     // validate: {
     //   isCreditCard: true
     // }

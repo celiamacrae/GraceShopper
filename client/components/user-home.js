@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link, Route} from 'react-router-dom'
 import UpdateUser from './update-user'
+import OrderHistory from './order-history'
 import PasswordForm from './password-change'
 /**
  * COMPONENT
@@ -26,7 +27,7 @@ export const UserHome = props => {
               </Link>
             </li>
             <li className="menu_item">
-              <Link to="/products">Order history</Link>
+              <Link to="/user/orders">Order history</Link>
             </li>
             <li className="menu_item">
               <Link to="/user/settings">Update Profile</Link>
@@ -57,10 +58,21 @@ export const UserHome = props => {
             </div>
           ) : (
             <div>
-              <Route
-                path={`${props.match.path}/settings`}
-                render={() => <UpdateUser user={user_profile} />}
-              />
+              {props.location.pathname === '/user/orders' ? (
+                <div>
+                  <Route
+                    path={`${props.match.path}/orders`}
+                    render={() => <OrderHistory userid={id} />}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <Route
+                    path={`${props.match.path}/settings`}
+                    render={() => <UpdateUser user={user_profile} />}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>
