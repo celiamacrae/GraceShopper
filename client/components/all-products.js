@@ -12,7 +12,7 @@ export default class Products extends React.Component {
       <div id="mainBody">
         {userStatus === 'admin' ? (
           <button className="button3">
-            <Link to="/add">Add</Link>
+            <Link to="/add">Add Product</Link>
           </button>
         ) : (
           <h1>Products: </h1>
@@ -22,7 +22,7 @@ export default class Products extends React.Component {
             return (
               <li key={product.id}>
                 <div className="card">
-                  <img src={product.imgSrc} height="200px" width="200px" />
+                  <img src={product.imgSrc} height="250px" width="250px" />
                   <div className="card_content">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>

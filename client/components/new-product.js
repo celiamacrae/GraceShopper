@@ -95,7 +95,7 @@ class CreateProduct extends React.Component {
 
             <div>
               <button type="submit" className="button3">
-                Update
+                Add Product
               </button>
             </div>
           </form>
