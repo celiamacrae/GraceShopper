@@ -36,7 +36,7 @@ class Checkout extends React.Component {
           type="submit"
           onClick={() => {
             this.props.empty()
-            console.log('YYYY', event.target)
+            sessionStorage.clear()
           }}
         >
           Place your order

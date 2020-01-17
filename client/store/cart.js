@@ -9,7 +9,6 @@ const ADDED_TO_CART = 'ADD_TO_CART'
 const REMOVED_FROM_CART = 'REMOVE_FROM_CART'
 const GET_CART_AMOUNT = 'GET_CART_AMOUNT'
 const GET_CART_TOTAL = 'GET_CART_TOTAL'
-
 //ACTION CREATOR
 // export const getSavedCart = cart => ({type: GET_SAVED_CART, cart}) *//get cart from database
 
@@ -20,7 +19,7 @@ export const getItems = () => ({type: GET_ITEMS})
 
 export const addedToCart = items => ({type: ADDED_TO_CART, items})
 
-const gotSavedCart = items => ({type: GOT_SAVED_CART, items})
+export const gotSavedCart = items => ({type: GOT_SAVED_CART, items})
 
 export const removedFromCart = product => ({type: REMOVED_FROM_CART, product})
 
@@ -52,7 +51,6 @@ export const removeFromCart = (product, userId) => async dispatch => {
     const {data} = await axios.delete(`api/users/${userId}/cart`, {
       data: product
     })
-    console.log('DATA ', data)
     dispatch(removedFromCart(data))
   } catch (error) {
     console.error(error)

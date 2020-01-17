@@ -41,6 +41,7 @@ export const auth = (email, password) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
+    sessionStorage.clear()
     const thunk = loadCart(res.data.id)
     dispatch(thunk)
     history.push('/products')
