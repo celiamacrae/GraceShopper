@@ -7,6 +7,7 @@ import SingleProduct from './components/single-product-view'
 import CartContainer from './components/cart-container'
 import {me} from './store'
 import Checkout from './components/checkout'
+import CreditCardCheckout from './components/credit-card-payment'
 
 /**
  * COMPONENT
@@ -35,6 +36,7 @@ class Routes extends Component {
             <Route path="/user" component={UserHome} />
             <Route path="/cart" component={CartContainer} />
             <Route path="/checkout" component={Checkout} />
+            <Route path="/payment" component={CreditCardCheckout} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
