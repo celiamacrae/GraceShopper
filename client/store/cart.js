@@ -82,13 +82,6 @@ const getCartTotalFunc = items => {
   else return 0
 }
 
-const removeFromCartFunc = (items, product) => {
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name === product.name) return items.splice(i, 1)
-  }
-  return items
-}
-
 //PRODUCTS REDUCER
 export default function(state = initialState, action) {
   console.log(action)
@@ -106,17 +99,7 @@ export default function(state = initialState, action) {
       return {...state, items: action.items}
 
     case REMOVED_FROM_CART: {
-      // //have to test if these functions work
-      // const productIdx = state.items.findIndex(
-      //   product => product.id === action.product.id
-      // ) //find product idx in cart
-      // const copyCart = state.items.slice()
-      // copyCart.splice(productIdx, 1)
-      return {
-        ...state,
-        items:
-          action.product /*removeFromCartFunc(state.items, action.product)*/
-      }
+      return {...state, items: action.product}
     }
 
     case GET_CART_AMOUNT:
