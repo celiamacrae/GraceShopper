@@ -29,14 +29,14 @@ const removeGuestItem = product => {
 
 class Cart extends React.Component {
   componentDidMount() {
-    this.props.getCartItems()
+    if (this.props.userId !== undefined) {
+      this.props.getCartItems()
+    } else {
+      const guestCart = JSON.parse(sessionStorage.getItem('guest'))
+      if (guestCart !== null) this.props.addGuestCart(guestCart)
+    }
     this.props.getAmount()
     this.props.getTotal()
-
-    const guestCart = JSON.parse(sessionStorage.getItem('guest'))
-    this.props.addGuestCart(guestCart)
-    if (this.props.items === null) this.props.emptyCart()
-    console.log(this.props)
   }
 
   render() {

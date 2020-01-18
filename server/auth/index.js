@@ -57,23 +57,6 @@ router.get('/me', async (req, res, next) => {
   //     next(error)
   //   }
   // }
-  console.log(req.session.cookie)
-  res.json(req.user)
-})
-router.get('/guest', async (req, res, next) => {
-  // if(!req.session.userId)
-  //   res.sendStatus(404)
-  // else {
-  //   try {
-  //     const user = await User.findById(req.session.userId);
-  //     if(user)
-  //       res.json(user)
-  //     else res.sendStatus(404)
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
-  console.log(req.session, req.sessionID)
   res.json(req.user)
 })
 
