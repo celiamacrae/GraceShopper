@@ -1,5 +1,36 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+
+export const guestSession = (addGuestCart, product) => {
+  if (sessionStorage.guest === undefined) {
+    let cart = []
+    product.ProductOrder = {
+      quantity: 1
+    }
+    cart.push(product)
+    window.sessionStorage.setItem('guest', JSON.stringify(cart))
+  } else {
+    let cart = JSON.parse(sessionStorage.getItem('guest'))
+    let a = cart.slice()
+    let arr = cart.filter(el => el.id === product.id)
+    if (arr.length === 0) {
+      product.ProductOrder = {
+        quantity: 1
+      }
+    }
+    let found = false
+    a.forEach(el => {
+      if (el.id === product.id) {
+        found = true
+        el.ProductOrder.quantity++
+      }
+    })
+    if (found === false) a.push(product)
+    window.sessionStorage.setItem('guest', JSON.stringify(a))
+  }
+  const guestCart = JSON.parse(sessionStorage.getItem('guest'))
+  addGuestCart(guestCart)
+}
 export default class Products extends React.Component {
   componentDidMount() {
     this.props.onLoadAllProducts()
@@ -41,16 +72,20 @@ export default class Products extends React.Component {
                       <div>
                         <button
                           onClick={() => {
-                            this.props.add(
-                              product,
-                              this.props.userId,
-                              products.length
-                            )
+                            //checks for guest or user
+                            if (this.props.userId) {
+                              this.props.add(
+                                product,
+                                this.props.userId,
+                                products.length
+                              )
+                            } else {
+                              guestSession(this.props.addGuestCart, product)
+                            }
                           }}
                           type="submit"
                         >
                           Add to Cart
-                          {console.log('after add to cart', this.props)}
                         </button>
                       </div>
                     )}

@@ -7,21 +7,43 @@ import {
   getCartTotal,
   addToCart,
   emptyCart,
-  getItems
+  getItems,
+  gotSavedCart
 } from '../store/cart'
+import {guestSession} from './all-products'
+
+const removeGuestItem = product => {
+  let cart = JSON.parse(sessionStorage.getItem('guest'))
+  cart = cart.filter(el => {
+    if (el.id === product.id) {
+      if (el.ProductOrder.quantity === 1) return false
+      else {
+        el.ProductOrder.quantity--
+      }
+    }
+    return true
+  })
+  window.sessionStorage.setItem('guest', JSON.stringify(cart))
+  return cart
+}
 
 class Cart extends React.Component {
   componentDidMount() {
-    this.props.getCartItems()
+    if (this.props.userId !== undefined) {
+      this.props.getCartItems()
+    } else {
+      const guestCart = JSON.parse(sessionStorage.getItem('guest'))
+      if (guestCart !== null) this.props.addGuestCart(guestCart)
+    }
     this.props.getAmount()
     this.props.getTotal()
-    console.log(this.props)
   }
 
   render() {
-    if (this.props.items.length === 0) {
+    if (this.props.items === null) {
       return <h1>Nothing in Cart</h1>
     }
+    if (this.props.items.length === 0) return <h1>Nothing in Cart</h1>
 
     const amount = this.props.amount
     const total = this.props.total
@@ -42,7 +64,11 @@ class Cart extends React.Component {
                     <h3>Quantity: {product.ProductOrder.quantity}</h3>
                     <button
                       onClick={() => {
-                        this.props.add(product, this.props.userId)
+                        if (this.props.userId)
+                          this.props.add(product, this.props.userId)
+                        else {
+                          guestSession(this.props.addGuestCart, product)
+                        }
                         this.props.getAmount()
                         this.props.getTotal()
                       }}
@@ -52,7 +78,12 @@ class Cart extends React.Component {
                     </button>
                     <button
                       onClick={() => {
-                        this.props.remove(product, this.props.userId)
+                        if (this.props.userId) {
+                          this.props.remove(product, this.props.userId)
+                        } else {
+                          let cart = removeGuestItem(product)
+                          this.props.addGuestCart(cart)
+                        }
                         this.props.getAmount()
                         this.props.getTotal()
                       }}
@@ -114,7 +145,8 @@ const mapDispatchToProps = function(dispatch) {
     getTotal: function() {
       const thunk = getCartTotal()
       dispatch(thunk)
-    }
+    },
+    addGuestCart: items => dispatch(gotSavedCart(items))
   }
 }
 
