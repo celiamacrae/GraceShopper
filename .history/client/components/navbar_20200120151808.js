@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import {logout, me} from '../store'
 
 const Navbar = props => {
   const {isLoggedIn, handleClick, user} = props
@@ -41,9 +41,11 @@ const Navbar = props => {
             <Link to="/signup" className="items">
               Sign Up
             </Link>
-            <Link to="/cart" className="items">
-              🛒
-            </Link>
+            {status !== 'admin' ? (
+              <Link to="/cart" className="items">
+                🛒
+              </Link>
+            ) : null}
           </div>
         )}
       </nav>
@@ -66,7 +68,8 @@ const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout())
-    }
+    },
+    getUser: () => dispatch(me())
   }
 }
 

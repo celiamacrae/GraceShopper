@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import {logout, me} from '../store'
 
 const Navbar = props => {
-  const {isLoggedIn, handleClick, user} = props
-  const status = user.status
+  const {isLoggedIn, handleClick} = props
   return (
     <div>
       <h1>Mushroom</h1>
@@ -23,11 +22,9 @@ const Navbar = props => {
             <a href="#" onClick={handleClick}>
               Logout
             </a>
-            {status !== 'admin' ? (
-              <Link to="/cart" className="items">
-                🛒
-              </Link>
-            ) : null}
+            <Link to="/cart" className="items">
+              🛒
+            </Link>
           </div>
         ) : (
           <div id="nav_hm">
@@ -66,7 +63,8 @@ const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout())
-    }
+    },
+    getUser: () => dispatch(me())
   }
 }
 

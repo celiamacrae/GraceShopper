@@ -34,15 +34,10 @@ class Routes extends Component {
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
             <Route path="/user" component={UserHome} />
-            {user.status !== 'admin' ? (
-              <div>
-                <Route path="/cart" component={CartContainer} />
-                <Route path="/checkout" component={Checkout} />
-                <Route path="/payment" component={CreditCardCheckout} />
-              </div>
-            ) : (
-              <Route path="/add" component={CreateProduct} />
-            )}
+            <Route path="/cart" component={CartContainer} />
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/add" component={CreateProduct} />
+            <Route path="/payment" component={CreditCardCheckout} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
