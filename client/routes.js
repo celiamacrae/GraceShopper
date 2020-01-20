@@ -9,6 +9,7 @@ import {me} from './store'
 import Checkout from './components/checkout'
 import CreateProduct from './components/new-product'
 import CreditCardCheckout from './components/credit-card-payment'
+// import SingleOrderHistory from './components/single-order-history'
 /**
  * COMPONENT
  */
