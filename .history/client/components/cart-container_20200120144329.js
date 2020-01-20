@@ -7,8 +7,9 @@ import {
   getCartTotal,
   addToCart,
   emptyCart,
-  loadCart,
-  gotSavedCart
+  getItems,
+  gotSavedCart,
+  loadCart
 } from '../store/cart'
 import {me} from '../store/user'
 import {guestSession} from './all-products'
@@ -118,7 +119,8 @@ const mapStateToProps = function(state) {
     items: state.cart.items,
     amount: state.cart.amount,
     total: state.cart.total,
-    userId: state.user.id
+    userId: state.user.id,
+    user: state.user
   }
 }
 
