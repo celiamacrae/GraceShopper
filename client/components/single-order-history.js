@@ -8,9 +8,12 @@ class SingleOrderHistory extends React.Component {
   }
 
   render() {
-    console.log('SINGLE ORDERERRR', this.props)
+    console.log('SINGLE ORDERERRR', this.props.singleOrder.id)
     // let date = this.props.singleOrder.date.split('T')
     // // console.log(date)
+    if (this.props.singleOrder.id === undefined) {
+      this.props.history.push('/user/orders')
+    }
 
     return (
       <div>
@@ -44,7 +47,8 @@ class SingleOrderHistory extends React.Component {
 
 const mapStateToProps = function(state) {
   return {
-    singleOrder: state.singleorder
+    singleOrder: state.singleorder,
+    user: state.user
   }
 }
 
