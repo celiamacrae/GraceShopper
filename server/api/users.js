@@ -48,7 +48,27 @@ router.put('/:userId', async (req, res, next) => {
 router.get('/:userId/orderhistory', async (req, res, next) => {
   try {
     const orders = await Order.findAll({
-      where: {userId: req.params.userId},
+      where: {
+        userId: req.params.userId,
+        status: 'fulfilled'
+      },
+      include: [Product]
+    })
+    res.json(orders)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//get single order history
+router.get('/orderhistory/:orderId', async (req, res, next) => {
+  try {
+    const orders = await Order.findOne({
+      where: {
+        // userId: req.params.userId,
+        status: 'fulfilled',
+        id: req.params.orderId
+      },
       include: [Product]
     })
     res.json(orders)
