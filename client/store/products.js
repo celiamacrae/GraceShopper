@@ -23,7 +23,6 @@ export const createProduct = product => ({
 
 export const addProduct = product => async dispatch => {
   try {
-    //check with backend!!!!!
     const res = await axios.put('/api/products', product)
     dispatch(createProduct(res.data))
   } catch (error) {
@@ -33,7 +32,6 @@ export const addProduct = product => async dispatch => {
 
 export const loadAllProducts = () => async dispatch => {
   try {
-    //check with backend!!!!!
     const res = await axios.get('/api/products', {user: true})
     dispatch(getAllProducts(res.data || defaultProducts))
   } catch (error) {
@@ -42,7 +40,6 @@ export const loadAllProducts = () => async dispatch => {
 }
 export const loadSingleProduct = id => async dispatch => {
   try {
-    //check with backend!!!!!
     const {data} = await axios.get(`/api/products/${id}`)
     dispatch(getSingleProduct(data))
   } catch (error) {
@@ -51,7 +48,6 @@ export const loadSingleProduct = id => async dispatch => {
 }
 export const deletedProduct = id => async dispatch => {
   try {
-    //check with backend!!!!!
     await axios.delete(`/api/products/${id}`)
     dispatch(deleteProduct(id))
   } catch (error) {
@@ -60,7 +56,6 @@ export const deletedProduct = id => async dispatch => {
 }
 export const updateSingleProduct = (id, product) => async dispatch => {
   try {
-    //check with backend!!!!!
     const {data} = await axios.post(`/api/products/${id}`, product)
     dispatch(getSingleProduct(data))
   } catch (error) {
@@ -69,7 +64,6 @@ export const updateSingleProduct = (id, product) => async dispatch => {
 }
 //PRODUCTS REDUCER
 export default function(state = defaultProducts, action) {
-  console.log(action)
   switch (action.type) {
     case GET_ALL_PRODUCTS:
       return action.products
