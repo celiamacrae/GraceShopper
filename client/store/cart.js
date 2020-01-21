@@ -37,6 +37,23 @@ export const loadCart = id => async dispatch => {
   }
 }
 
+export const fulfillCart = (id, info, items) => async dispatch => {
+  try {
+    await axios.put(`/api/users/${id}/cart/fulfilled`, {
+      info: info,
+      items: items
+    })
+
+    sessionStorage.clear()
+
+    dispatch(emptyCart())
+
+    history.push('/products')
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const addToCart = (product, userId) => async dispatch => {
   try {
     const {data} = await axios.put(`/api/users/${userId}/cart`, product)
