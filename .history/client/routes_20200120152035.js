@@ -6,10 +6,9 @@ import {Signup, AllProductsContainer, UserHome, Login} from './components'
 import SingleProduct from './components/single-product-view'
 import CartContainer from './components/cart-container'
 import {me} from './store'
-import CheckoutForm from './components/checkout-form'
+import Checkout from './components/checkout'
 import CreateProduct from './components/new-product'
 import CreditCardCheckout from './components/credit-card-payment'
-// import SingleOrderHistory from './components/single-order-history'
 /**
  * COMPONENT
  */
@@ -28,22 +27,17 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={CartContainer} />
-        <Route path="/checkout" component={CheckoutForm} />
+        <Route path="/checkout" component={Checkout} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
             <Route path="/user" component={UserHome} />
-            {user.status !== 'admin' ? (
-              <div>
-                <Route path="/cart" component={CartContainer} />
-                <Route path="/checkout" component={CheckoutForm} />
-                <Route path="/payment" component={CreditCardCheckout} />
-              </div>
-            ) : (
-              <Route path="/add" component={CreateProduct} />
-            )}
+            <Route path="/cart" component={CartContainer} />
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/add" component={CreateProduct} />
+            <Route path="/payment" component={CreditCardCheckout} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

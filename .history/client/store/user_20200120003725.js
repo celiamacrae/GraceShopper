@@ -44,10 +44,8 @@ export const auth = (email, password) => async dispatch => {
   try {
     dispatch(getUser(res.data))
     sessionStorage.clear()
-    if (res.data.status !== 'admin') {
-      const thunk = loadCart(res.data.id)
-      dispatch(thunk)
-    }
+    const thunk = loadCart(res.data.id)
+    dispatch(thunk)
     history.push('/products')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
