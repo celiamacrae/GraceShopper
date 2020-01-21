@@ -177,30 +177,6 @@ router.put('/:userId/cart/fulfilled', async (req, res, next) => {
       let address = orderinfo[3]
       const companyEmail = 'mushroomgrocery@gmail.com'
       await currentOrder.update({status: 'fulfilled', orderInfo: req.body.info})
-
-
-      ///trying to get guest product orders on database for inventory reference
-      for (let i = 0; i < req.body.items.length; i++) {
-        await currentOrder.addProduct([req.body.items[i].id])
-
-        const productInOrder = await ProductOrder.findOne({
-          where: {
-            productId: req.body.items[i].id,
-            orderId: currentOrderId
-          }
-        })
-
-        //increasing a quantity per product
-        if (productInOrder.dataValues.quantity === null) {
-          await productInOrder.update({quantity: 1})
-        } else {
-          let quantity = productInOrder.dataValues.quantity
-          await productInOrder.update({
-            quantity: ++quantity
-          })
-        }
-      }
-
       const draft = nylas.drafts.build({
         subject: `Order confirmation #${currentOrderId}`,
         to: [{name: firstName, email: companyEmail}],

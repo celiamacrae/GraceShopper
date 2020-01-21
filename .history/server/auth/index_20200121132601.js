@@ -34,7 +34,7 @@ router.post('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     const user = await User.create(req.body)
-    const {firstName, lastName, email} = req.body
+    const {firstName, lastName} = req.body
     const companyEmail = 'mushroomgrocery@gmail.com'
     const draft = nylas.drafts.build({
       subject: `Thanks for joining Mushroom app!`,
