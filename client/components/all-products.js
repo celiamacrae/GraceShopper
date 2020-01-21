@@ -57,6 +57,7 @@ export default class Products extends React.Component {
                   <div className="card_content">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>
+                    <h4>In Stock: {product.stockQuantity}</h4>
                     {userStatus === 'admin' ? (
                       <div>
                         <button
@@ -84,6 +85,7 @@ export default class Products extends React.Component {
                             }
                           }}
                           type="submit"
+                          disabled={product.stockQuantity === 0}
                         >
                           Add to Cart
                         </button>
