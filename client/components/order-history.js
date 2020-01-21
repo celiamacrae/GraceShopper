@@ -18,7 +18,7 @@ class OrderHistory extends React.Component {
         <div className="allOrderHistory">
           <h1>Order History:</h1>
           {this.props.userOrders.map(order => {
-            let date = order.date.split('T')
+            let date = order.updatedAt.split('T')
             return (
               <div key={order.id}>
                 <p>Order ID: {order.id}</p>
