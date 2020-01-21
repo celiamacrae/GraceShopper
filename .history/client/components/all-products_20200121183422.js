@@ -42,11 +42,10 @@ export default class Products extends React.Component {
     return (
       <div id="mainBody">
         {userStatus === 'admin' ? (
-          <div>
-            <button className="btn">
-              <Link to="/add">Add Product</Link>
-            </button>
-          </div>
+          // eslint-disable-next-line react/button-has-type
+          <button className="btn">
+            <Link to="/add">Add Product</Link>
+          </button>
         ) : (
           <h1>Products: </h1>
         )}
