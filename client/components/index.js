@@ -6,4 +6,5 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {default as AllProductsContainer} from './all-products-container'
+export {default as AllRecipiesContainer} from './all-recipies'
 export {Login, Signup} from './auth-form'

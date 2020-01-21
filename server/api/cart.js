@@ -19,9 +19,22 @@ router.get('/:userId/cart', async (req, res, next) => {
       },
       include: [Product]
     })
-
-    //sending cart items
-    res.json(order[0].dataValues.products)
+    if (order)
+      //sending cart items
+      res.json(order[0].dataValues.products)
+    else {
+      let user = await User.findOne({where: {id: req.params.userId}})
+      const cart = await Order.create({
+        firstName: user.dataValues.firstName,
+        lastName: user.dataValues.lastName,
+        address: user.dataValues.address,
+        paymentInformation: user.dataValues.paymentInformation,
+        email: user.dataValues.email,
+        userId: req.params.userId,
+        status: 'pending'
+      })
+      res.sendStatus(cart)
+    }
   } catch (error) {
     next(error)
   }
@@ -32,7 +45,7 @@ router.delete('/:userId/cart', async (req, res, next) => {
     const userId = req.params.userId
     const order = await Order.findOne({
       where: {
-        userId: userId,
+        userId: req.params.userId,
         status: 'pending'
       },
       include: [
@@ -133,9 +146,9 @@ router.put('/:userId/cart', async (req, res, next) => {
     if (productInOrder.dataValues.quantity === null) {
       await productInOrder.update({quantity: 1})
     } else {
-      let quantity = productInOrder.dataValues.quantity
+      let quantity = productInOrder.dataValues.quantity + 1
       await productInOrder.update({
-        quantity: ++quantity
+        quantity: quantity
       })
     }
 

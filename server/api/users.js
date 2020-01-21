@@ -14,10 +14,24 @@ router.get('/', async (req, res, next) => {
 router.get('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
-    const user = await User.findAll({
+    const user = await User.findOne({
       where: {id: userId}
     })
-    res.json(user)
+    const cart = await Order.create({
+      where: {userId: userId, status: 'pending'},
+      defaults: {
+        firstName: user.dataValues.firstName,
+        lastName: user.dataValues.lastName,
+        address: user.dataValues.address,
+        paymentInformation: user.dataValues.paymentInformation,
+        email: user.dataValues.email,
+        userId: userId
+      }
+    })
+    cart.status = 'pending'
+    await cart.save()
+    if (user) res.json(user)
+    else res.sendStatus(404)
   } catch (err) {
     next(err)
   }
