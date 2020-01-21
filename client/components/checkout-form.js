@@ -10,7 +10,8 @@ class CheckoutForm extends React.Component {
       firstName: '',
       lastName: '',
       address: '',
-      email: ''
+      email: '',
+      checkProps: {}
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
@@ -24,8 +25,7 @@ class CheckoutForm extends React.Component {
       firstName: this.props.user.firstName,
       lastName: this.props.user.lastName,
       email: this.props.user.email,
-      address: this.props.user.address,
-      isSubmit: false
+      address: this.props.user.address
     })
   }
 
@@ -49,8 +49,15 @@ class CheckoutForm extends React.Component {
       this.state.lastName +
       '*' +
       this.state.address
-    this.props.checkout(id, stateInfo, this.props.items)
-    this.setState({isSubmit: true})
+
+    this.setState({
+      checkProps: {
+        id: id,
+        info: stateInfo,
+        items: this.props.items,
+        total: this.props.total
+      }
+    })
   }
 
   render() {
@@ -112,10 +119,17 @@ class CheckoutForm extends React.Component {
             </div>
 
             <div>
-              <button disabled={!isEnabled} type="submit" className="button3">
-                Checkout
-              </button>
-              <div>{!this.state.isSubmit ? null : <CreditCardCheckout />}</div>
+              <div>
+                {!isEnabled ? (
+                  'Fill Checkout'
+                ) : (
+                  <CreditCardCheckout
+                    checkout={this.props.checkout}
+                    type="submit"
+                    checkProps={this.state.checkProps}
+                  />
+                )}
+              </div>
             </div>
           </form>
         </div>
@@ -127,7 +141,6 @@ class CheckoutForm extends React.Component {
 const mapState = state => {
   return {
     user: state.user,
-    amount: state.cart.amount,
     total: state.cart.total,
     items: state.cart.items
   }

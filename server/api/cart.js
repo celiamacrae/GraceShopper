@@ -191,7 +191,6 @@ router.put('/:userId/cart/fulfilled', async (req, res, next) => {
       const companyEmail = 'mushroomgrocery@gmail.com'
       await currentOrder.update({status: 'fulfilled', orderInfo: req.body.info})
 
-
       ///trying to get guest product orders on database for inventory reference
       for (let i = 0; i < req.body.items.length; i++) {
         await currentOrder.addProduct([req.body.items[i].id])
