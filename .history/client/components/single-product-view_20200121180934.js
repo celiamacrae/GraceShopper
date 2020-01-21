@@ -16,13 +16,13 @@ const UpdateProductForm = props => {
   const submitHandle = props.submitHandle
   const changeHandle = props.changeHandle
   return (
-    <div className="modal-login modal-box modal-signUp">
-      <form onSubmit={submitHandle}>
-        <div className="modal-header">
-          <h4 className="modal-title">Update Product information</h4>
-        </div>
-        <div className="modal-body">
+    <div id="secondP">
+      <div className="profile_option">
+        <form onSubmit={submitHandle}>
           <div>
+            <label htmlFor="name">
+              <small> Name</small>
+            </label>
             <input
               name="name"
               type="text"
@@ -32,6 +32,9 @@ const UpdateProductForm = props => {
           </div>
 
           <div>
+            <label htmlFor="price">
+              <small>Price</small>
+            </label>
             <input
               name="price"
               type="text"
@@ -41,6 +44,9 @@ const UpdateProductForm = props => {
           </div>
 
           <div>
+            <label htmlFor="category">
+              <small>Category</small>
+            </label>
             <input
               name="category"
               type="text"
@@ -50,6 +56,9 @@ const UpdateProductForm = props => {
           </div>
 
           <div>
+            <label htmlFor="weight">
+              <small>Weight</small>
+            </label>
             <input
               name="weight"
               type="text"
@@ -59,6 +68,9 @@ const UpdateProductForm = props => {
           </div>
 
           <div>
+            <label htmlFor="stockQuantity">
+              <small>Stock Quantity</small>
+            </label>
             <input
               name="stockQuantity"
               type="text"
@@ -68,16 +80,21 @@ const UpdateProductForm = props => {
           </div>
 
           <div>
+            <label htmlFor="description">
+              <small>Description</small>
+            </label>
             <input
               name="description"
               type="text"
               value={description}
               onChange={changeHandle}
-              placeholder="Description"
             />
           </div>
 
           <div>
+            <label htmlFor="imgSrc">
+              <small>Image URL:</small>
+            </label>
             <input
               name="imgSrc"
               type="text"
@@ -87,12 +104,12 @@ const UpdateProductForm = props => {
           </div>
 
           <div>
-            <button type="submit" className="btn">
+            <button type="submit" className="button3">
               Update
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   )
 }
