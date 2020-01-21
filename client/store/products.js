@@ -30,9 +30,9 @@ export const addProduct = product => async dispatch => {
   }
 }
 
-export const loadAllProducts = () => async dispatch => {
+export const loadAllProducts = userId => async dispatch => {
   try {
-    const res = await axios.get('/api/products', {user: true})
+    const res = await axios.get('/api/products', {data: userId})
     dispatch(getAllProducts(res.data || defaultProducts))
   } catch (error) {
     console.error(error)

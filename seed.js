@@ -247,7 +247,7 @@ const recipies = [
 const recipeProduct = [
   {
     recipeId: 1,
-    productId: 4,
+    productId: 3,
     quantity: 1,
     weight: '0.3oz'
   },

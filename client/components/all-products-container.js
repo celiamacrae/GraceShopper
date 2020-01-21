@@ -17,8 +17,8 @@ const mapDispatchToProps = function(dispatch) {
       const thunk = loadAllProducts()
       dispatch(thunk)
     },
-    add: function(product, userId, quatity) {
-      const thunk = addToCart(product, userId, quatity)
+    add: function(product, userId, quantity) {
+      const thunk = addToCart(product, userId, quantity)
       dispatch(thunk)
     },
     delete: id => dispatch(deletedProduct(id)),

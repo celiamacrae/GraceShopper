@@ -2,8 +2,15 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Signup, AllProductsContainer, UserHome, Login} from './components'
+import {
+  Signup,
+  AllProductsContainer,
+  AllRecipiesContainer,
+  UserHome,
+  Login
+} from './components'
 import SingleProduct from './components/single-product-view'
+import SingleRecipeContainer from './components/single-recipe-view'
 import CartContainer from './components/cart-container'
 import {me} from './store'
 import Checkout from './components/checkout'
@@ -24,6 +31,8 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/products/:productId" component={SingleProduct} />
         <Route path="/products" component={AllProductsContainer} />
+        <Route path="/recipies/:recipeId" component={SingleRecipeContainer} />
+        <Route path="/recipies" component={AllRecipiesContainer} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={CartContainer} />
@@ -33,6 +42,11 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
+            <Route
+              path="/recipies/:recipeId"
+              component={SingleRecipeContainer}
+            />
+            <Route path="/recipies" component={AllRecipiesContainer} />
             <Route path="/user" component={UserHome} />
             <Route path="/cart" component={CartContainer} />
             <Route path="/checkout" component={Checkout} />

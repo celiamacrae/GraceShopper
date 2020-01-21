@@ -26,7 +26,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.delete('/', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const recipe = await Recipe.findOne({
       where: {
@@ -35,7 +35,8 @@ router.delete('/', async (req, res, next) => {
     })
     if (recipe === null) res.sendStatus(404)
     await recipe.destroy()
-    res.sendStatus(200)
+    const recipies = await Recipe.findAll()
+    res.send(recipies)
   } catch (error) {
     next(error)
   }

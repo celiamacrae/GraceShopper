@@ -4,16 +4,29 @@ module.exports = router
 
 router.get('/:userId/cart', async (req, res, next) => {
   try {
-    const order = await Order.findOrCreate({
+    const order = await Order.findOne({
       where: {
         userId: req.params.userId,
         status: 'pending'
       },
       include: [Product]
     })
-
-    //sending cart items
-    res.json(order[0].dataValues.products)
+    if (order)
+      //sending cart items
+      res.json(order[0].dataValues.products)
+    else {
+      let user = await User.findOne({where: {id: req.params.userId}})
+      const cart = await Order.create({
+        firstName: user.dataValues.firstName,
+        lastName: user.dataValues.lastName,
+        address: user.dataValues.address,
+        paymentInformation: user.dataValues.paymentInformation,
+        email: user.dataValues.email,
+        userId: req.params.userId,
+        status: 'pending'
+      })
+      res.sendStatus(cart)
+    }
   } catch (error) {
     next(error)
   }
@@ -24,7 +37,7 @@ router.delete('/:userId/cart', async (req, res, next) => {
     const userId = req.params.userId
     const order = await Order.findOne({
       where: {
-        userId: userId,
+        userId: req.params.userId,
         status: 'pending'
       },
       include: [
@@ -59,26 +72,26 @@ router.delete('/:userId/cart', async (req, res, next) => {
       })
       res.json(product[0].dataValues.products).end()
     } else if (productOrder.dataValues.quantity === 1) {
-        await ProductOrder.destroy({
-          where: {
-            orderId: order.dataValues.id,
-            productId: req.body.id
-          }
-        })
-        //find all products to get a quantity property
-        const product = await Order.findOrCreate({
-          where: {
-            userId: userId,
-            status: 'pending'
-          },
-          include: [Product]
-        })
+      await ProductOrder.destroy({
+        where: {
+          orderId: order.dataValues.id,
+          productId: req.body.id
+        }
+      })
+      //find all products to get a quantity property
+      const product = await Order.findOrCreate({
+        where: {
+          userId: userId,
+          status: 'pending'
+        },
+        include: [Product]
+      })
 
-        res.json(product[0].dataValues.products).end()
-      } else {
-        console.error('Could not find product')
-        res.sendStatus(404)
-      }
+      res.json(product[0].dataValues.products).end()
+    } else {
+      console.error('Could not find product')
+      res.sendStatus(404)
+    }
   } catch (err) {
     next(err)
   }
@@ -124,9 +137,9 @@ router.put('/:userId/cart', async (req, res, next) => {
     if (productInOrder.dataValues.quantity === null) {
       await productInOrder.update({quantity: 1})
     } else {
-      let quantity = productInOrder.dataValues.quantity
+      let quantity = productInOrder.dataValues.quantity + 1
       await productInOrder.update({
-        quantity: ++quantity
+        quantity: quantity
       })
     }
 
