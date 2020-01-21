@@ -33,7 +33,7 @@ export const guestSession = (addGuestCart, product) => {
 }
 export default class Products extends React.Component {
   componentDidMount() {
-    this.props.onLoadAllProducts()
+    this.props.onLoadAllProducts(this.props.userId)
   }
 
   render() {

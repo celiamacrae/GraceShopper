@@ -17,6 +17,9 @@ const Navbar = props => {
             <Link to="/products" className="items">
               Home
             </Link>
+            <Link to="/recipies" className="items">
+              Recipies
+            </Link>
             <Link to="/user" className="items">
               User
             </Link>
@@ -34,6 +37,9 @@ const Navbar = props => {
             {/* The navbar will show these links before you log in */}
             <Link to="/products" className="items">
               Home
+            </Link>
+            <Link to="/recipies" className="items">
+              Recipies
             </Link>
             <Link to="/login" className="items">
               Login
