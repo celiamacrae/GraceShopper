@@ -15,8 +15,8 @@ const Recipe = db.define('recipe', {
     }
   },
   time: {
-    type: Sequelize.TIME,
-    defaultValue: '00:15:00'
+    type: Sequelize.STRING,
+    defaultValue: '15 min'
   },
   description: {
     type: Sequelize.TEXT,

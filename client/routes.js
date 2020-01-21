@@ -16,6 +16,7 @@ import {me} from './store'
 import Checkout from './components/checkout'
 import CreateProduct from './components/new-product'
 import CreditCardCheckout from './components/credit-card-payment'
+import UpdateRecipeContainer from './components/update-recipe-container'
 /**
  * COMPONENT
  */
@@ -45,6 +46,10 @@ class Routes extends Component {
             <Route
               path="/recipies/:recipeId"
               component={SingleRecipeContainer}
+            />
+            <Route
+              path="/recipies/:recipeId/update"
+              component={UpdateRecipeContainer}
             />
             <Route path="/recipies" component={AllRecipiesContainer} />
             <Route path="/user" component={UserHome} />

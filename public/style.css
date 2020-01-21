@@ -294,3 +294,14 @@ field.focussed input {
 .field input + label.error {
   color: #ec392f;
 }
+
+.ingredients {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient {
+  display: flex;
+}

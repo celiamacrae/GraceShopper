@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link, Route} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {loadSingleRecipe} from '../store/recipies'
+import {guestSession} from './all-products'
+import {addToCart, gotSavedCart} from '../store/cart'
 
 class SingleRecipe extends React.Component {
   async componentDidMount() {
@@ -9,9 +11,64 @@ class SingleRecipe extends React.Component {
     await this.props.loadSingleRecipe(id)
   }
   render() {
-    return (
+    const {recipe, user} = this.props
+    return user.status === 'admin' ? (
+      <Redirect to={`/recipies/${recipe.id}/update`} />
+    ) : (
       <div>
-        <h1>{this.props.recipe.name}</h1>
+        <h1>{recipe.name}</h1>
+        <img src={recipe.imageURL} />
+        <h2>Cooking time: {recipe.time}</h2>
+        <div className="ingredients">
+          <h2>Ingredients: </h2>
+          <div>
+            <button
+              onClick={() => {
+                //checks for guest or user
+                if (user.id) {
+                  recipe.products.map(product => {
+                    for (let i = 0; i < product.recipeProduct.quantity; i++) {
+                      this.props.addProductToUserCart(product, user.id)
+                    }
+                  })
+                } else {
+                  recipe.products.map(product => {
+                    for (let i = 0; i < product.recipeProduct.quantity; i++) {
+                      guestSession(this.props.addProductToGuestCart, product)
+                    }
+                  })
+                }
+              }}
+              type="submit"
+            >
+              Add All Ingredients to Cart
+            </button>
+          </div>
+        </div>
+        <ul>
+          {recipe.products.map(product => (
+            <div key={product.id} className="ingredient">
+              <button
+                onClick={() => {
+                  //checks for guest or user
+                  if (user.id) {
+                    this.props.addProductToUserCart(product, user.id)
+                  } else {
+                    guestSession(this.props.addProductToGuestCart, product)
+                  }
+                }}
+                type="submit"
+              >
+                ➕
+              </button>
+              <ol>
+                <Link to={`/products/${product.id}`}> {product.name}</Link>
+              </ol>
+            </div>
+          ))}
+        </ul>
+        <h2>Directions: </h2>
+        <p>{recipe.description}</p>
       </div>
     )
   }
@@ -23,8 +80,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLoadSingleRecipe: id => dispatch(loadSingleRecipe)
-  //update
+  onLoadSingleRecipe: id => dispatch(loadSingleRecipe(id)),
+  addProductToUserCart: (product, userId) =>
+    dispatch(addToCart(product, userId)),
+  addProductToGuestCart: items => gotSavedCart(items)
 })
 
 const SingleRecipeContainer = connect(mapStateToProps, mapDispatchToProps)(

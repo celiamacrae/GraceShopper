@@ -28,7 +28,7 @@ class Recipies extends React.Component {
                   <img src={recipe.imageURL} height="250px" width="250px" />
                   <div className="card_content">
                     <Link to={`/recipies/${recipe.id}`}>{recipe.name}</Link>
-                    <h4 className="price"> ${recipe.time}</h4>
+                    <h4 className="price">Cooking time: {recipe.time}</h4>
                     {userStatus === 'admin' ? (
                       <div>
                         <button
@@ -107,6 +107,7 @@ const mapDispatchToProps = dispatch => {
       const thunk = deleteRecipe(id)
       dispatch(thunk)
     }
+    //addRecipe
   }
 }
 
