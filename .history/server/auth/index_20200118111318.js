@@ -1,13 +1,7 @@
 const router = require('express').Router()
 const User = require('../db/models/user')
 module.exports = router
-const Nylas = require('nylas')
-Nylas.config({
-  clientId: process.env.NYLAS_CLIENT_ID,
-  clientSecret: process.env.NYLAS_CLIENT_SECRET
-})
 
-const nylas = Nylas.with(process.env.ACCESS_TOKEN)
 router.post('/login', async (req, res, next) => {
   try {
     const user = await User.findOne({where: {email: req.body.email}})
@@ -34,21 +28,6 @@ router.post('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     const user = await User.create(req.body)
-    const {firstName, lastName, email} = req.body
-    const companyEmail = 'mushroomgrocery@gmail.com'
-    const draft = nylas.drafts.build({
-      subject: `Thanks for joining Mushroom app!`,
-      to: [{name: firstName, email: companyEmail}],
-      body: `Congrats on be a member of the Mushroom family ${firstName} ${lastName}!\n
-      We cannot wait for you to test our app :)!\n
-      `
-    })
-
-    try {
-      await draft.send()
-    } catch (err) {
-      console.log('nylas error: ' + err)
-    }
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {

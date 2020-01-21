@@ -178,7 +178,7 @@ router.put('/:userId/cart/fulfilled', async (req, res, next) => {
       const companyEmail = 'mushroomgrocery@gmail.com'
       await currentOrder.update({status: 'fulfilled', orderInfo: req.body.info})
       const draft = nylas.drafts.build({
-        subject: `Order confirmation #${currentOrderId}`,
+        subject: `Order comfirmation #${currentOrderId}`,
         to: [{name: firstName, email: companyEmail}],
         body: `Congrats on your purchase ${firstName} ${lastName}!\n
         Items will be shipped at ${address}!\n
