@@ -16,6 +16,9 @@ class CheckoutForm extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.user.address === null) {
+      this.props.user.address = ''
+    }
     this.setState({
       firstName: this.props.user.firstName,
       lastName: this.props.user.lastName,
