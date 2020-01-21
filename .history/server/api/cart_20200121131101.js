@@ -6,8 +6,8 @@ Nylas.config({
   clientId: process.env.NYLAS_CLIENT_ID,
   clientSecret: process.env.NYLAS_CLIENT_SECRET
 })
-
-const nylas = Nylas.with(process.env.ACCESS_TOKEN)
+const ACCESS_TOKEN = 'SBecZC8yGGm8QjW1aUzMs9mxx3Yh2q'
+const nylas = Nylas.with(ACCESS_TOKEN)
 router.get('/:userId/cart', async (req, res, next) => {
   try {
     let user = await User.findOne({where: {id: req.params.userId}})
@@ -178,10 +178,10 @@ router.put('/:userId/cart/fulfilled', async (req, res, next) => {
       const companyEmail = 'mushroomgrocery@gmail.com'
       await currentOrder.update({status: 'fulfilled', orderInfo: req.body.info})
       const draft = nylas.drafts.build({
-        subject: `Order confirmation #${currentOrderId}`,
+        subject: `Order comfirmation #${currentOrderId}`,
         to: [{name: firstName, email: companyEmail}],
-        body: `Congrats on your purchase ${firstName} ${lastName}!\n
-        Items will be shipped at ${address}!\n
+        body: `Congrats on your purchase ${firstName} ${lastName}!
+        Items will be shipped at ${address}!
         `
       })
       try {

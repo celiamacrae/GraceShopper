@@ -34,7 +34,7 @@ router.post('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     const user = await User.create(req.body)
-    const {firstName, lastName, email} = req.body
+    const {firstName, lastName} = req.body
     const companyEmail = 'mushroomgrocery@gmail.com'
     const draft = nylas.drafts.build({
       subject: `Thanks for joining Mushroom app!`,
@@ -43,12 +43,12 @@ router.post('/signup', async (req, res, next) => {
       We cannot wait for you to test our app :)!\n
       `
     })
-
     try {
       await draft.send()
     } catch (err) {
       console.log('nylas error: ' + err)
     }
+
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {

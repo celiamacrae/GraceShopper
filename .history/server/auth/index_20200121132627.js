@@ -38,7 +38,7 @@ router.post('/signup', async (req, res, next) => {
     const companyEmail = 'mushroomgrocery@gmail.com'
     const draft = nylas.drafts.build({
       subject: `Thanks for joining Mushroom app!`,
-      to: [{name: firstName, email: companyEmail}],
+      to: [{name: firstName, email: email}],
       body: `Congrats on be a member of the Mushroom family ${firstName} ${lastName}!\n
       We cannot wait for you to test our app :)!\n
       `
