@@ -34,30 +34,32 @@ class SingleOrderHistory extends React.Component {
     return (
       <div>
         <h1>Order Details:</h1>
-        <p>Order ID: {this.props.singleOrder.id}</p>
+        <div>
+          <p>Order ID: {this.props.singleOrder.id}</p>
 
-        <p>Ordered On: {shortdate}</p>
-        <p>
-          Shipped To: {orderinfo[1]} {orderinfo[2]}
-        </p>
-        <p>{orderinfo[3]}</p>
-        <p>Email: {orderinfo[0]}</p>
-        <br />
+          <p>Ordered On: {shortdate}</p>
+          <p>
+            Shipped To: {orderinfo[1]} {orderinfo[2]}
+          </p>
+          <p>{orderinfo[3]}</p>
+          <p>Email: {orderinfo[0]}</p>
+          <br />
 
-        <p>Items in Order:</p>
-        {this.props.singleOrder.products ? (
-          this.props.singleOrder.products.map(product => {
-            return (
-              <div key={product.id}>
-                <p>
-                  {product.ProductOrder.quantity} {product.name}
-                </p>
-              </div>
-            )
-          })
-        ) : (
-          <h1>loading</h1>
-        )}
+          <p>Items in Order:</p>
+          {this.props.singleOrder.products ? (
+            this.props.singleOrder.products.map(product => {
+              return (
+                <div key={product.id}>
+                  <p>
+                    {product.ProductOrder.quantity} {product.name}
+                  </p>
+                </div>
+              )
+            })
+          ) : (
+            <h1>loading</h1>
+          )}
+        </div>
       </div>
     )
   }
