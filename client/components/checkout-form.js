@@ -1,6 +1,7 @@
 import React from 'react'
 import {fulfillCart} from '../store/cart'
 import {connect} from 'react-redux'
+import CreditCardCheckout from './credit-card-payment'
 
 class CheckoutForm extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class CheckoutForm extends React.Component {
       firstName: '',
       lastName: '',
       address: '',
-      email: ''
+      email: '',
+      checkProps: {}
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
@@ -38,8 +40,7 @@ class CheckoutForm extends React.Component {
     console.log(id)
     if (id === undefined) {
       id = 1
-    } ///sets id to 0 if guest
-    //convert state to string
+    }
     let stateInfo =
       this.state.email +
       '*' +
@@ -48,10 +49,24 @@ class CheckoutForm extends React.Component {
       this.state.lastName +
       '*' +
       this.state.address
-    console.log(stateInfo)
-    this.props.checkout(id, stateInfo, this.props.items)
+
+    this.setState({
+      checkProps: {
+        id: id,
+        info: stateInfo,
+        items: this.props.items,
+        total: this.props.total
+      }
+    })
   }
+
   render() {
+    const isEnabled =
+      this.state.address &&
+      this.state.firstName &&
+      this.state.email &&
+      this.state.lastName
+
     return (
       <div id="secondP">
         <div className="profile_option">
@@ -104,9 +119,17 @@ class CheckoutForm extends React.Component {
             </div>
 
             <div>
-              <button type="submit" className="button3">
-                Checkout
-              </button>
+              <div>
+                {!isEnabled ? (
+                  'Fill Checkout'
+                ) : (
+                  <CreditCardCheckout
+                    checkout={this.props.checkout}
+                    type="submit"
+                    checkProps={this.state.checkProps}
+                  />
+                )}
+              </div>
             </div>
           </form>
         </div>
@@ -118,6 +141,7 @@ class CheckoutForm extends React.Component {
 const mapState = state => {
   return {
     user: state.user,
+    total: state.cart.total,
     items: state.cart.items
   }
 }

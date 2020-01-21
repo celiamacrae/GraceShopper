@@ -33,7 +33,7 @@ export const guestSession = (addGuestCart, product) => {
 }
 export default class Products extends React.Component {
   componentDidMount() {
-    this.props.onLoadAllProducts()
+    this.props.onLoadAllProducts(this.props.userId)
   }
 
   render() {
@@ -59,6 +59,12 @@ export default class Products extends React.Component {
                   <div className="card_content">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>
+                    {product.stockQuantity === 0 ? (
+                      <h4>Out of Stock!</h4>
+                    ) : (
+                      <h4>In Stock: {product.stockQuantity}</h4>
+                    )}
+
                     {userStatus === 'admin' ? (
                       <div>
                         <button
@@ -86,6 +92,7 @@ export default class Products extends React.Component {
                             }
                           }}
                           type="submit"
+                          disabled={product.stockQuantity === 0}
                         >
                           Add to Cart
                         </button>

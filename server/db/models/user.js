@@ -28,9 +28,7 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   imageURL: {
-    type: Sequelize.STRING,
-    defaultValue:
-      'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
+    type: Sequelize.STRING
   },
   paymentInformation: {
     type: Sequelize.STRING,

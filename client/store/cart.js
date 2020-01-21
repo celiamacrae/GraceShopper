@@ -27,7 +27,7 @@ export const getCartAmount = () => ({type: GET_CART_AMOUNT}) //get amount of ite
 
 export const getCartTotal = () => ({type: GET_CART_TOTAL}) //get total price of items in cart
 
-//THUNK CREATOR **** Test when Cart is added to Database
+//THUNK CREATOR ****
 export const loadCart = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/users/${id}/cart`)
@@ -45,10 +45,7 @@ export const fulfillCart = (id, info, items) => async dispatch => {
     })
 
     sessionStorage.clear()
-
     dispatch(emptyCart())
-
-    history.push('/products')
   } catch (error) {
     console.error(error)
   }
@@ -80,15 +77,13 @@ const initialState = {
   total: 0,
   amount: 0
 }
-
-//LOCAL HELPER FUNCTIONS
-const getCartAmountFunc = items => {
+export const getCartAmountFunc = items => {
   if (items[0])
     return items.reduce((acc, item) => acc + item.ProductOrder.quantity, 0)
   else return 0
 }
 
-const getCartTotalFunc = items => {
+export const getCartTotalFunc = items => {
   if (items[0])
     return items.reduce(
       (total, item) => total + item.price * item.ProductOrder.quantity,

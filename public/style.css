@@ -201,6 +201,14 @@ img {
   color: #000000;
   background-color: #ffffff;
 }
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 a {
   text-decoration: none;
 }
@@ -305,4 +313,26 @@ a {
 }
 .modal-password {
   width: 500px;
+}
+
+.ingredients {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient {
+  display: flex;
+}
+.allOrderHistory {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.orderList {
+  margin: 1px;
+  text-align: center;
+  overflow: scroll;
+  flex: 1;
 }

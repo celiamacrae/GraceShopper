@@ -17,34 +17,19 @@ class OrderHistory extends React.Component {
       <div>
         <div className="allOrderHistory">
           <h1>Order History:</h1>
-          {this.props.userOrders.map(order => {
-            let date = order.date.split('T')
-            return (
-              <div key={order.id}>
-                <p>Order ID: {order.id}</p>
-                <p>Order Date: {date[0]}</p>
-                <Link to={`/user/orders/${order.id}`}>Order Details</Link>
-                {/* <p>
-                  Shipped To: {order.firstName} {order.lastName}
-                  <br />
-                  {order.address}
-                </p>
-                <div>
-                  <p>Items in Order:</p>
-                  {order.products.map(product => {
-                    return (
-                      <div key={product.id}>
-                        <p>
-                          {product.ProductOrder.quantity} {product.name}
-                        </p>
-                      </div>
-                    )
-                  })}
-                </div> */}
-                <hr />
-              </div>
-            )
-          })}
+          <div className="orderList">
+            {this.props.userOrders.map(order => {
+              let date = order.updatedAt.split('T')
+              return (
+                <div key={order.id}>
+                  <p>Order ID: {order.id}</p>
+                  <p>Order Date: {date[0]}</p>
+                  <Link to={`/user/orders/${order.id}`}>Order Details</Link>
+                  <hr />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     )
