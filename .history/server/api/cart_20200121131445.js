@@ -6,8 +6,8 @@ Nylas.config({
   clientId: process.env.NYLAS_CLIENT_ID,
   clientSecret: process.env.NYLAS_CLIENT_SECRET
 })
-
-const nylas = Nylas.with(process.env.ACCESS_TOKEN)
+const ACCESS_TOKEN = 'SBecZC8yGGm8QjW1aUzMs9mxx3Yh2q'
+const nylas = Nylas.with(ACCESS_TOKEN)
 router.get('/:userId/cart', async (req, res, next) => {
   try {
     let user = await User.findOne({where: {id: req.params.userId}})
