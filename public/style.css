@@ -302,3 +302,15 @@ field.focussed input {
 .field input + label.error {
   color: #ec392f;
 }
+
+.allOrderHistory {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.orderList {
+  margin: 1px;
+  text-align: center;
+  overflow: scroll;
+  flex: 1;
+}
