@@ -3,9 +3,12 @@ import axios from 'axios'
 import StripeCheckout from 'react-stripe-checkout'
 import STRIPE_PUBLISHABLE from './constants/stripe'
 import PAYMENT_SERVER_URL from './constants/server'
+import history from '../history'
+
 const CURRENCY = 'USD'
 const successPayment = data => {
   alert('Payment Successful')
+  history.push('/products')
 }
 const errorPayment = data => {
   alert('Payment Error')

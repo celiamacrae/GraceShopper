@@ -6,7 +6,7 @@ const Recipe = require('./recipe')
 const RecipeProduct = require('./recipe-product')
 
 ///ASSOCIATIONS HERE:
-Order.belongsTo(User)
+Order.belongsTo(User, {allowNull: true})
 User.hasMany(Order)
 
 Product.belongsToMany(Order, {through: ProductOrder})

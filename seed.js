@@ -11,6 +11,16 @@ const {
 
 const users = [
   {
+    firstName: 'guest',
+    status: 'user',
+    lastName: 'guest',
+    address: '',
+    email: 'guest@yahoo.com',
+    password: '',
+    imageURL:
+      'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
+  },
+  {
     firstName: 'Liana',
     status: 'admin',
     lastName: 'Chan',
@@ -151,90 +161,44 @@ const products = [
     stockQuantity: 165
   }
 ]
-const orders = [
-  {
-    date: '2015-02-09 18:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Paul',
-    lastName: 'Chan',
-    address: '309 E 52nd St',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'paultonchan@gmail.com'
-  },
-  {
-    date: '2015-02-09 18:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Liana',
-    lastName: 'Chan',
-    address: '123 Magnolia Ave.,NY 11206',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'liana.andreea97@yahoo.com'
-  },
-  {
-    date: '2015-02-09 18:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Celia',
-    lastName: 'Macrae',
-    address: '309 E 52nd St',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'celiamacrae@gmail.com'
-  },
-  {
-    date: '2015-03-09 16:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Celia',
-    lastName: 'Macrae',
-    address: '309 E 52nd St',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'celiamacrae@gmail.com'
-  },
-  {
-    date: '2015-01-09 16:05:28.989 +00:00',
-    status: 'fulfilled',
-    firstName: 'Celia',
-    lastName: 'Macrae',
-    address: '309 E 52nd St',
-    paymentInformation: '1234 5678 9012 3456',
-    email: 'celiamacrae@gmail.com'
-  }
-]
-const productOrder = [
-  {
-    productId: 1,
-    quantity: 2,
-    orderId: 2
-  },
-  {
-    productId: 2,
-    quantity: 1,
-    orderId: 2
-  },
-  {
-    productId: 3,
-    quantity: 2,
-    orderId: 1
-  },
-  {
-    productId: 6,
-    quantity: 1,
-    orderId: 1
-  },
-  {
-    productId: 3,
-    quantity: 1,
-    orderId: 4
-  },
-  {
-    productId: 1,
-    quantity: 1,
-    orderId: 5
-  },
-  {
-    productId: 1,
-    quantity: 1,
-    orderId: 3
-  }
-]
+
+// const productOrder = [
+//   {
+//     productId: 1,
+//     quantity: 2,
+//     orderId: 2
+//   },
+//   {
+//     productId: 2,
+//     quantity: 1,
+//     orderId: 2
+//   },
+//   {
+//     productId: 3,
+//     quantity: 2,
+//     orderId: 1
+//   },
+//   {
+//     productId: 6,
+//     quantity: 1,
+//     orderId: 1
+//   },
+//   {
+//     productId: 3,
+//     quantity: 1,
+//     orderId: 4
+//   },
+//   {
+//     productId: 1,
+//     quantity: 1,
+//     orderId: 5
+//   },
+//   {
+//     productId: 1,
+//     quantity: 1,
+//     orderId: 3
+//   }
+// ]
 
 const recipies = [
   {
@@ -268,16 +232,21 @@ const recipeProduct = [
 const seed = () =>
   Promise.all(users.map(user => User.create(user))).then(() =>
     Promise.all(products.map(pr => Product.create(pr))).then(() =>
-      Promise.all(orders.map(order => Order.create(order))).then(() =>
-        Promise.all(productOrder.map(po => ProductOrder.create(po))).then(() =>
-          Promise.all(recipies.map(recipe => Recipe.create(recipe))).then(() =>
-            Promise.all(recipeProduct.map(rp => RecipeProduct.create(rp)))
-          )
-        )
+      // Promise.all(orders.map(order => Order.create(order))).then(() =>
+      //   Promise.all(productOrder.map(po => ProductOrder.create(po))).then(() =>
+      Promise.all(recipies.map(recipe => Recipe.create(recipe))).then(() =>
+        Promise.all(recipeProduct.map(rp => RecipeProduct.create(rp)))
       )
     )
   )
+//   )
+// )
 
+// .then(() =>
+//   // Promise.all(orders.map(order => Order.create(order))).then(() =>
+//     Promise.all(productOrder.map(po => ProductOrder.create(po)))
+//   )
+// )
 const main = () => {
   console.log('Syncing db...')
   db

@@ -13,10 +13,11 @@ import SingleProduct from './components/single-product-view'
 import SingleRecipeContainer from './components/single-recipe-view'
 import CartContainer from './components/cart-container'
 import {me} from './store'
-import Checkout from './components/checkout'
+import CheckoutForm from './components/checkout-form'
 import CreateProduct from './components/new-product'
 import CreditCardCheckout from './components/credit-card-payment'
 import UpdateRecipeContainer from './components/update-recipe-container'
+// import SingleOrderHistory from './components/single-order-history'
 /**
  * COMPONENT
  */
@@ -26,7 +27,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, user} = this.props
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
@@ -37,7 +38,7 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={CartContainer} />
-        <Route path="/checkout" component={Checkout} />
+        <Route path="/checkout" component={CheckoutForm} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -53,10 +54,15 @@ class Routes extends Component {
             />
             <Route path="/recipies" component={AllRecipiesContainer} />
             <Route path="/user" component={UserHome} />
-            <Route path="/cart" component={CartContainer} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/add" component={CreateProduct} />
-            <Route path="/payment" component={CreditCardCheckout} />
+            {user.status !== 'admin' ? (
+              <div>
+                <Route path="/cart" component={CartContainer} />
+                <Route path="/checkout" component={CheckoutForm} />
+                <Route path="/payment" component={CreditCardCheckout} />
+              </div>
+            ) : (
+              <Route path="/add" component={CreateProduct} />
+            )}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
@@ -74,7 +80,8 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 
