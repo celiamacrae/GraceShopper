@@ -1,6 +1,7 @@
 import React from 'react'
 import {fulfillCart} from '../store/cart'
 import {connect} from 'react-redux'
+import CreditCardCheckout from './credit-card-payment'
 
 class CheckoutForm extends React.Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class CheckoutForm extends React.Component {
       firstName: this.props.user.firstName,
       lastName: this.props.user.lastName,
       email: this.props.user.email,
-      address: this.props.user.address
+      address: this.props.user.address,
+      isSubmit: false
     })
   }
 
@@ -38,8 +40,7 @@ class CheckoutForm extends React.Component {
     console.log(id)
     if (id === undefined) {
       id = 1
-    } ///sets id to 0 if guest
-    //convert state to string
+    }
     let stateInfo =
       this.state.email +
       '*' +
@@ -48,10 +49,17 @@ class CheckoutForm extends React.Component {
       this.state.lastName +
       '*' +
       this.state.address
-    console.log(stateInfo)
     this.props.checkout(id, stateInfo, this.props.items)
+    this.setState({isSubmit: true})
   }
+
   render() {
+    const isEnabled =
+      this.state.address &&
+      this.state.firstName &&
+      this.state.email &&
+      this.state.lastName
+
     return (
       <div id="secondP">
         <div className="profile_option">
@@ -104,9 +112,10 @@ class CheckoutForm extends React.Component {
             </div>
 
             <div>
-              <button type="submit" className="button3">
+              <button disabled={!isEnabled} type="submit" className="button3">
                 Checkout
               </button>
+              <div>{!this.state.isSubmit ? null : <CreditCardCheckout />}</div>
             </div>
           </form>
         </div>
@@ -118,6 +127,8 @@ class CheckoutForm extends React.Component {
 const mapState = state => {
   return {
     user: state.user,
+    amount: state.cart.amount,
+    total: state.cart.total,
     items: state.cart.items
   }
 }

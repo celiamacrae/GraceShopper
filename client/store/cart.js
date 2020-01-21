@@ -45,10 +45,7 @@ export const fulfillCart = (id, info, items) => async dispatch => {
     })
 
     sessionStorage.clear()
-
     dispatch(emptyCart())
-
-    history.push('/products')
   } catch (error) {
     console.error(error)
   }
