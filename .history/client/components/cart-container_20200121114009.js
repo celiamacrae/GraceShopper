@@ -34,15 +34,11 @@ class Cart extends React.Component {
     if (this.props.userId !== undefined) {
       await this.props.getCartItems(this.props.userId)
       const guestCart = JSON.parse(sessionStorage.getItem('guest'))
-      if (guestCart !== null) {
-        guestCart.forEach(async product => {
-          await this.props.add(product, this.props.userId)
-        })
-      }
+      if (guestCart !== null) console.log(guestCart)
       sessionStorage.clear()
     } else {
       const guestCart = JSON.parse(sessionStorage.getItem('guest'))
-      if (guestCart !== null) await this.props.addGuestCart(guestCart)
+      console.log(guestCart)
     }
     this.props.getAmount()
     this.props.getTotal()
