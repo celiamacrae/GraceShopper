@@ -62,6 +62,7 @@ const users = [
 ]
 const products = [
   {
+    id: 1,
     name: 'Mango',
     price: 2.59,
     weight: '0.5oz',
@@ -71,6 +72,7 @@ const products = [
     stockQuantity: 100
   },
   {
+    id: 2,
     name: 'Tomato',
     price: 1.89,
     weight: '0.5oz',
@@ -80,6 +82,7 @@ const products = [
     stockQuantity: 150
   },
   {
+    id: 3,
     name: 'Mushroom',
     price: 2.99,
     weight: '0.5oz',
@@ -89,6 +92,7 @@ const products = [
     stockQuantity: 200
   },
   {
+    id: 4,
     name: 'Chicken',
     price: 7.59,
     weight: '0.5oz',
@@ -98,6 +102,7 @@ const products = [
     stockQuantity: 80
   },
   {
+    id: 5,
     name: 'Eggs',
     price: 3.29,
     weight: '0.5oz',
@@ -107,6 +112,7 @@ const products = [
     stockQuantity: 95
   },
   {
+    id: 6,
     name: 'Onions',
     price: 1.29,
     weight: '0.5oz',
@@ -116,6 +122,7 @@ const products = [
     stockQuantity: 125
   },
   {
+    id: 7,
     name: 'Garlic',
     price: 1.99,
     weight: '0.5oz',
@@ -125,6 +132,7 @@ const products = [
     stockQuantity: 190
   },
   {
+    id: 8,
     name: 'Potato',
     price: 2.99,
     weight: '0.5oz',
@@ -134,6 +142,7 @@ const products = [
     stockQuantity: 240
   },
   {
+    id: 9,
     name: 'Beet Root',
     price: 1.99,
     weight: '0.5oz',
@@ -143,6 +152,7 @@ const products = [
     stockQuantity: 60
   },
   {
+    id: 10,
     name: 'Sweet Corn',
     price: 0.99,
     weight: '0.5oz',
@@ -152,6 +162,7 @@ const products = [
     stockQuantity: 80
   },
   {
+    id: 11,
     name: 'Sweet Potato',
     price: 1.99,
     weight: '0.5oz',
