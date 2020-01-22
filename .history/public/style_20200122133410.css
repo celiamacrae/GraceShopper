@@ -450,8 +450,8 @@ h3 {
   flex-direction: column;
   flex-wrap: wrap;
 }
-#recipes p{
-  align-items:right;
+#recipes p {
+  align-items: right;
 }
 .btn1 {
   width: 100%;

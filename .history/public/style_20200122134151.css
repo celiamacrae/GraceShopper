@@ -428,7 +428,6 @@ a {
   display: flex;
   width: 600px;
   justify-content: center;
-
 }
 
 #recipes .recipeBox:nth-child(3) p {
@@ -436,8 +435,7 @@ a {
   text-align: justify;
 
   text-justify: inter-word;
-  margin: 20px;;
-
+  margin: 20px;
 }
 #recipes h1,
 h2,

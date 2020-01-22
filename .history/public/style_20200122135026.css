@@ -428,15 +428,13 @@ a {
   display: flex;
   width: 600px;
   justify-content: center;
-
 }
 
 #recipes .recipeBox:nth-child(3) p {
   font-family: 'Quicksand';
   text-align: justify;
   text-justify: inter-word;
-  margin: 20px;;
-
+  margin: 20px;
 }
 #recipes h1,
 h2,
@@ -486,7 +484,7 @@ h3 {
   border: none;
   outline: none;
 }
-.icon{
+.icon {
   height: 40px;
   width: 50px;
 }
