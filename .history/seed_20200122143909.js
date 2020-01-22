@@ -176,8 +176,7 @@ const products = [
     name: 'Pineapple',
     price: 5.99,
     weight: '1.5lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/03/pineapple.jpg',
+    imgSrc: 'https://www.tanny.io/my/wp-content/uploads/2019/03/pineapple.jpg',
     category: 'Fruit',
     stockQuantity: 50
   },
@@ -206,8 +205,7 @@ const products = [
     name: 'Kiwi',
     price: 8.99,
     weight: '1lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/06/Kiwi.jpg',
+    imgSrc: 'https://www.tanny.io/my/wp-content/uploads/2019/06/Kiwi.jpg',
     category: 'Fruit',
     stockQuantity: 30
   },
@@ -236,8 +234,7 @@ const products = [
     name: 'Seasonal Veggie Box',
     price: 31.99,
     weight: '6lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/04/vegeBox.png',
+    imgSrc: 'https://www.tanny.io/my/wp-content/uploads/2019/04/vegeBox.png',
     category: 'Vegetable',
     stockQuantity: 30
   },
@@ -250,9 +247,7 @@ const products = [
       'https://www.tokyobrandhouse.com/wp-content/uploads/2018/06/Kinoko-No-Yama-Chocolate-Biscuits2.jpg',
     category: 'Sweets',
     stockQuantity: 40
-  },
-
-
+  }
 ]
 
 // const productOrder = [
