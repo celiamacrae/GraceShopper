@@ -388,7 +388,7 @@ a {
 #cart .card {
   width: 220px;
 }
-#recipes{
+#recipes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -407,10 +407,10 @@ a {
   margin: 10px;
   text-align: center;
 }
-.recipeBox img{
+.recipeBox img {
   max-width: 600px;
- max-height: 600px;
+  max-height: 600px;
 }
-.directions{
+.directions {
   display: flex;
 }

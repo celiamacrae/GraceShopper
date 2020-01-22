@@ -13,7 +13,7 @@ class SingleRecipe extends React.Component {
   }
   render() {
     const {recipe, user} = this.props
-    if(recipe===undefined) return <h1>Loading</h1>
+    if (recipe === undefined) return <h1>Loading</h1>
     return user.status === 'admin' ? (
       <div>
         <Redirect
@@ -28,68 +28,68 @@ class SingleRecipe extends React.Component {
     ) : (
       <div id="main">
         <div className="cards">
-        <div className="recipeBox ">
+          <div className="recipeBox ">
             <img src={recipe.imageURL} />
           </div>
-        <div>
-        <h3 className="price">{recipe.name}</h3>
-        </div>
-        <div>
-        <h2>Cooking  time: {recipe.time}</h2>
-        </div>
-        <div className="ingredients">
-          <h2>Ingredients: </h2>
           <div>
-            <button
-              onClick={() => {
-                //checks for guest or user
-                if (user.id) {
-                  recipe.products.map(product => {
-                    for (let i = 0; i < product.recipeProduct.quantity; i++) {
-                      this.props.addProductToUserCart(product, user.id)
-                    }
-                  })
-                } else {
-                  recipe.products.map(product => {
-                    for (let i = 0; i < product.recipeProduct.quantity; i++) {
-                      guestSession(this.props.addProductToGuestCart, product)
-                    }
-                  })
-                }
-              }}
-              type="submit"
-            >
-              Add All Ingredients to Cart
-            </button>
+            <h3 className="price">{recipe.name}</h3>
           </div>
-        </div>
-        <ul>
-          {recipe.products.map(product => (
-            <div key={product.id} className="ingredient">
+          <div>
+            <h2>Cooking time: {recipe.time}</h2>
+          </div>
+          <div className="ingredients">
+            <h2>Ingredients: </h2>
+            <div>
               <button
                 onClick={() => {
                   //checks for guest or user
                   if (user.id) {
-                    this.props.addProductToUserCart(product, user.id)
+                    recipe.products.map(product => {
+                      for (let i = 0; i < product.recipeProduct.quantity; i++) {
+                        this.props.addProductToUserCart(product, user.id)
+                      }
+                    })
                   } else {
-                    guestSession(this.props.addProductToGuestCart, product)
+                    recipe.products.map(product => {
+                      for (let i = 0; i < product.recipeProduct.quantity; i++) {
+                        guestSession(this.props.addProductToGuestCart, product)
+                      }
+                    })
                   }
                 }}
                 type="submit"
               >
-                ➕
+                Add All Ingredients to Cart
               </button>
-              <ol>
-                <Link to={`/products/${product.id}`}> {product.name}</Link>
-              </ol>
             </div>
-          ))}
-        </ul>
-        <div>
-        <h2>Directions: </h2>
-        <p>{recipe.description}</p>
+          </div>
+          <ul>
+            {recipe.products.map(product => (
+              <div key={product.id} className="ingredient">
+                <button
+                  onClick={() => {
+                    //checks for guest or user
+                    if (user.id) {
+                      this.props.addProductToUserCart(product, user.id)
+                    } else {
+                      guestSession(this.props.addProductToGuestCart, product)
+                    }
+                  }}
+                  type="submit"
+                >
+                  ➕
+                </button>
+                <ol>
+                  <Link to={`/products/${product.id}`}> {product.name}</Link>
+                </ol>
+              </div>
+            ))}
+          </ul>
+          <div>
+            <h2>Directions: </h2>
+            <p>{recipe.description}</p>
+          </div>
         </div>
-      </div>
       </div>
     )
   }

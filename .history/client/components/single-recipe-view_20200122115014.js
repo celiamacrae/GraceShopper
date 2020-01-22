@@ -13,7 +13,7 @@ class SingleRecipe extends React.Component {
   }
   render() {
     const {recipe, user} = this.props
-    if(recipe===undefined) return <h1>Loading</h1>
+    if (recipe === undefined) return <h1>Loading</h1>
     return user.status === 'admin' ? (
       <div>
         <Redirect

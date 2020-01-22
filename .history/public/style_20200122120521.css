@@ -398,10 +398,10 @@ a {
   margin: 10px;
   text-align: center;
 }
-.recipeBox img{
+.recipeBox img {
   max-width: 600px;
- max-height: 600px;
+  max-height: 600px;
 }
-.directions{
+.directions {
   display: flex;
 }

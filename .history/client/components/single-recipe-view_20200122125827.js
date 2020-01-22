@@ -13,7 +13,7 @@ class SingleRecipe extends React.Component {
   }
   render() {
     const {recipe, user} = this.props
-    if(recipe===undefined) return <h1>Loading</h1>
+    if (recipe === undefined) return <h1>Loading</h1>
     return user.status === 'admin' ? (
       <div>
         <Redirect
@@ -28,77 +28,94 @@ class SingleRecipe extends React.Component {
     ) : (
       <div id="main">
         <div id="recipes">
-        <div className="recipeBox ">
+          <div className="recipeBox ">
             <img src={recipe.imageURL} />
           </div>
           <div className="recipeBox ">
-        <div>
-        <h1>{recipe.name}</h1>
-        </div>
-        <div>
-        <h3 className="price">Cooking  time: {recipe.time}</h3>
-        </div>
-        <div className="ingredients">
-          <h3 className="price">Ingredients: </h3>
-          <div>
-            <button className="btn1"
-              onClick={() => {
-                //checks for guest or user
-                if (user.id) {
-                  recipe.products.map(product => {
-                    for (let i = 0; i < product.recipeProduct.quantity; i++) {
-                      this.props.addProductToUserCart(product, user.id)
-                    }
-                  })
-                } else {
-                  recipe.products.map(product => {
-                    for (let i = 0; i < product.recipeProduct.quantity; i++) {
-                      guestSession(this.props.addProductToGuestCart, product)
-                    }
-                  })
-                }
-              }}
-              type="submit"
-            >
-              Add All Ingredients
-            </button>
-          </div>
-          <ul>
-          {recipe.products.map(product => (
-            <div key={product.id} className="ingredient">
-              <button className="addbtn"
-                onClick={() => {
-                  //checks for guest or user
-                  if (user.id) {
-                    this.props.addProductToUserCart(product, user.id)
-                  } else {
-                    guestSession(this.props.addProductToGuestCart, product)
-                  }
-                }}
-                type="submit"
-              >
-                ➕
-              </button>
-                <ol>
-                <Link to={`/products/${product.id}`}> {product.name}</Link>
-                </ol>
+            <div>
+              <h1>{recipe.name}</h1>
             </div>
-          ))}
-        </ul>
-        </div>
-        </div>
-        <div className="recipeBox directions">
-          <div>
-          <h2>Directions: </h2>
+            <div>
+              <h3 className="price">Cooking time: {recipe.time}</h3>
+            </div>
+            <div className="ingredients">
+              <h3 className="price">Ingredients: </h3>
+              <div>
+                <button
+                  className="btn1"
+                  onClick={() => {
+                    //checks for guest or user
+                    if (user.id) {
+                      recipe.products.map(product => {
+                        for (
+                          let i = 0;
+                          i < product.recipeProduct.quantity;
+                          i++
+                        ) {
+                          this.props.addProductToUserCart(product, user.id)
+                        }
+                      })
+                    } else {
+                      recipe.products.map(product => {
+                        for (
+                          let i = 0;
+                          i < product.recipeProduct.quantity;
+                          i++
+                        ) {
+                          guestSession(
+                            this.props.addProductToGuestCart,
+                            product
+                          )
+                        }
+                      })
+                    }
+                  }}
+                  type="submit"
+                >
+                  Add All Ingredients
+                </button>
+              </div>
+              <ul>
+                {recipe.products.map(product => (
+                  <div key={product.id} className="ingredient">
+                    <button
+                      className="addbtn"
+                      onClick={() => {
+                        //checks for guest or user
+                        if (user.id) {
+                          this.props.addProductToUserCart(product, user.id)
+                        } else {
+                          guestSession(
+                            this.props.addProductToGuestCart,
+                            product
+                          )
+                        }
+                      }}
+                      type="submit"
+                    >
+                      ➕
+                    </button>
+                    <ol>
+                      <Link to={`/products/${product.id}`}>
+                        {' '}
+                        {product.name}
+                      </Link>
+                    </ol>
+                  </div>
+                ))}
+              </ul>
+            </div>
           </div>
+          <div className="recipeBox directions">
+            <div>
+              <h2>Directions: </h2>
+            </div>
 
-        <div>
-        <p>{recipe.description}</p>
+            <div>
+              <p>{recipe.description}</p>
+            </div>
+          </div>
         </div>
-
-        </div>
-      </div>
-
       </div>
     )
   }
