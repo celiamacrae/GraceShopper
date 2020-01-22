@@ -67,8 +67,8 @@ class Routes extends Component {
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route path="/" component={AllProductsContainer} />
-        <Route component={Login} />
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Redirect to="/home" />
       </Switch>
     )
   }

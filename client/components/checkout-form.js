@@ -2,6 +2,7 @@ import React from 'react'
 import {fulfillCart} from '../store/cart'
 import {connect} from 'react-redux'
 import CreditCardCheckout from './credit-card-payment'
+import {subtractFromProductStock} from '../store/products'
 
 class CheckoutForm extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class CheckoutForm extends React.Component {
       lastName: '',
       address: '',
       email: '',
-      checkProps: {}
+      checkProps: {},
+      isSubmit: false
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
@@ -37,7 +39,21 @@ class CheckoutForm extends React.Component {
   submitHandle(event) {
     event.preventDefault()
     let id = this.props.user.id
-    console.log(id)
+
+    this.props.items.forEach(item => {
+      let newitem = {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        weight: item.weight,
+        imgSrc: item.imgSrc,
+        category: item.category,
+        description: item.description,
+        stockQuantity: item.stockQuantity - item.ProductOrder.quantity
+      }
+      subtractFromProductStock(newitem)
+    })
+
     if (id === undefined) {
       id = 1
     }
@@ -56,7 +72,8 @@ class CheckoutForm extends React.Component {
         info: stateInfo,
         items: this.props.items,
         total: this.props.total
-      }
+      },
+      isSubmit: true
     })
   }
 
@@ -121,14 +138,22 @@ class CheckoutForm extends React.Component {
 
             <div>
               <div>
-                {!isEnabled ? (
-                  'Fill Checkout'
-                ) : (
-                  <CreditCardCheckout
-                    checkout={this.props.checkout}
+                {!this.state.isSubmit ? (
+                  <button
+                    disabled={!isEnabled}
                     type="submit"
-                    checkProps={this.state.checkProps}
-                  />
+                    className="button3"
+                  >
+                    'Fill Checkout'
+                  </button>
+                ) : (
+                  <div>
+                    <h1>Thank You. Please Pay.</h1>
+                    <CreditCardCheckout
+                      checkout={this.props.checkout}
+                      checkProps={this.state.checkProps}
+                    />
+                  </div>
                 )}
               </div>
             </div>
