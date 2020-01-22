@@ -265,7 +265,7 @@ const products = [
     id: 22,
     name: 'Coconut Milk',
     price: 7.99,
-    weight: '1.2l',
+    weight: '2.2lb',
     imgSrc:
       'https://www.tanny.io/my/wp-content/uploads/2019/08/coconut-milk-fresh-frozen.jpg',
     category: 'Dairy',

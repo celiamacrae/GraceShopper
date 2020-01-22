@@ -235,73 +235,12 @@ const products = [
     id: 19,
     name: 'Seasonal Veggie Box',
     price: 31.99,
-    weight: '6lb',
+    weight: '2lb',
     imgSrc:
       'https://www.tanny.io/my/wp-content/uploads/2019/04/vegeBox.png',
     category: 'Vegetable',
-    stockQuantity: 30
-  },
-  {
-    id: 20,
-    name: 'Kinoko Mushrooms',
-    price: 15.99,
-    weight: '0.2lb',
-    imgSrc:
-      'https://www.tokyobrandhouse.com/wp-content/uploads/2018/06/Kinoko-No-Yama-Chocolate-Biscuits2.jpg',
-    category: 'Sweets',
-    stockQuantity: 40
-  },
-  {
-    id: 21,
-    name: 'Seasonal Fruit Basket',
-    price: 25.99,
-    weight: '4.5lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/05/fruitBasket.jpg',
-    category: 'Fruit',
-    stockQuantity: 25
-  },
-  {
-    id: 22,
-    name: 'Coconut Milk',
-    price: 7.99,
-    weight: '1.2l',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/08/coconut-milk-fresh-frozen.jpg',
-    category: 'Dairy',
-    stockQuantity: 80
-  },
-  {
-    id: 23,
-    name: 'Angus Beef',
-    price: 22.99,
-    weight: '2.2lb',
-    imgSrc:
-      'https://cutpcdnwimages.azureedge.net/images/products/65000/069141-600x600-A.jpg',
-    category: 'Meat',
-    stockQuantity: 45
-  },
-  {
-    id: 24,
-    name: 'Turkey',
-    price: 12.99,
-    weight: '1.7lb',
-    imgSrc:
-      'https://cutpcdnwimages.azureedge.net/images/products/55000/056628-600x600-A.jpg',
-    category: 'Meat',
-    stockQuantity: 70
-  },
-  {
-    id: 25,
-    name: 'Milk',
-    price: 4.99,
-    weight: '1l',
-    imgSrc:
-      'http://belkysinternationalcuisine.com/wp-content/uploads/2018/07/baso-de-leche-cup-of-milk-600x600.jpg',
-    category: 'Dairy',
-    stockQuantity: 110
-  },
-
+    stockQuantity: 120
+  }
 
 ]
 

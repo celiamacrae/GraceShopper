@@ -68,7 +68,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Mango-600x600.jpg',
-    category: 'Fruit',
+    category: 'fruit',
     stockQuantity: 100
   },
   {
@@ -78,7 +78,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/10000200_16-fresho-tomato-hybrid-600x600.jpg',
-    category: 'Vegetable',
+    category: 'vegetable',
     stockQuantity: 150
   },
   {
@@ -88,7 +88,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/MUSHRUMS-600x600.jpg',
-    category: 'Vegetable',
+    category: 'vegetable',
     stockQuantity: 200
   },
   {
@@ -98,7 +98,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/chicken-600x600.jpg',
-    category: 'Meat',
+    category: 'meat',
     stockQuantity: 80
   },
   {
@@ -108,7 +108,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/eggs%20new-600x600.jpg',
-    category: 'Dairy',
+    category: 'dairy',
     stockQuantity: 95
   },
   {
@@ -148,7 +148,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/fresh-cut-beetroot-600x600.gif',
-    category: 'Vegetable',
+    category: 'Big_Vegetable',
     stockQuantity: 60
   },
   {
@@ -158,7 +158,7 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/sweet%20corn-600x600.jpg',
-    category: 'Vegetable',
+    category: 'Big_Vegetable',
     stockQuantity: 80
   },
   {
@@ -168,140 +168,29 @@ const products = [
     weight: '0.5oz',
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Beauregard-Sweet-Potato_0-600x600.png',
-    category: 'Vegetable',
+    category: 'Big_Vegetable',
     stockQuantity: 165
   },
   {
     id: 12,
     name: 'Pineapple',
     price: 5.99,
-    weight: '1.5lb',
+    weight: '0.5oz',
     imgSrc:
       'https://www.tanny.io/my/wp-content/uploads/2019/03/pineapple.jpg',
-    category: 'Fruit',
+    category: 'Big_Vegetable',
     stockQuantity: 50
   },
   {
     id: 13,
     name: 'Banana',
-    price: 2.99,
-    weight: '2lb',
+    price: 5.99,
+    weight: '0.5oz',
     imgSrc:
       'https://www.tanny.io/my/wp-content/uploads/2019/04/CavendishBanana.jpg',
-    category: 'Fruit',
-    stockQuantity: 100
+    category: 'Big_Vegetable',
+    stockQuantity: 50
   },
-  {
-    id: 14,
-    name: 'Pomegranate',
-    price: 9.99,
-    weight: '0.5lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/06/Pomegranate.jpg',
-    category: 'Fruit',
-    stockQuantity: 20
-  },
-  {
-    id: 16,
-    name: 'Kiwi',
-    price: 8.99,
-    weight: '1lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/06/Kiwi.jpg',
-    category: 'Fruit',
-    stockQuantity: 30
-  },
-  {
-    id: 17,
-    name: 'Shiitake Mushroom',
-    price: 12.99,
-    weight: '1lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/03/shiitake-mushroom.jpg',
-    category: 'Vegetable',
-    stockQuantity: 80
-  },
-  {
-    id: 18,
-    name: 'Portobello Mushroom',
-    price: 9.99,
-    weight: '2lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/03/Portabella-Mushroom.jpg',
-    category: 'Vegetable',
-    stockQuantity: 120
-  },
-  {
-    id: 19,
-    name: 'Seasonal Veggie Box',
-    price: 31.99,
-    weight: '6lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/04/vegeBox.png',
-    category: 'Vegetable',
-    stockQuantity: 30
-  },
-  {
-    id: 20,
-    name: 'Kinoko Mushrooms',
-    price: 15.99,
-    weight: '0.2lb',
-    imgSrc:
-      'https://www.tokyobrandhouse.com/wp-content/uploads/2018/06/Kinoko-No-Yama-Chocolate-Biscuits2.jpg',
-    category: 'Sweets',
-    stockQuantity: 40
-  },
-  {
-    id: 21,
-    name: 'Seasonal Fruit Basket',
-    price: 25.99,
-    weight: '4.5lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/05/fruitBasket.jpg',
-    category: 'Fruit',
-    stockQuantity: 25
-  },
-  {
-    id: 22,
-    name: 'Coconut Milk',
-    price: 7.99,
-    weight: '1.2l',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/08/coconut-milk-fresh-frozen.jpg',
-    category: 'Dairy',
-    stockQuantity: 80
-  },
-  {
-    id: 23,
-    name: 'Angus Beef',
-    price: 22.99,
-    weight: '2.2lb',
-    imgSrc:
-      'https://cutpcdnwimages.azureedge.net/images/products/65000/069141-600x600-A.jpg',
-    category: 'Meat',
-    stockQuantity: 45
-  },
-  {
-    id: 24,
-    name: 'Turkey',
-    price: 12.99,
-    weight: '1.7lb',
-    imgSrc:
-      'https://cutpcdnwimages.azureedge.net/images/products/55000/056628-600x600-A.jpg',
-    category: 'Meat',
-    stockQuantity: 70
-  },
-  {
-    id: 25,
-    name: 'Milk',
-    price: 4.99,
-    weight: '1l',
-    imgSrc:
-      'http://belkysinternationalcuisine.com/wp-content/uploads/2018/07/baso-de-leche-cup-of-milk-600x600.jpg',
-    category: 'Dairy',
-    stockQuantity: 110
-  },
-
 
 ]
 

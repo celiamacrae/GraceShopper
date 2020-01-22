@@ -265,7 +265,7 @@ const products = [
     id: 22,
     name: 'Coconut Milk',
     price: 7.99,
-    weight: '1.2l',
+    weight: '2.2lb',
     imgSrc:
       'https://www.tanny.io/my/wp-content/uploads/2019/08/coconut-milk-fresh-frozen.jpg',
     category: 'Dairy',
@@ -279,27 +279,17 @@ const products = [
     imgSrc:
       'https://cutpcdnwimages.azureedge.net/images/products/65000/069141-600x600-A.jpg',
     category: 'Meat',
-    stockQuantity: 45
+    stockQuantity: 0
   },
   {
     id: 24,
     name: 'Turkey',
-    price: 12.99,
+    price: 22.99,
     weight: '1.7lb',
     imgSrc:
       'https://cutpcdnwimages.azureedge.net/images/products/55000/056628-600x600-A.jpg',
     category: 'Meat',
-    stockQuantity: 70
-  },
-  {
-    id: 25,
-    name: 'Milk',
-    price: 4.99,
-    weight: '1l',
-    imgSrc:
-      'http://belkysinternationalcuisine.com/wp-content/uploads/2018/07/baso-de-leche-cup-of-milk-600x600.jpg',
-    category: 'Dairy',
-    stockQuantity: 110
+    stockQuantity: 0
   },
 
 
