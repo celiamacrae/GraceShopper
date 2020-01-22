@@ -229,8 +229,6 @@ a {
   font-size: 17px;
   line-height: 20px;
   text-decoration: none;
-  border: none;
-  outline:none;
 }
 
 .modal-login {
@@ -260,7 +258,6 @@ a {
   transition: all 0.4s;
   line-height: normal;
   border: none;
-  outline:none;
 }
 
 .modal-login .btn:hover,
@@ -468,11 +465,14 @@ color:white;
 }
 .addbtn{
   display: inline-block;
+  position: relative;
   text-decoration: none;
   color:black;
   border-radius: 50%;
   text-align: center;
   background: #f7f7f7;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
+  border: none;
   outline:none;
 }
 .addbtn:active{

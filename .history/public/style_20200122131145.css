@@ -468,12 +468,13 @@ color:white;
 }
 .addbtn{
   display: inline-block;
+
   text-decoration: none;
   color:black;
-  border-radius: 50%;
+  /* border-radius: 50%;
   text-align: center;
   background: #f7f7f7;
-  outline:none;
+  outline:none; */
 }
 .addbtn:active{
   background-image: -webkit-linear-gradient(#efefef 0%, #d6d6d6 100%);

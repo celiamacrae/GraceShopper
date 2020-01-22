@@ -33,15 +33,15 @@ class SingleRecipe extends React.Component {
           </div>
           <div className="recipeBox ">
         <div>
-        <h1>{recipe.name}</h1>
+        <h1 className="price">{recipe.name}</h1>
         </div>
         <div>
-        <h3 className="price">Cooking  time: {recipe.time}</h3>
+        <h2>Cooking  time: {recipe.time}</h2>
         </div>
         <div className="ingredients">
           <h3 className="price">Ingredients: </h3>
           <div>
-            <button className="btn1"
+            <button
               onClick={() => {
                 //checks for guest or user
                 if (user.id) {
@@ -60,13 +60,14 @@ class SingleRecipe extends React.Component {
               }}
               type="submit"
             >
-              Add all ingredients
+              Add All Ingredients
             </button>
           </div>
-          <ul>
+        </div>
+        <ul>
           {recipe.products.map(product => (
             <div key={product.id} className="ingredient">
-              <button className="addbtn"
+              <button
                 onClick={() => {
                   //checks for guest or user
                   if (user.id) {
@@ -77,15 +78,14 @@ class SingleRecipe extends React.Component {
                 }}
                 type="submit"
               >
-                +
+                ➕
               </button>
-                <ol>
+              <ol>
                 <Link to={`/products/${product.id}`}> {product.name}</Link>
-                </ol>
+              </ol>
             </div>
           ))}
         </ul>
-        </div>
         </div>
         <div className="recipeBox directions">
           <div>

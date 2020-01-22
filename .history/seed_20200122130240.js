@@ -244,6 +244,18 @@ const recipeProduct = [
     productId: 2,
     quantity: 1,
     weight: '0.2oz'
+  },
+  {
+    recipeId: 1,
+    productId: 7,
+    quantity: 1,
+    weight: '0.2oz'
+  },
+  {
+    recipeId: 1,
+    productId: 4,
+    quantity: 1,
+    weight: '0.2oz'
   }
 ]
 

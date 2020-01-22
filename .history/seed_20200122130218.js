@@ -238,13 +238,8 @@ const recipeProduct = [
     productId: 6,
     quantity: 1,
     weight: '0.2oz'
-  },
-  {
-    recipeId: 1,
-    productId: 2,
-    quantity: 1,
-    weight: '0.2oz'
   }
+
 ]
 
 const seed = () =>

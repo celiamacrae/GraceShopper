@@ -77,7 +77,7 @@ class SingleRecipe extends React.Component {
                 }}
                 type="submit"
               >
-                +
+                ➕
               </button>
                 <ol>
                 <Link to={`/products/${product.id}`}> {product.name}</Link>

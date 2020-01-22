@@ -60,12 +60,12 @@ class SingleRecipe extends React.Component {
               }}
               type="submit"
             >
-              Add all ingredients
+              Add All Ingredients
             </button>
           </div>
           <ul>
           {recipe.products.map(product => (
-            <div key={product.id} className="ingredient">
+            <div key={product.id} >
               <button className="addbtn"
                 onClick={() => {
                   //checks for guest or user
@@ -77,11 +77,11 @@ class SingleRecipe extends React.Component {
                 }}
                 type="submit"
               >
-                +
+                ➕
               </button>
-                <ol>
+                <div>
                 <Link to={`/products/${product.id}`}> {product.name}</Link>
-                </ol>
+                </div>
             </div>
           ))}
         </ul>
