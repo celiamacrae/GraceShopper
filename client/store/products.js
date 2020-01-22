@@ -21,6 +21,14 @@ export const createProduct = product => ({
 })
 //THUNK CREATOR
 
+export const subtractFromProductStock = async product => {
+  try {
+    await axios.post(`/api/products/${product.id}`, product)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const addProduct = product => async dispatch => {
   try {
     const res = await axios.put('/api/products', product)
