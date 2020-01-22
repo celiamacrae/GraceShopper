@@ -12,7 +12,13 @@ class UpdateRecipe extends React.Component {
       imageURL: '',
       time: '',
       description: '',
-      ingredients: []
+      ingredients: [
+        {
+          name: '',
+          weight: '',
+          quantity: 0
+        }
+      ]
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -31,6 +37,10 @@ class UpdateRecipe extends React.Component {
   }
 
   handleChange(event) {
+    //if(['name', 'weight', 'quantity'].includes(event.target.name)){
+    //   let ingredients = [...this.state.ingedients]
+    // ingredients[event.target.dataset.id][event.target.name] = event
+    // }
     this.setState({
       [event.target.name]: event.target.value
     })
