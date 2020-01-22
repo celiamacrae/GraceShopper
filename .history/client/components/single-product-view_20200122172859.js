@@ -116,6 +116,8 @@ class SingleProduct extends React.Component {
   }
   async componentDidMount() {
     const id = this.props.match.params.productId
+    await this.props.getUser();
+console.log(this.props.user)
     await this.props.loadSingleProduct(id)
     let description = ''
     const {
@@ -149,11 +151,10 @@ class SingleProduct extends React.Component {
     this.props.update(id, this.state)
   }
   render() {
-    console.log('SINGLEPROPS', this.props)
     const status = this.props.user.status
     const product = this.props.product
+    console.log(this.props.user)
     if (product === undefined) return <h1>Loading...</h1>
-
     return (
       <div id="main">
         <div id={status === 'admin' ? 'update' : 'main'}>
@@ -167,26 +168,10 @@ class SingleProduct extends React.Component {
                 <div className="card_content">
                   <Link to={`/products/${product.id}`}>{product.name}</Link>
                   <h4 className="price"> ${product.price}</h4>
-                  {product.stockQuantity < 1 ? (
+                  {product.stockQuantity === 0 ? (
                     <h4>Out of Stock!</h4>
                   ) : (
                     <h4>In Stock: {product.stockQuantity}</h4>
-                  )}
-
-                  {!Array.isArray(this.props.cart.cartMap) ? (
-                    this.props.cart.cartMap[product.id] === undefined ? (
-                      <div>
-                        <h4>In Cart: 0</h4>
-                      </div>
-                    ) : (
-                      <div>
-                        <h4>In Cart: {this.props.cart.cartMap[product.id]}</h4>
-                      </div>
-                    )
-                  ) : (
-                    <div>
-                      <h4>In Cart: </h4>
-                    </div>
                   )}
 
                   {status === 'admin' ? (
@@ -208,27 +193,20 @@ class SingleProduct extends React.Component {
                   ) : (
                     <div>
                       <button
-                        onClick={async () => {
+                        onClick={() => {
                           //checks for guest or user
+                          if (this.props.userId) {
 
-
-                          if (this.props.user.id) {
-
-                            this.props.add(product, this.props.user.id)
-
+                            this.props.add(product, this.props.userId)
                           } else {
-                            await guestSession(this.props.addGuestCart, product)
+                            guestSession(this.props.addGuestCart, product)
                           }
                         }}
                         type="submit"
-                        disabled={
-                          product.stockQuantity < 1 ||
-                          product.stockQuantity -
-                            this.props.cart.cartMap[product.id] <
-                            1
-                        }
+                        disabled={product.stockQuantity < 1}
                       >
-                        Add to Cart
+                        {' '}
+                        Add To Cart
                       </button>
                     </div>
                   )}
@@ -250,8 +228,7 @@ class SingleProduct extends React.Component {
 }
 const mapStateToProps = state => ({
   product: state.products[0],
-  user: state.user,
-  cart: state.cart
+  user: state.user
 })
 const mapDispatchToProp = dispatch => ({
   loadSingleProduct: id => dispatch(loadSingleProduct(id)),

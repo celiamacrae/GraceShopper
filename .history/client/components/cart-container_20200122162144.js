@@ -46,13 +46,14 @@ class Cart extends React.Component {
       const guestCart = JSON.parse(sessionStorage.getItem('guest'))
       if (guestCart !== null) await this.props.addGuestCart(guestCart)
     }
+    console.log('here')
+    this.props.getAmount()
+    this.props.getTotal()
   }
 
   render() {
     const amount = this.props.amount
     const total = this.props.total
-    this.props.getAmount()
-    this.props.getTotal()
     return (
       <div id="main">
         <div id="cart">

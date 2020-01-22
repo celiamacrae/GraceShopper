@@ -77,6 +77,7 @@ router.get('/:userId/orderhistory', async (req, res, next) => {
 //get single order history
 router.get('/orderhistory/:orderId', async (req, res, next) => {
   try {
+    console.log('PARMS', req.session)
     const order = await Order.findOne({
       where: {
         userId: req.session.passport.user,

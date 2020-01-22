@@ -22,7 +22,6 @@ router.get('/:id', async (req, res, next) => {
     if (product === null) {
       res.sendStatus(404)
     }
-    res.status(200)
     res.json(product)
   } catch (err) {
     next(err)

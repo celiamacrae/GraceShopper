@@ -36,9 +36,7 @@ class Cart extends React.Component {
       const guestCart = JSON.parse(sessionStorage.getItem('guest'))
       if (guestCart !== null) {
         guestCart.forEach(async product => {
-          this.props.add(product, this.props.userId)
-          this.props.getAmount()
-          this.props.getTotal()
+          await this.props.add(product, this.props.userId)
         })
       }
       sessionStorage.clear()
@@ -46,13 +44,13 @@ class Cart extends React.Component {
       const guestCart = JSON.parse(sessionStorage.getItem('guest'))
       if (guestCart !== null) await this.props.addGuestCart(guestCart)
     }
+    await this.props.getAmount()
+    this.props.getTotal()
   }
 
   render() {
     const amount = this.props.amount
     const total = this.props.total
-    this.props.getAmount()
-    this.props.getTotal()
     return (
       <div id="main">
         <div id="cart">

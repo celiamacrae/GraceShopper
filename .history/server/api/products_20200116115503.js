@@ -5,7 +5,6 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const products = await Product.findAll()
-    res.status(200)
     res.json(products)
   } catch (err) {
     next(err)
@@ -22,7 +21,6 @@ router.get('/:id', async (req, res, next) => {
     if (product === null) {
       res.sendStatus(404)
     }
-    res.status(200)
     res.json(product)
   } catch (err) {
     next(err)
