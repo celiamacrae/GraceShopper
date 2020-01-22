@@ -61,12 +61,12 @@ class Routes extends Component {
             ) : (
               <Route exact path="/add" component={CreateProduct} />
             )}
-
+            <Redirect from="/" to="/home"/>
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route exact path="/" render={() => <Redirect to="/home"/>}/>
-        <Redirect to='/home' />
+        <Route path="/" component={AllProductsContainer} />
+        <Route component={Login} />
       </Switch>
     )
   }
