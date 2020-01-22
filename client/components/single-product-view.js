@@ -152,7 +152,7 @@ class SingleProduct extends React.Component {
     if (product === undefined) return <h1>Loading...</h1>
     return (
       <div id="main">
-        <div id={status === 'admin' ? 'update' : 'mainP'}>
+        <div id={status === 'admin' ? 'update' : 'main'}>
           <div className="cards">
             <li className="card-item" key={product.id}>
               <div className={status === 'admin' ? 'updateView' : 'card'}>
@@ -163,6 +163,11 @@ class SingleProduct extends React.Component {
                 <div className="card_content">
                   <Link to={`/products/${product.id}`}>{product.name}</Link>
                   <h4 className="price"> ${product.price}</h4>
+                  {product.stockQuantity === 0 ? (
+                    <h4>Out of Stock!</h4>
+                  ) : (
+                    <h4>In Stock: {product.stockQuantity}</h4>
+                  )}
 
                   {status === 'admin' ? (
                     <div>
@@ -182,7 +187,13 @@ class SingleProduct extends React.Component {
                     </div>
                   ) : (
                     <div>
-                      <button type="submit"> Add </button>
+                      <button
+                        type="submit"
+                        disabled={product.stockQuantity < 1}
+                      >
+                        {' '}
+                        Add To Cart
+                      </button>
                     </div>
                   )}
                 </div>

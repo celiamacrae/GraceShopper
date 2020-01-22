@@ -92,7 +92,7 @@ export default class Products extends React.Component {
                             }
                           }}
                           type="submit"
-                          disabled={product.stockQuantity === 0}
+                          disabled={product.stockQuantity < 1}
                         >
                           Add to Cart
                         </button>
