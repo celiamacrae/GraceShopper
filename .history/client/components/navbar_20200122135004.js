@@ -11,8 +11,10 @@ const Navbar = props => {
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="navbar-header">
         <Link to="/home" className="navbar-brand items">
-          <img src="mushroom.png" className="icon" />
-          {'     '}
+          <img
+            src="https://banner2.cleanpng.com/20180317/atw/kisspng-mushroom-free-content-clip-art-mushroom-cartoon-pictures-5aacc370d07489.6475352815212716648538.jpg"
+            className="icon"
+          />
           Mushroom{' '}
         </Link>
         <Link to="/products" className="items active">

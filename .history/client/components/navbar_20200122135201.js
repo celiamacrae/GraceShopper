@@ -12,7 +12,7 @@ const Navbar = props => {
       <div className="navbar-header">
         <Link to="/home" className="navbar-brand items">
           <img src="mushroom.png" className="icon" />
-          {'     '}
+          {'  '}
           Mushroom{' '}
         </Link>
         <Link to="/products" className="items active">

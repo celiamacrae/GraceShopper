@@ -421,22 +421,18 @@ a {
   display: flex;
   justify-content: center;
   width: 600px;
-
+  height: 450px;
   font-family: 'Quicksand';
 }
 #recipes .recipeBox:nth-child(3) {
   display: flex;
-  width: 600px;
   justify-content: center;
-
 }
 
 #recipes .recipeBox:nth-child(3) p {
+  width: 600px;
+  height: 450px;
   font-family: 'Quicksand';
-  text-align: justify;
-  text-justify: inter-word;
-  margin: 20px;;
-
 }
 #recipes h1,
 h2,
@@ -485,8 +481,4 @@ h3 {
   border-bottom: solid 2px #d8d8d8;
   border: none;
   outline: none;
-}
-.icon{
-  height: 40px;
-  width: 40px;
 }
