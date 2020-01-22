@@ -85,6 +85,7 @@ router.put('/', async (req, res, next) => {
 // req.body.quantity
 router.post('/:id', async (req, res, next) => {
   try {
+    console.log('BODYYYYYYY ', req.body)
     const recipe = await Product.findOne({
       where: {
         id: req.params.id
