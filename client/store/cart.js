@@ -9,6 +9,7 @@ const ADDED_TO_CART = 'ADD_TO_CART'
 const REMOVED_FROM_CART = 'REMOVE_FROM_CART'
 const GET_CART_AMOUNT = 'GET_CART_AMOUNT'
 const GET_CART_TOTAL = 'GET_CART_TOTAL'
+const GET_CART_MAP = 'GET_CART_MAP'
 //ACTION CREATOR
 // export const getSavedCart = cart => ({type: GET_SAVED_CART, cart}) *//get cart from database
 
@@ -27,11 +28,21 @@ export const getCartAmount = () => ({type: GET_CART_AMOUNT}) //get amount of ite
 
 export const getCartTotal = () => ({type: GET_CART_TOTAL}) //get total price of items in cart
 
+export const getCartMap = cartMap => ({type: GET_CART_MAP, cartMap}) //get cart map
+
 //THUNK CREATOR ****
 export const loadCart = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/users/${id}/cart`)
     dispatch(gotSavedCart(data))
+
+    let cartMap = {}
+    data.forEach(item => {
+      cartMap[item.id] = item.ProductOrder.quantity
+    })
+
+    console.log('CARTMAO', cartMap)
+    dispatch(getCartMap(cartMap))
   } catch (error) {
     console.error(error)
   }
@@ -55,6 +66,16 @@ export const addToCart = (product, userId) => async dispatch => {
   try {
     const {data} = await axios.put(`/api/users/${userId}/cart`, product)
     dispatch(addedToCart(data))
+
+    console.log('DATA', data)
+
+    let cartMap = {}
+    data.forEach(item => {
+      cartMap[item.id] = item.ProductOrder.quantity
+    })
+
+    console.log('CARTMAO', cartMap)
+    dispatch(getCartMap(cartMap))
   } catch (error) {
     console.error(error)
   }
@@ -75,7 +96,8 @@ export const removeFromCart = (product, userId) => async dispatch => {
 const initialState = {
   items: [],
   total: 0,
-  amount: 0
+  amount: 0,
+  cartMap: {}
 }
 export const getCartAmountFunc = items => {
   if (items[0])
@@ -84,6 +106,7 @@ export const getCartAmountFunc = items => {
 }
 
 export const getCartTotalFunc = items => {
+  console.log('HERE', items)
   if (items[0])
     return items.reduce(
       (total, item) => total + item.price * item.ProductOrder.quantity,
@@ -110,6 +133,11 @@ export default function(state = initialState, action) {
 
     case REMOVED_FROM_CART: {
       return {...state, items: action.product}
+    }
+
+    case GET_CART_MAP: {
+      console.log('IN REDUCER', action.cartMap)
+      return {...state, cartMap: action.cartMap}
     }
 
     case GET_CART_AMOUNT:

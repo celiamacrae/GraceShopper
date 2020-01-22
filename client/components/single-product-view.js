@@ -149,9 +149,11 @@ class SingleProduct extends React.Component {
     this.props.update(id, this.state)
   }
   render() {
+    console.log('SINGLEPROPS', this.props)
     const status = this.props.user.status
     const product = this.props.product
     if (product === undefined) return <h1>Loading...</h1>
+
     return (
       <div id="main">
         <div id={status === 'admin' ? 'update' : 'main'}>
@@ -165,10 +167,26 @@ class SingleProduct extends React.Component {
                 <div className="card_content">
                   <Link to={`/products/${product.id}`}>{product.name}</Link>
                   <h4 className="price"> ${product.price}</h4>
-                  {product.stockQuantity === 0 ? (
+                  {product.stockQuantity < 1 ? (
                     <h4>Out of Stock!</h4>
                   ) : (
                     <h4>In Stock: {product.stockQuantity}</h4>
+                  )}
+
+                  {!Array.isArray(this.props.cart.cartMap) ? (
+                    this.props.cart.cartMap[product.id] === undefined ? (
+                      <div>
+                        <h4>In Cart: 0</h4>
+                      </div>
+                    ) : (
+                      <div>
+                        <h4>In Cart: {this.props.cart.cartMap[product.id]}</h4>
+                      </div>
+                    )
+                  ) : (
+                    <div>
+                      <h4>In Cart: </h4>
+                    </div>
                   )}
 
                   {status === 'admin' ? (
@@ -190,20 +208,27 @@ class SingleProduct extends React.Component {
                   ) : (
                     <div>
                       <button
-                        onClick={() => {
+                        onClick={async () => {
                           //checks for guest or user
+
+
                           if (this.props.user.id) {
 
                             this.props.add(product, this.props.user.id)
+
                           } else {
-                            guestSession(this.props.addGuestCart, product)
+                            await guestSession(this.props.addGuestCart, product)
                           }
                         }}
                         type="submit"
-                        disabled={product.stockQuantity < 1}
+                        disabled={
+                          product.stockQuantity < 1 ||
+                          product.stockQuantity -
+                            this.props.cart.cartMap[product.id] <
+                            1
+                        }
                       >
-                        {' '}
-                        Add To Cart
+                        Add to Cart
                       </button>
                     </div>
                   )}
@@ -225,7 +250,8 @@ class SingleProduct extends React.Component {
 }
 const mapStateToProps = state => ({
   product: state.products[0],
-  user: state.user
+  user: state.user,
+  cart: state.cart
 })
 const mapDispatchToProp = dispatch => ({
   loadSingleProduct: id => dispatch(loadSingleProduct(id)),
