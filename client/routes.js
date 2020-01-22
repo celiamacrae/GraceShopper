@@ -16,6 +16,7 @@ import {me} from './store'
 import CheckoutForm from './components/checkout-form'
 import CreateProduct from './components/new-product'
 import CreditCardCheckout from './components/credit-card-payment'
+import AddRecipe from './components/add-recipe'
 import HomePage from './components/homepage' // import SingleOrderHistory from './components/single-order-history'
 /**
  * COMPONENT
@@ -44,7 +45,6 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
-
             <Route
               path="/recipies/:recipeId"
               component={SingleRecipeContainer}
@@ -59,13 +59,16 @@ class Routes extends Component {
                 <Route path="/payment" component={CreditCardCheckout} />
               </div>
             ) : (
-              <Route exact path="/add" component={CreateProduct} />
+              <div>
+                <Route exact path="/add" component={CreateProduct} />
+                <Route exact path="/recepies/add" component={AddRecipe} />
+              </div>
             )}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route path="/" component={AllProductsContainer} />
-        <Route component={Login} />
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Redirect to="/home" />
       </Switch>
     )
   }

@@ -1,8 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loadSingleRecipe, updateRecipe} from '../store/recipies'
+import {
+  loadSingleRecipe,
+  updateRecipe,
+  loadAllRecipies
+} from '../store/recipies'
 import {loadAllProducts} from '../store/products'
 import AddIngredients from './add-ingredients'
+import history from '../history'
 
 class UpdateRecipe extends React.Component {
   constructor(props) {
@@ -14,9 +19,10 @@ class UpdateRecipe extends React.Component {
       description: '',
       ingredients: [
         {
+          id: null,
           name: '',
           weight: '',
-          quantity: 0
+          quantity: 1
         }
       ]
     }
@@ -25,10 +31,11 @@ class UpdateRecipe extends React.Component {
   }
   async componentDidMount() {
     const id = this.props.match.params.recipeId
-    if (id) await this.props.onLoadSingleRecipe(id)
     await this.props.loadAllProducts()
+    if (id) await this.props.onLoadSingleRecipe(id)
     const {name, imageURL, time, description} = this.props.recipe
     const ingredients = this.props.recipe.products.map(product => ({
+      id: product.id,
       name: product.name,
       weight: product.recipeProduct.weight,
       quantity: product.recipeProduct.quantity
@@ -37,21 +44,54 @@ class UpdateRecipe extends React.Component {
   }
 
   handleChange(event) {
-    //if(['name', 'weight', 'quantity'].includes(event.target.name)){
-    //   let ingredients = [...this.state.ingedients]
-    // ingredients[event.target.dataset.id][event.target.name] = event
-    // }
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+    if (['name'].includes(event.target.name)) {
+      const productNameIdAt = event.target.value.split('*')
+      let ingredients = [...this.state.ingredients]
+      ingredients[productNameIdAt[2]][event.target.name] = productNameIdAt[0]
+      ingredients[productNameIdAt[2]].id = Number(productNameIdAt[1])
+      this.setState({ingredients})
+    } else if (['weight', 'quantity'].includes(event.target.name)) {
+      let ingredients = [...this.state.ingredients]
+      ingredients[event.target.size - 1][event.target.name] = event.target.value
+      this.setState({ingredients})
+    } else
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+  }
+
+  addIngredients(event) {
+    this.setState(prevState => ({
+      ingredients: [
+        ...prevState.ingredients,
+        {
+          id: null,
+          name: '',
+          weight: '',
+          quantity: 1
+        }
+      ]
+    }))
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.updateRecipe(this.props.recipe.id, this.state)
+    if (
+      this.state.ingredients.weight !== '' &&
+      this.state.ingredients.quantity !== '' &&
+      this.state.ingredients.name !== '' &&
+      this.state.ingredients.id !== null
+    ) {
+      this.props.updateRecipe(this.props.recipe.id, this.state)
+      this.props.onLoadAllRecipies()
+      history.push(`/recipies`)
+    }
   }
-
   render() {
+    const ingredientsToShow = this.state.ingredients.slice(
+      0,
+      this.props.recipe.products.length
+    )
     return (
       <div id="secondP">
         <div className="profile_option">
@@ -105,7 +145,7 @@ class UpdateRecipe extends React.Component {
             <div>
               <small>Ingredients</small>
               <ul>
-                {this.state.ingredients.map((product, indx) => (
+                {ingredientsToShow.map((product, indx) => (
                   <div key={indx}>
                     <ol>
                       <small>{product.name}</small>
@@ -117,6 +157,7 @@ class UpdateRecipe extends React.Component {
                           <input
                             name="weight"
                             type="text"
+                            size={indx + 1}
                             value={product.weight}
                             onChange={this.handleChange}
                           />
@@ -128,6 +169,7 @@ class UpdateRecipe extends React.Component {
                           <input
                             name="quantity"
                             type="text"
+                            size={indx + 1}
                             value={product.quantity}
                             onChange={this.handleChange}
                           />
@@ -139,17 +181,17 @@ class UpdateRecipe extends React.Component {
               </ul>
               <label htmlFor="Add more ingredients" />
               <small>Add more ingredients: </small>
-              <button
-                onClick={() => (
-                  <AddIngredients
-                    products={this.props.products}
-                    handleChange={this.handleChange}
-                  />
-                )}
-                type="submit"
-              >
-                ➕
-              </button>
+              <input
+                value="➕"
+                onClick={() => this.addIngredients()}
+                type="button"
+              />
+              <AddIngredients
+                products={this.props.products}
+                ingredients={this.state.ingredients}
+                startPoint={this.props.recipe.products.length}
+                handleChange={this.handleChange}
+              />
             </div>
             <div>
               <button type="submit" className="button3">
@@ -170,6 +212,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoadSingleRecipe: id => dispatch(loadSingleRecipe(id)),
+  onLoadAllRecipies: () => dispatch(loadAllRecipies()),
   loadAllProducts: () => dispatch(loadAllProducts()),
   updateRecipe: (id, recipe) => dispatch(updateRecipe(id, recipe))
 })

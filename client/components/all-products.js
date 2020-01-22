@@ -49,9 +49,7 @@ export default class Products extends React.Component {
               <Link to="/add">Add Product</Link>
             </button>
           </div>
-        ) : (
-          <h1>Products: </h1>
-        )}
+        ) : null}
         <ul className="cards">
           {products.map(product => {
             let pid = product.id
