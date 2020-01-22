@@ -322,6 +322,31 @@ a {
   overflow: scroll;
   flex: 1;
 }
+
+.weightquantity {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+#secondP .weightquantity input {
+  padding: 5px;
+  font-size: 10px;
+  width: 100px;
+  font-family: 'Lato', 'sans-serif';
+}
+
+#secondP ol {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+#secondP ul {
+  padding: 0;
+  margin: 0;
+}
 .container {
   text-align: center;
   color: white;

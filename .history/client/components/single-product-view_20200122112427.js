@@ -183,21 +183,7 @@ class SingleProduct extends React.Component {
                     </div>
                   ) : (
                     <div>
-                      <button
-                        onClick={() => {
-                          //checks for guest or user
-                          if (this.props.userId) {
-                            this.props.add(product, this.props.userId)
-                          } else {
-                            guestSession(this.props.addGuestCart, product)
-                          }
-                        }}
-                        type="submit"
-                        disabled={product.stockQuantity === 0}
-                      >
-                        {' '}
-                        Add{' '}
-                      </button>
+                      <button type="submit"> Add </button>
                     </div>
                   )}
                 </div>
@@ -223,8 +209,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProp = dispatch => ({
   loadSingleProduct: id => dispatch(loadSingleProduct(id)),
   update: (id, product) => dispatch(updateSingleProduct(id, product)),
-  add: function(product, userId) {
-    const thunk = addToCart(product, userId)
+  add: function(product, userId, quantity) {
+    const thunk = addToCart(product, userId, quantity)
     dispatch(thunk)
   },
   addGuestCart: items => dispatch(gotSavedCart(items))

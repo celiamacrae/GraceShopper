@@ -35,7 +35,6 @@ class UpdateUser extends React.Component {
   submitHandle(event) {
     event.preventDefault()
     const id = this.props.user.id
-    console.log(this.state)
     this.props.updateUser(this.state, id)
   }
   render() {
