@@ -15,7 +15,7 @@ class Recipies extends React.Component {
       <div id="main">
         {userStatus === 'admin' ? (
           <button className="button3">
-            <Link to="/add">Add Recipe</Link>
+            <Link to="/recipies/add">Add Recipe</Link>
           </button>
         ) : (
           <h1>Our Recipies: </h1>
