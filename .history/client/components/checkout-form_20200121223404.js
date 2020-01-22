@@ -71,11 +71,6 @@ class CheckoutForm extends React.Component {
       <div id="main">
         <div className="modal-login modal-update">
           <form onSubmit={this.submitHandle}>
-            <div className="modal-header">
-              <h4 className="modal-title">
-                Fill in all information to continue{' '}
-              </h4>
-            </div>
             <div>
               <input
                 name="firstName"
