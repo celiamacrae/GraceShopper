@@ -45,7 +45,6 @@ export const updateRecipe = (id, recipe) => async dispatch => {
   try {
     const {data} = await axios.post(`/api/recipies/${id}`, recipe)
     dispatch(getSingleRecipe(data))
-    history.pushState('/recipies')
   } catch (error) {
     console.error(error)
   }
