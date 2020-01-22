@@ -28,7 +28,7 @@ class Recipies extends React.Component {
                     <Link to={`/recipies/${recipe.id}`}>
                       <h4 className="price">{recipe.name}</h4>
                     </Link>
-
+                    <h5 className="price">Cooking time: {recipe.time}</h5>
                     {userStatus === 'admin' ? (
                       <div>
                         <button

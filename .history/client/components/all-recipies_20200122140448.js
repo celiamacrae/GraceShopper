@@ -22,13 +22,11 @@ class Recipies extends React.Component {
           {recipies.map(recipe => {
             return (
               <li key={recipe.id}>
-                <div className="card">
+                <div className="card" height="500px" width="600px">
                   <img src={recipe.imageURL} height="500px" width="350px" />
                   <div className="card_content">
-                    <Link to={`/recipies/${recipe.id}`}>
-                      <h4 className="price">{recipe.name}</h4>
-                    </Link>
-
+                    <Link to={`/recipies/${recipe.id}`}>{recipe.name}</Link>
+                    <h4 className="price">Cooking time: {recipe.time}</h4>
                     {userStatus === 'admin' ? (
                       <div>
                         <button

@@ -26,9 +26,9 @@ class Recipies extends React.Component {
                   <img src={recipe.imageURL} height="500px" width="350px" />
                   <div className="card_content">
                     <Link to={`/recipies/${recipe.id}`}>
-                      <h4 className="price">{recipe.name}</h4>
+                      <h4>{recipe.name}</h4>
                     </Link>
-
+                    <h5 className="price">Cooking time: {recipe.time}</h5>
                     {userStatus === 'admin' ? (
                       <div>
                         <button
