@@ -11,8 +11,7 @@ class CheckoutForm extends React.Component {
       lastName: '',
       address: '',
       email: '',
-      checkProps: {},
-      isSubmit: false
+      checkProps: {}
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
@@ -57,8 +56,7 @@ class CheckoutForm extends React.Component {
         info: stateInfo,
         items: this.props.items,
         total: this.props.total
-      },
-      isSubmit: true
+      }
     })
   }
 
@@ -70,75 +68,66 @@ class CheckoutForm extends React.Component {
       this.state.lastName
 
     return (
-      <div id="main">
-        <div className="modal-login modal-update">
+      <div id="cart">
+        <div className="profile_option">
           <form onSubmit={this.submitHandle}>
-            <div className="modal-header">
-              <h4 className="modal-title">
-                Fill in all information to continue{' '}
-              </h4>
-            </div>
             <div>
+              <label htmlFor="firstName">
+                <small>First Name</small>
+              </label>
               <input
                 name="firstName"
                 type="text"
                 value={this.state.firstName}
                 onChange={this.changeHandle}
-                placeholder="First Name"
-                required
               />
             </div>
 
             <div>
+              <label htmlFor="lastName">
+                <small>Last Name</small>
+              </label>
               <input
                 name="lastName"
                 type="text"
                 value={this.state.lastName}
                 onChange={this.changeHandle}
-                placeholder="Last Name"
-                required
               />
             </div>
 
             <div>
+              <label htmlFor="email">
+                <small>Email</small>
+              </label>
               <input
                 name="email"
                 type="text"
                 value={this.state.email}
                 onChange={this.changeHandle}
-                placeholder="Email"
-                required
               />
             </div>
             <div>
+              <label htmlFor="address">
+                <small>Address</small>
+              </label>
               <input
                 name="address"
                 type="text"
                 value={this.state.address}
                 onChange={this.changeHandle}
-                placeholder="Address"
-                required
               />
             </div>
 
             <div>
               <div>
-                {!this.state.isSubmit ? (
-                  <button
-                    disabled={!isEnabled}
-                    type="submit"
-                    className="button3"
-                  >
-                    'Fill Checkout'
-                  </button>
+                {!isEnabled ? (
+                  'Fill Checkout'
                 ) : (
-                  <div>
-                    <h1>Thank You. Please Pay.</h1>
-                    <CreditCardCheckout
-                      checkout={this.props.checkout}
-                      checkProps={this.state.checkProps}
-                    />
-                  </div>
+                  <CreditCardCheckout
+                    checkout={this.props.checkout}
+                    type="submit"
+                    checkProps={this.state.checkProps}
+                  />
                 )}
               </div>
             </div>

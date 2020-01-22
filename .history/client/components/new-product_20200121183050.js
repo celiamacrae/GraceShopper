@@ -28,7 +28,7 @@ class CreateProduct extends React.Component {
   }
   render() {
     return (
-      <div className="modal-login modal-update">
+      <div className="modal-login modal-box">
         <form onSubmit={this.submitHandle}>
           <div className="modal-header">
             <h4 className="modal-title">Create a new product</h4>

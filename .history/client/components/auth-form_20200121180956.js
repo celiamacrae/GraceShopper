@@ -147,18 +147,13 @@ const mapDispatchSignUp = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      let imageURL = evt.target.imageURL.value
       const formName = evt.target.name
       const email = evt.target.email.value
       const firstName = evt.target.firstName.value
       const lastName = evt.target.lastName.value
-      if (imageURL.length === 0) {
-        imageURL =
-          'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
-      }
+      const imageURL = evt.target.imageURL.value
       const address = evt.target.address.value
       const password = evt.target.password.value
-
       const user = {firstName, lastName, address, imageURL, email, password}
       dispatch(createUser(user, formName))
     }

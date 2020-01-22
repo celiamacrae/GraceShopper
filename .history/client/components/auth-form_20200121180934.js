@@ -11,37 +11,34 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div className="modal-login modal-box">
-      <form onSubmit={handleSubmit} name={name}>
-        <div className="modal-header">
-          <h4 className="modal-title">Member Login</h4>
-        </div>
-        <div className="modal-body">
+    <div>
+      <div id="mainP">
+        <form onSubmit={handleSubmit} name={name}>
           <div>
-            <input name="email" type="text" placeholder="Email" required />
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
           </div>
-
           <div>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
           </div>
-
           <div>
-            <button type="submit" className="btn">
+            <button type="submit" className="button3">
               {displayName}
             </button>
-            <a href="/auth/google" className="btn">
-              {' '}
-              Login with Google+
-            </a>
           </div>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+
+          <button className="button3">
+            <a href="/auth/google">Login in with Google</a>
+          </button>
+
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      </div>
     </div>
   )
 }
@@ -49,62 +46,64 @@ const SignupForm = props => {
   const {name, handleSubmit, error} = props
 
   return (
-    <div className="modal-login modal-box modal-signUp">
-      <form onSubmit={handleSubmit} name={name}>
-        <div className="modal-header">
-          <h4 className="modal-title">Become a member</h4>
-        </div>
-        <div className="modal-body">
+    <div>
+      <div id="mainP">
+        <form onSubmit={handleSubmit} name={name}>
           <div>
-            <input
-              name="firstName"
-              type="text"
-              placeholder="First Name"
-              required
-            />
+            <label htmlFor="firstName">
+              <small>First Name</small>
+            </label>
+            <input name="firstName" type="text" />
           </div>
 
           <div>
-            <input
-              name="lastName"
-              type="text"
-              placeholder="Last Name"
-              required
-            />
+            <label htmlFor="lastName">
+              <small>Last Name</small>
+            </label>
+            <input name="lastName" type="text" />
           </div>
 
           <div>
-            <input name="email" type="text" placeholder="Email" required />
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
           </div>
 
           <div>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
           </div>
 
           <div>
-            <input name="address" type="text" placeholder="Address" required />
+            <label htmlFor="address">
+              <small>Address</small>
+            </label>
+            <input name="address" type="text" />
           </div>
 
           <div>
-            <input name="imageURL" type="text" placeholder="https://..." />
+            <label htmlFor="imageURL">
+              <small>Image URL:</small>
+            </label>
+            <input name="imageURL" type="text" />
           </div>
+
           <div>
-            <button type="submit" className="btn">
-              Signup
+            <button type="submit" className="button3">
+              Sign Up
             </button>
-            <a href="/auth/google" className="btn">
-              Sign Up in with Google+
-            </a>
           </div>
-        </div>
 
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+          <button className="button3">
+            <a href="/auth/google">Login in with Google</a>
+          </button>
+
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      </div>
     </div>
   )
 }
@@ -147,18 +146,13 @@ const mapDispatchSignUp = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      let imageURL = evt.target.imageURL.value
       const formName = evt.target.name
       const email = evt.target.email.value
       const firstName = evt.target.firstName.value
       const lastName = evt.target.lastName.value
-      if (imageURL.length === 0) {
-        imageURL =
-          'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
-      }
+      const imageURL = evt.target.imageURL.value
       const address = evt.target.address.value
       const password = evt.target.password.value
-
       const user = {firstName, lastName, address, imageURL, email, password}
       dispatch(createUser(user, formName))
     }

@@ -11,8 +11,7 @@ class CheckoutForm extends React.Component {
       lastName: '',
       address: '',
       email: '',
-      checkProps: {},
-      isSubmit: false
+      checkProps: {}
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
@@ -57,8 +56,7 @@ class CheckoutForm extends React.Component {
         info: stateInfo,
         items: this.props.items,
         total: this.props.total
-      },
-      isSubmit: true
+      }
     })
   }
 
@@ -123,22 +121,14 @@ class CheckoutForm extends React.Component {
 
             <div>
               <div>
-                {!this.state.isSubmit ? (
-                  <button
-                    disabled={!isEnabled}
-                    type="submit"
-                    className="button3"
-                  >
-                    'Fill Checkout'
-                  </button>
+                {!isEnabled ? (
+                  'Fill Checkout'
                 ) : (
-                  <div>
-                    <h1>Thank You. Please Pay.</h1>
-                    <CreditCardCheckout
-                      checkout={this.props.checkout}
-                      checkProps={this.state.checkProps}
-                    />
-                  </div>
+                  <CreditCardCheckout
+                    checkout={this.props.checkout}
+                    type="submit"
+                    checkProps={this.state.checkProps}
+                  />
                 )}
               </div>
             </div>
