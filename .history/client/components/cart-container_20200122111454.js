@@ -51,6 +51,7 @@ class Cart extends React.Component {
   render() {
     const amount = this.props.amount
     const total = this.props.total
+
     return (
       <div id="main">
         <div id="cart">

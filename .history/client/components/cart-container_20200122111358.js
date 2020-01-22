@@ -49,8 +49,14 @@ class Cart extends React.Component {
   }
 
   render() {
+    if (this.props.items === null) {
+      return <h1>Nothing in Cart</h1>
+    }
+    if (this.props.items.length === 0) return <h1>Nothing in Cart</h1>
+
     const amount = this.props.amount
     const total = this.props.total
+
     return (
       <div id="main">
         <div id="cart">

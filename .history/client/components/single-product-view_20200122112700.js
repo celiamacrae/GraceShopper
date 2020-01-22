@@ -164,11 +164,6 @@ class SingleProduct extends React.Component {
                 <div className="card_content">
                   <Link to={`/products/${product.id}`}>{product.name}</Link>
                   <h4 className="price"> ${product.price}</h4>
-                  {product.stockQuantity === 0 ? (
-                    <h4>Out of Stock!</h4>
-                  ) : (
-                    <h4>In Stock: {product.stockQuantity}</h4>
-                  )}
 
                   {status === 'admin' ? (
                     <div>
@@ -189,7 +184,6 @@ class SingleProduct extends React.Component {
                   ) : (
                     <div>
                       <button
-
                         onClick={() => {
                           //checks for guest or user
                           if (this.props.userId) {
@@ -199,10 +193,10 @@ class SingleProduct extends React.Component {
                           }
                         }}
                         type="submit"
-                        disabled={product.stockQuantity < 1}
-                        >
+                        disabled={product.stockQuantity === 0}
+                      >
                         {' '}
-                        Add To Cart
+                        Add{' '}
                       </button>
                     </div>
                   )}

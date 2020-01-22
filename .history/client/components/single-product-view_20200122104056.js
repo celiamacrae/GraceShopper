@@ -2,8 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link, Route} from 'react-router-dom'
 import {loadSingleProduct, updateSingleProduct} from '../store/products'
-import {addToCart, gotSavedCart} from './../store/cart'
-import {guestSession} from './all-products'
+
 const UpdateProductForm = props => {
   const {
     price,
@@ -153,7 +152,7 @@ class SingleProduct extends React.Component {
     if (product === undefined) return <h1>Loading...</h1>
     return (
       <div id="main">
-        <div id={status === 'admin' ? 'update' : 'main'}>
+        <div id={status === 'admin' ? 'update' : 'mainP'}>
           <div className="cards">
             <li className="card-item" key={product.id}>
               <div className={status === 'admin' ? 'updateView' : 'card'}>
@@ -164,11 +163,6 @@ class SingleProduct extends React.Component {
                 <div className="card_content">
                   <Link to={`/products/${product.id}`}>{product.name}</Link>
                   <h4 className="price"> ${product.price}</h4>
-                  {product.stockQuantity === 0 ? (
-                    <h4>Out of Stock!</h4>
-                  ) : (
-                    <h4>In Stock: {product.stockQuantity}</h4>
-                  )}
 
                   {status === 'admin' ? (
                     <div>
@@ -188,22 +182,7 @@ class SingleProduct extends React.Component {
                     </div>
                   ) : (
                     <div>
-                      <button
-
-                        onClick={() => {
-                          //checks for guest or user
-                          if (this.props.userId) {
-                            this.props.add(product, this.props.userId)
-                          } else {
-                            guestSession(this.props.addGuestCart, product)
-                          }
-                        }}
-                        type="submit"
-                        disabled={product.stockQuantity < 1}
-                        >
-                        {' '}
-                        Add To Cart
-                      </button>
+                      <button type="submit"> Add </button>
                     </div>
                   )}
                 </div>
@@ -228,11 +207,6 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProp = dispatch => ({
   loadSingleProduct: id => dispatch(loadSingleProduct(id)),
-  update: (id, product) => dispatch(updateSingleProduct(id, product)),
-  add: function(product, userId) {
-    const thunk = addToCart(product, userId)
-    dispatch(thunk)
-  },
-  addGuestCart: items => dispatch(gotSavedCart(items))
+  update: (id, product) => dispatch(updateSingleProduct(id, product))
 })
 export default connect(mapStateToProps, mapDispatchToProp)(SingleProduct)
