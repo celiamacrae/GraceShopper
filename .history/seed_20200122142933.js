@@ -176,8 +176,7 @@ const products = [
     name: 'Pineapple',
     price: 5.99,
     weight: '1.5lb',
-    imgSrc:
-      'https://www.tanny.io/my/wp-content/uploads/2019/03/pineapple.jpg',
+    imgSrc: 'https://www.tanny.io/my/wp-content/uploads/2019/03/pineapple.jpg',
     category: 'Fruit',
     stockQuantity: 50
   },
@@ -206,12 +205,10 @@ const products = [
     name: 'Kiwi',
     price: 8.99,
     weight: '1lb',
-    imgSrc:
-      'hhttps://www.tanny.io/my/wp-content/uploads/2019/06/Kiwi.jpg',
+    imgSrc: 'hhttps://www.tanny.io/my/wp-content/uploads/2019/06/Kiwi.jpg',
     category: 'Fruit',
     stockQuantity: 50
-  },
-
+  }
 ]
 
 // const productOrder = [
