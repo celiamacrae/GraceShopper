@@ -85,29 +85,35 @@ router.put('/', async (req, res, next) => {
 // req.body.quantity
 router.post('/:id', async (req, res, next) => {
   try {
-    console.log('BODYYYYYYY ', req.body)
-    const recipe = await Product.findOne({
+    const recipe = await Recipe.findOne({
       where: {
         id: req.params.id
       }
     })
     if (recipe === null) res.sendStatus(404)
-    await recipe.update(req.body)
-    const currentRecipeId = parseInt(recipe[0].dataValues.id, 10)
+    await recipe.update({
+      name: req.body.name,
+      description: req.body.description,
+      time: req.body.time,
+      imageURL: req.body.imageURL
+    })
+    const currentRecipeId = parseInt(recipe.dataValues.id, 10)
     const currentRecipe = await Recipe.findByPk(currentRecipeId)
-    await currentRecipe.addProduct(req.body.ids) //req.body.ids should be an array
-
+    const idsForEngredients = req.body.ingredients.map(
+      ingredient => ingredient.id
+    )
+    await currentRecipe.addProduct(idsForEngredients)
     //adding quantity and weight for RecipeProduct join table
-    req.body.ids.map(async productId => {
+    req.body.ingredients.map(async product => {
       const productInRecipe = await RecipeProduct.findOne({
         where: {
-          producId: productId,
-          recipeId: recipe[0].dataValues.id
+          productId: product.id,
+          recipeId: recipe.dataValues.id
         }
       })
       await productInRecipe.update({
-        quantity: req.body.quantity,
-        weight: req.body.weight
+        quantity: product.quantity,
+        weight: product.weight
       })
     })
 
