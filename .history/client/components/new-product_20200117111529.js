@@ -28,90 +28,78 @@ class CreateProduct extends React.Component {
   }
   render() {
     return (
-      <div className="modal-login modal-update">
-        <form onSubmit={this.submitHandle}>
-          <div className="modal-header">
-            <h4 className="modal-title">Create a new product</h4>
-          </div>
-          <div className="modal-body">
+      <div id="secondP">
+        <div className="profile_option">
+          <form onSubmit={this.submitHandle}>
             <div>
-              <input
-                name="name"
-                type="text"
-                onChange={this.changeHandle}
-                placeholder="Product name"
-                required
-              />
+              <label htmlFor="name">
+                <small> Name</small>
+              </label>
+              <input name="name" type="text" onChange={this.changeHandle} />
             </div>
 
             <div>
-              <input
-                name="price"
-                type="text"
-                onChange={this.changeHandle}
-                placeholder="Price"
-                required
-              />
+              <label htmlFor="price">
+                <small>Price</small>
+              </label>
+              <input name="price" type="text" onChange={this.changeHandle} />
             </div>
 
             <div>
+              <label htmlFor="category">
+                <small>Category</small>
+              </label>
               <input
                 name="category"
                 type="text"
                 value={this.state.category}
                 onChange={this.changeHandle}
-                placeholder="Category"
-                required
               />
             </div>
 
             <div>
-              <input
-                name="weight"
-                type="text"
-                onChange={this.changeHandle}
-                placeholder="Weight"
-                required
-              />
+              <label htmlFor="weight">
+                <small>Weight</small>
+              </label>
+              <input name="weight" type="text" onChange={this.changeHandle} />
             </div>
 
             <div>
+              <label htmlFor="stockQuantity">
+                <small>Stock Quantity</small>
+              </label>
               <input
                 name="stockQuantity"
                 type="text"
                 onChange={this.changeHandle}
-                placeholder="Available Stock"
-                required
               />
             </div>
 
             <div>
+              <label htmlFor="description">
+                <small>Description</small>
+              </label>
               <input
                 name="description"
                 type="text"
                 onChange={this.changeHandle}
-                placeholder="Description"
-                required
               />
             </div>
 
             <div>
-              <input
-                name="imgSrc"
-                type="text"
-                onChange={this.changeHandle}
-                placeholder="Image Source"
-                required
-              />
+              <label htmlFor="imgSrc">
+                <small>Image URL:</small>
+              </label>
+              <input name="imgSrc" type="text" onChange={this.changeHandle} />
             </div>
 
             <div>
-              <button type="submit" className="btn">
-                Add product
+              <button type="submit" className="button3">
+                Add Product
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     )
   }

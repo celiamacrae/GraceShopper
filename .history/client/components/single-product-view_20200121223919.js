@@ -151,52 +151,50 @@ class SingleProduct extends React.Component {
     const product = this.props.product
     if (product === undefined) return <h1>Loading...</h1>
     return (
-      <div id="main">
-        <div id={status === 'admin' ? 'update' : 'mainP'}>
-          <div className="cards">
-            <li className="card-item" key={product.id}>
-              <div className={status === 'admin' ? 'updateView' : 'card'}>
-                <div className="card_image">
-                  <br />
-                  <img src={product.imgSrc} height="350px" width="350px" />
-                </div>
-                <div className="card_content">
-                  <Link to={`/products/${product.id}`}>{product.name}</Link>
-                  <h4 className="price"> ${product.price}</h4>
-
-                  {status === 'admin' ? (
-                    <div>
-                      <h4 className="price">
-                        {' '}
-                        Weight of a product : {product.weight}
-                      </h4>
-                      <h4 className="price">
-                        {' '}
-                        We currently have in Stock: {product.stockQuantity}
-                      </h4>
-                      <h4 className="price">
-                        {' '}
-                        Category of the product : {product.category}
-                      </h4>
-                      <br />
-                    </div>
-                  ) : (
-                    <div>
-                      <button type="submit"> Add </button>
-                    </div>
-                  )}
-                </div>
+      <div id={status === 'admin' ? 'update' : 'main'}>
+        <div className="cards">
+          <li className="card-item" key={product.id}>
+            <div className={status === 'admin' ? 'updateView' : 'card'}>
+              <div className="card_image">
+                <br />
+                <img src={product.imgSrc} height="350px" width="350px" />
               </div>
-            </li>
-          </div>
-          {status === 'admin' ? (
-            <UpdateProductForm
-              product={this.state}
-              changeHandle={this.changeHandle}
-              submitHandle={this.submitHandle}
-            />
-          ) : null}
+              <div className="card_content">
+                <Link to={`/products/${product.id}`}>{product.name}</Link>
+                <h4 className="price"> ${product.price}</h4>
+
+                {status === 'admin' ? (
+                  <div>
+                    <h4 className="price">
+                      {' '}
+                      Weight of a product : {product.weight}
+                    </h4>
+                    <h4 className="price">
+                      {' '}
+                      We currently have in Stock: {product.stockQuantity}
+                    </h4>
+                    <h4 className="price">
+                      {' '}
+                      Category of the product : {product.category}
+                    </h4>
+                    <br />
+                  </div>
+                ) : (
+                  <div>
+                    <button type="submit"> Add </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </li>
         </div>
+        {status === 'admin' ? (
+          <UpdateProductForm
+            product={this.state}
+            changeHandle={this.changeHandle}
+            submitHandle={this.submitHandle}
+          />
+        ) : null}
       </div>
     )
   }

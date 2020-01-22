@@ -40,7 +40,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={CartContainer} />
         <Route path="/checkout" component={CheckoutForm} />
-        <Route path="/home" component={HomePage} />
+        <Route path="/" component={HomePage} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -56,7 +56,7 @@ class Routes extends Component {
             />
             <Route path="/recipies" component={AllRecipiesContainer} />
             <Route path="/user" component={UserHome} />
-            <Route path="/home" component={HomePage} />
+            <Route path="/" component={HomePage} />
             {user.status !== 'admin' ? (
               <div>
                 <Route path="/cart" component={CartContainer} />

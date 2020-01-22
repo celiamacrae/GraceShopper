@@ -359,6 +359,7 @@ a {
 }
 #cart {
   margin: 130px;
+  display: flex;
 }
 #cart .card {
   width: 220px;

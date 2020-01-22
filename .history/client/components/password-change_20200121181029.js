@@ -33,6 +33,7 @@ class PasswordForm extends React.Component {
   render() {
     return (
       <div className="modal-login modal-password">
+        <p id="price">Change the password below</p>
         <form onSubmit={this.submitHandle}>
           <div className="modal-body">
             <div>

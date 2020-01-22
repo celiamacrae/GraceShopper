@@ -359,6 +359,8 @@ a {
 }
 #cart {
   margin: 130px;
+  display: flex;
+  flex-direction: column;
 }
 #cart .card {
   width: 220px;

@@ -10,7 +10,7 @@ const Navbar = props => {
   return (
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="navbar-header">
-        <Link to="/home" className="navbar-brand items">
+        <Link to="/" className="navbar-brand items">
           {' '}
           Mushroom{' '}
         </Link>

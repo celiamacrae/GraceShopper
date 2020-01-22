@@ -32,34 +32,36 @@ class PasswordForm extends React.Component {
   }
   render() {
     return (
-      <div className="modal-login modal-password">
-        <form onSubmit={this.submitHandle}>
-          <div className="modal-body">
-            <div>
-              <input
-                name="oldPassword"
-                type="password"
-                onChange={this.changeHandle}
-                value={this.state.oldPassword}
-                placeholder="Old password"
-                required
-              />
+      <div>
+        <div className="modal-login modal-password">
+          <form onSubmit={this.submitHandle}>
+            <div className="modal-body">
+              <div>
+                <input
+                  name="oldPassword"
+                  type="password"
+                  onChange={this.changeHandle}
+                  value={this.state.oldPassword}
+                  placeholder="Old password"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  name="password"
+                  type="password"
+                  onChange={this.changeHandle}
+                  value={this.state.password}
+                  placeholder="New password"
+                  required
+                />
+              </div>
+              <button type="submit" className="btn">
+                Change password
+              </button>
             </div>
-            <div>
-              <input
-                name="password"
-                type="password"
-                onChange={this.changeHandle}
-                value={this.state.password}
-                placeholder="New password"
-                required
-              />
-            </div>
-            <button type="submit" className="btn">
-              Change password
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     )
   }

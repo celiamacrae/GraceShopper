@@ -31,7 +31,7 @@ class CreateProduct extends React.Component {
       <div className="modal-login modal-update">
         <form onSubmit={this.submitHandle}>
           <div className="modal-header">
-            <h4 className="modal-title">Create a new product</h4>
+            <h4 className="modal-title">Update your profile</h4>
           </div>
           <div className="modal-body">
             <div>
@@ -66,13 +66,7 @@ class CreateProduct extends React.Component {
             </div>
 
             <div>
-              <input
-                name="weight"
-                type="text"
-                onChange={this.changeHandle}
-                placeholder="Weight"
-                required
-              />
+              <input name="weight" type="text" onChange={this.changeHandle} />
             </div>
 
             <div>
@@ -80,8 +74,6 @@ class CreateProduct extends React.Component {
                 name="stockQuantity"
                 type="text"
                 onChange={this.changeHandle}
-                placeholder="Available Stock"
-                required
               />
             </div>
 
@@ -90,19 +82,11 @@ class CreateProduct extends React.Component {
                 name="description"
                 type="text"
                 onChange={this.changeHandle}
-                placeholder="Description"
-                required
               />
             </div>
 
             <div>
-              <input
-                name="imgSrc"
-                type="text"
-                onChange={this.changeHandle}
-                placeholder="Image Source"
-                required
-              />
+              <input name="imgSrc" type="text" onChange={this.changeHandle} />
             </div>
 
             <div>

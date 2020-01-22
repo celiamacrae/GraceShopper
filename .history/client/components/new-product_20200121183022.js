@@ -31,7 +31,7 @@ class CreateProduct extends React.Component {
       <div className="modal-login modal-update">
         <form onSubmit={this.submitHandle}>
           <div className="modal-header">
-            <h4 className="modal-title">Create a new product</h4>
+            <h4 className="modal-title">Update your profile</h4>
           </div>
           <div className="modal-body">
             <div>
