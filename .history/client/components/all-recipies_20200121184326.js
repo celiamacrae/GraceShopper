@@ -12,7 +12,7 @@ class Recipies extends React.Component {
   render() {
     const {userStatus, recipies, userId} = this.props
     return (
-      <div id="main">
+      <div id="mainBody">
         {userStatus === 'admin' ? (
           <button className="button3">
             <Link to="/add">Add Recipe</Link>

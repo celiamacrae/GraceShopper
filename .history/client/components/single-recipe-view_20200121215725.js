@@ -8,7 +8,7 @@ import {addToCart, gotSavedCart} from '../store/cart'
 class SingleRecipe extends React.Component {
   async componentDidMount() {
     const id = this.props.match.params.recipeId
-    await this.props.onLoadSingleRecipe(id)
+    await this.props.loadSingleRecipe(id)
   }
   render() {
     const {recipe, user} = this.props
