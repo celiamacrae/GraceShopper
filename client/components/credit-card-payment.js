@@ -5,40 +5,38 @@ import STRIPE_PUBLISHABLE from './constants/stripe'
 import PAYMENT_SERVER_URL from './constants/server'
 import history from '../history'
 
-const CURRENCY = 'USD'
-const successPayment = props => {
-  alert('Payment Successful')
-  props.checkout(
-    props.checkProps.id,
-    props.checkProps.info,
-    props.checkProps.items
-  )
-  history.push('/products')
-}
-const errorPayment = data => {
-  alert('Payment Error')
-}
-const onToken = checkProps => token =>
-  axios
-    .post(PAYMENT_SERVER_URL, {
-      description: checkProps.info,
-      source: token.id,
-      currency: CURRENCY,
-      amount: checkProps.total
-    })
-    .then(successPayment)
-    .catch(errorPayment)
+class CreditCardCheckout extends React.Component {
+  constructor(props) {
+    super(props)
 
-const CreditCardCheckout = props => {
-  console.log('props are here', props)
-  return (
-    <StripeCheckout
-      name="test"
-      checkProps={props.checkProps}
-      token={onToken}
-      currency={CURRENCY}
-      stripeKey={STRIPE_PUBLISHABLE}
-    />
-  )
+    this.onToken = this.onToken.bind(this)
+  }
+
+  onToken = () => {
+    try {
+      this.props.checkout(
+        this.props.checkProps.id,
+        this.props.checkProps.info,
+        this.props.checkProps.items
+      )
+      alert('Thank You for Shopping With Us!')
+      history.push('/products')
+    } catch (err) {
+      alert('Payment Error')
+    }
+  }
+
+  render() {
+    return (
+      <StripeCheckout
+        className="button3"
+        name="Mushroom Grocers"
+        amount={this.props.checkProps.total * 100}
+        token={this.onToken}
+        stripeKey={STRIPE_PUBLISHABLE}
+      />
+    )
+  }
 }
+
 export default CreditCardCheckout
