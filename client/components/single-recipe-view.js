@@ -1,19 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link, Redirect} from 'react-router-dom'
+import {Link, Route, Redirect} from 'react-router-dom'
 import {loadSingleRecipe} from '../store/recipies'
 import {guestSession} from './all-products'
 import {addToCart, gotSavedCart} from '../store/cart'
+import UpdateRecipeContainer from './update-recipe-container'
 
 class SingleRecipe extends React.Component {
   async componentDidMount() {
     const id = this.props.match.params.recipeId
-    await this.props.loadSingleRecipe(id)
+    await this.props.onLoadSingleRecipe(id)
   }
   render() {
     const {recipe, user} = this.props
     return user.status === 'admin' ? (
-      <Redirect to={`/recipies/${recipe.id}/update`} />
+      <div>
+        <Redirect
+          exact
+          from={`/recipies/${recipe.id}`}
+          to={`/recipies/${recipe.id}/update`}
+        />
+        <Route path={`/recipies/${recipe.id}/update`}>
+          <UpdateRecipeContainer {...this.props} />
+        </Route>
+      </div>
     ) : (
       <div>
         <h1>{recipe.name}</h1>
