@@ -97,20 +97,17 @@ describe('User Routes', () => {
     expect(res.body).to.have.length(2)
     expect(res.body[0].firstName).to.be.equal('Liana')
   })
-  // it('GET /api/users/:id', async () => {
-  //   const res = await agent.put('/api/users/1',{lastName:'CHAN'}).expect(200)
+  it('PUT /api/users/:id', async () => {
+    const res = await agent
+      .put('/api/users/1', {firstName: 'Andreea-Liana'})
+      .expect(200)
 
-  //   expect(res.body.lastName).to.be.equal('CHAN')
-  // })
-  // it('PUT /api/users/:id', async () => {
-  //   const res = await agent.put('/api/users/1',{firstName:'Andreea'}).expect(200)
-
-  //   expect(res.body).to.be.an('object')
-  //   expect(res.body.firstName).to.be.equal('Andreea')
-  // })
-  // it('DELETE /api/users/:id', async () => {
-  //   await agent.delete('/api/users/1').expect(204)
-  //   const  allProducts=await agent.get('/api/users');
+    expect(res.body).to.be.an('object')
+    expect(res.body.firstName).to.be.equal('Andreea-Liana')
+  })
+  // it('PUT /api/delete/:id', async () => {
+  //   await agent.delete('/api/products/2').expect(200)
+  //   const  allProducts=await agent.get('/api/products');
   //   expect(allProducts.body).to.have.length(1);
   // })
 })

@@ -97,11 +97,6 @@ describe('User Routes', () => {
     expect(res.body).to.have.length(2)
     expect(res.body[0].firstName).to.be.equal('Liana')
   })
-  // it('GET /api/users/:id', async () => {
-  //   const res = await agent.put('/api/users/1',{lastName:'CHAN'}).expect(200)
-
-  //   expect(res.body.lastName).to.be.equal('CHAN')
-  // })
   // it('PUT /api/users/:id', async () => {
   //   const res = await agent.put('/api/users/1',{firstName:'Andreea'}).expect(200)
 

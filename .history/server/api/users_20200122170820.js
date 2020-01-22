@@ -118,6 +118,7 @@ router.delete('/:userId', async (req, res, next) => {
     })
     res.sendStatus(204).end()
   } catch (err) {
+    console.log('here')
     next(err)
   }
 })

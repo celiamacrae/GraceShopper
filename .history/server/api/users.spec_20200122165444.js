@@ -35,8 +35,8 @@ describe('User routes', () => {
       }
     ]
 
-    beforeEach(async () => {
-      await Product.bulkCreate(products)
+    beforeEach(() => {
+      return Promise.all(products.map(pr => Product.create(pr)))
     })
 
     it('GET /api/products', async () => {
@@ -63,7 +63,6 @@ describe('User routes', () => {
 describe('User Routes', () => {
   const users = [
     {
-      id: 1,
       firstName: 'Liana',
       status: 'admin',
       lastName: 'Chan',
@@ -74,7 +73,6 @@ describe('User Routes', () => {
         'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/107/profiles/2394/profileImage/avatar-new400.jpg'
     },
     {
-      id: 2,
       firstName: 'Celia',
       lastName: 'Macrae',
       status: 'user',
@@ -86,8 +84,8 @@ describe('User Routes', () => {
     }
   ]
 
-  beforeEach(async () => {
-    await User.bulkCreate(users)
+  beforeEach(() => {
+    return Promise.all(users.map(pr => User.create(pr)))
   })
 
   it('GET /api/users', async () => {
@@ -97,20 +95,15 @@ describe('User Routes', () => {
     expect(res.body).to.have.length(2)
     expect(res.body[0].firstName).to.be.equal('Liana')
   })
-  // it('GET /api/users/:id', async () => {
-  //   const res = await agent.put('/api/users/1',{lastName:'CHAN'}).expect(200)
-
-  //   expect(res.body.lastName).to.be.equal('CHAN')
-  // })
-  // it('PUT /api/users/:id', async () => {
-  //   const res = await agent.put('/api/users/1',{firstName:'Andreea'}).expect(200)
+  // it('GET /api/products/:id', async () => {
+  //   const res = await agent.get('/api/products/2').expect(200)
 
   //   expect(res.body).to.be.an('object')
-  //   expect(res.body.firstName).to.be.equal('Andreea')
+  //   expect(res.body.name).to.be.equal('Mushroom')
   // })
-  // it('DELETE /api/users/:id', async () => {
-  //   await agent.delete('/api/users/1').expect(204)
-  //   const  allProducts=await agent.get('/api/users');
+  // it('PUT /api/delete/:id', async () => {
+  //   await agent.delete('/api/products/2').expect(200)
+  //   const  allProducts=await agent.get('/api/products');
   //   expect(allProducts.body).to.have.length(1);
   // })
 })

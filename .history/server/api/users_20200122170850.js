@@ -111,6 +111,8 @@ router.post('/:userId/checkout', async (req, res, next) => {
 router.delete('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
+
+    console.log('here', userId)
     await User.destroy({
       where: {
         id: userId
