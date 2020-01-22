@@ -116,6 +116,8 @@ class SingleProduct extends React.Component {
   }
   async componentDidMount() {
     const id = this.props.match.params.productId
+    await this.props.getUser();
+console.log(this.props.user)
     await this.props.loadSingleProduct(id)
     let description = ''
     const {
@@ -194,7 +196,7 @@ class SingleProduct extends React.Component {
                           //checks for guest or user
                           if (this.props.user.id) {
 
-                            this.props.add(product, this.props.user.id)
+                            this.props.add(product, this.props.userId)
                           } else {
                             guestSession(this.props.addGuestCart, product)
                           }

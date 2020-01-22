@@ -116,6 +116,7 @@ class SingleProduct extends React.Component {
   }
   async componentDidMount() {
     const id = this.props.match.params.productId
+    await this.props.getUser();
     await this.props.loadSingleProduct(id)
     let description = ''
     const {

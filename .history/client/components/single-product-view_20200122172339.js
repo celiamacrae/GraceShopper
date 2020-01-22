@@ -4,7 +4,6 @@ import {Link, Route} from 'react-router-dom'
 import {loadSingleProduct, updateSingleProduct} from '../store/products'
 import {addToCart, gotSavedCart} from './../store/cart'
 import {guestSession} from './all-products'
-import {me} from '../store/user'
 const UpdateProductForm = props => {
   const {
     price,
@@ -192,9 +191,9 @@ class SingleProduct extends React.Component {
                       <button
                         onClick={() => {
                           //checks for guest or user
-                          if (this.props.user.id) {
+                          if (this.props.userId) {
 
-                            this.props.add(product, this.props.user.id)
+                            this.props.add(product, this.props.userId)
                           } else {
                             guestSession(this.props.addGuestCart, product)
                           }
@@ -234,7 +233,6 @@ const mapDispatchToProp = dispatch => ({
     const thunk = addToCart(product, userId)
     dispatch(thunk)
   },
-  addGuestCart: items => dispatch(gotSavedCart(items)),
-  getUser: () => dispatch(me())
+  addGuestCart: items => dispatch(gotSavedCart(items))
 })
 export default connect(mapStateToProps, mapDispatchToProp)(SingleProduct)

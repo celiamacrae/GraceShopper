@@ -192,9 +192,9 @@ class SingleProduct extends React.Component {
                       <button
                         onClick={() => {
                           //checks for guest or user
-                          if (this.props.user.id) {
+                          if (this.props.userId) {
 
-                            this.props.add(product, this.props.user.id)
+                            this.props.add(product, this.props.userId)
                           } else {
                             guestSession(this.props.addGuestCart, product)
                           }
