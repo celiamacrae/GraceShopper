@@ -65,7 +65,6 @@ class Routes extends Component {
           </Switch>
         )}
         {/* Displays our home page component as a fallback */}
-
       </Switch>
     )
   }

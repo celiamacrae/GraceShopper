@@ -61,7 +61,6 @@ class Routes extends Component {
             ) : (
               <Route exact path="/add" component={CreateProduct} />
             )}
-
           </Switch>
         )}
         {/* Displays our home page component as a fallback */}

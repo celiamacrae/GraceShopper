@@ -61,12 +61,11 @@ class Routes extends Component {
             ) : (
               <Route exact path="/add" component={CreateProduct} />
             )}
-
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route exact path="/" render={() => <Redirect to="/home"/>}/>
-        <Route component={HomePage}/>
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route component={HomePage} />
       </Switch>
     )
   }
