@@ -21,7 +21,7 @@ export const UserHome = props => {
     status
   }
   return (
-    <div id="main">
+    <div className="profiles">
       <div className="cards">
         <div>
           <div className="profile ">

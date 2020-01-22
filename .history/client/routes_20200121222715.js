@@ -16,7 +16,9 @@ import {me} from './store'
 import CheckoutForm from './components/checkout-form'
 import CreateProduct from './components/new-product'
 import CreditCardCheckout from './components/credit-card-payment'
-import HomePage from './components/homepage' // import SingleOrderHistory from './components/single-order-history'
+import UpdateRecipeContainer from './components/update-recipe-container'
+import HomePage from './components/homepage'
+// import SingleOrderHistory from './components/single-order-history'
 /**
  * COMPONENT
  */
@@ -44,10 +46,13 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
-
             <Route
               path="/recipies/:recipeId"
               component={SingleRecipeContainer}
+            />
+            <Route
+              path="/recipies/:recipeId/update"
+              component={UpdateRecipeContainer}
             />
             <Route path="/recipies" component={AllRecipiesContainer} />
             <Route path="/user" component={UserHome} />

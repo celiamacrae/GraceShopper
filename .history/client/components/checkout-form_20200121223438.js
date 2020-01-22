@@ -73,7 +73,7 @@ class CheckoutForm extends React.Component {
           <form onSubmit={this.submitHandle}>
             <div className="modal-header">
               <h4 className="modal-title">
-                Fill in all information to continue{' '}
+                Fill in all information tp continue{' '}
               </h4>
             </div>
             <div>

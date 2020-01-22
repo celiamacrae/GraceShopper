@@ -68,72 +68,65 @@ class CheckoutForm extends React.Component {
       this.state.lastName
 
     return (
-      <div id="main">
-        <div className="modal-login modal-update">
-          <form onSubmit={this.submitHandle}>
-            <div className="modal-header">
-              <h4 className="modal-title">
-                Fill in all information to continue{' '}
-              </h4>
-            </div>
-            <div>
-              <input
-                name="firstName"
-                type="text"
-                value={this.state.firstName}
-                onChange={this.changeHandle}
-                placeholder="First Name"
-                required
-              />
-            </div>
+      <div className="modal-login modal-update">
+        <form onSubmit={this.submitHandle}>
+          <div>
+            <input
+              name="firstName"
+              type="text"
+              value={this.state.firstName}
+              onChange={this.changeHandle}
+              placeholder="First Name"
+              required
+            />
+          </div>
 
-            <div>
-              <input
-                name="lastName"
-                type="text"
-                value={this.state.lastName}
-                onChange={this.changeHandle}
-                placeholder="Last Name"
-                required
-              />
-            </div>
+          <div>
+            <input
+              name="lastName"
+              type="text"
+              value={this.state.lastName}
+              onChange={this.changeHandle}
+              placeholder="Last Name"
+              required
+            />
+          </div>
 
-            <div>
-              <input
-                name="email"
-                type="text"
-                value={this.state.email}
-                onChange={this.changeHandle}
-                placeholder="Email"
-                required
-              />
-            </div>
-            <div>
-              <input
-                name="address"
-                type="text"
-                value={this.state.address}
-                onChange={this.changeHandle}
-                placeholder="Address"
-                required
-              />
-            </div>
+          <div>
+            <input
+              name="email"
+              type="text"
+              value={this.state.email}
+              onChange={this.changeHandle}
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div>
+            <input
+              name="address"
+              type="text"
+              value={this.state.address}
+              onChange={this.changeHandle}
+              placeholder="Address"
+              required
+            />
+          </div>
 
+          <div>
             <div>
-              <div>
-                {!isEnabled ? (
-                  'Fill Checkout'
-                ) : (
-                  <CreditCardCheckout
-                    checkout={this.props.checkout}
-                    type="submit"
-                    checkProps={this.state.checkProps}
-                  />
-                )}
-              </div>
+              {!isEnabled ? (
+                'Fill Checkout'
+              ) : (
+                <CreditCardCheckout
+                  checkout={this.props.checkout}
+                  type="submit"
+                  checkProps={this.state.checkProps}
+                />
+              )}
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     )
   }

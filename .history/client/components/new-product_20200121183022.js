@@ -1,30 +1,20 @@
-/* eslint-disable react/button-has-type */
 import React from 'react'
-import {updateUser, deleteUser} from '../store/user'
 import {connect} from 'react-redux'
-
-class UpdateUser extends React.Component {
+import {addProduct} from '../store/products'
+class CreateProduct extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      firstName: '',
-      lastName: '',
-      address: '',
-      imageURL: '',
-      email: ''
+      name: '',
+      price: '',
+      description: '',
+      imgSrc: '',
+      category: '',
+      weight: '',
+      stockQuantity: ''
     }
     this.submitHandle = this.submitHandle.bind(this)
     this.changeHandle = this.changeHandle.bind(this)
-  }
-  componentDidMount() {
-    const {email, firstName, lastName, address, imageURL} = this.props.user
-    this.setState({
-      firstName: firstName,
-      lastName: lastName,
-      address: address,
-      email: email,
-      imageURL: imageURL
-    })
   }
 
   changeHandle(event) {
@@ -34,8 +24,7 @@ class UpdateUser extends React.Component {
   }
   submitHandle(event) {
     event.preventDefault()
-    const id = this.props.user.id
-    this.props.updateUser(this.state, id)
+    this.props.add(this.state)
   }
   render() {
     return (
@@ -47,61 +36,79 @@ class UpdateUser extends React.Component {
           <div className="modal-body">
             <div>
               <input
-                name="firstName"
+                name="name"
                 type="text"
-                value={this.state.firstName}
                 onChange={this.changeHandle}
+                placeholder="Product name"
+                required
               />
             </div>
 
             <div>
               <input
-                name="lastName"
+                name="price"
                 type="text"
-                value={this.state.lastName}
                 onChange={this.changeHandle}
+                placeholder="Price"
+                required
               />
             </div>
 
             <div>
               <input
-                name="email"
+                name="category"
                 type="text"
-                value={this.state.email}
+                value={this.state.category}
                 onChange={this.changeHandle}
-              />
-            </div>
-            <div>
-              <input
-                name="address"
-                type="text"
-                value={this.state.address}
-                onChange={this.changeHandle}
+                placeholder="Category"
+                required
               />
             </div>
 
             <div>
               <input
-                name="imageURL"
+                name="weight"
                 type="text"
-                value={this.state.imageURL}
                 onChange={this.changeHandle}
+                placeholder="Weight"
+                required
               />
             </div>
+
+            <div>
+              <input
+                name="stockQuantity"
+                type="text"
+                onChange={this.changeHandle}
+                placeholder="Available Stock"
+                required
+              />
+            </div>
+
+            <div>
+              <input
+                name="description"
+                type="text"
+                onChange={this.changeHandle}
+                placeholder="Description"
+                required
+              />
+            </div>
+
+            <div>
+              <input
+                name="imgSrc"
+                type="text"
+                onChange={this.changeHandle}
+                placeholder="Image Source"
+                required
+              />
+            </div>
+
             <div>
               <button type="submit" className="btn">
-                Update
+                Add product
               </button>
-              {this.props.user.status === 'admin' ? (
-                ''
-              ) : (
-                <button
-                  className="btn"
-                  onClick={() => this.props.deleteUser(this.props.user.id)}
-                >
-                  Delete Acoount
-                </button>
-              )}
             </div>
           </div>
         </form>
@@ -110,8 +117,7 @@ class UpdateUser extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  updateUser: (user, id) => dispatch(updateUser(user, id)),
-  deleteUser: userId => dispatch(deleteUser(userId))
+const mapDispatchToProp = dispatch => ({
+  add: product => dispatch(addProduct(product))
 })
-export default connect(null, mapDispatchToProps)(UpdateUser)
+export default connect(null, mapDispatchToProp)(CreateProduct)

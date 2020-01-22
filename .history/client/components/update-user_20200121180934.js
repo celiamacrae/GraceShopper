@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React from 'react'
 import {updateUser, deleteUser} from '../store/user'
 import {connect} from 'react-redux'
@@ -35,17 +34,18 @@ class UpdateUser extends React.Component {
   submitHandle(event) {
     event.preventDefault()
     const id = this.props.user.id
+    console.log(this.state)
     this.props.updateUser(this.state, id)
   }
   render() {
     return (
-      <div className="modal-login modal-update">
-        <form onSubmit={this.submitHandle}>
-          <div className="modal-header">
-            <h4 className="modal-title">Update your profile</h4>
-          </div>
-          <div className="modal-body">
+      <div id="secondP">
+        <div className="profile_option">
+          <form onSubmit={this.submitHandle}>
             <div>
+              <label htmlFor="firstName">
+                <small>First Name</small>
+              </label>
               <input
                 name="firstName"
                 type="text"
@@ -55,6 +55,9 @@ class UpdateUser extends React.Component {
             </div>
 
             <div>
+              <label htmlFor="lastName">
+                <small>Last Name</small>
+              </label>
               <input
                 name="lastName"
                 type="text"
@@ -64,6 +67,9 @@ class UpdateUser extends React.Component {
             </div>
 
             <div>
+              <label htmlFor="email">
+                <small>Email</small>
+              </label>
               <input
                 name="email"
                 type="text"
@@ -72,6 +78,9 @@ class UpdateUser extends React.Component {
               />
             </div>
             <div>
+              <label htmlFor="address">
+                <small>Address</small>
+              </label>
               <input
                 name="address"
                 type="text"
@@ -81,6 +90,9 @@ class UpdateUser extends React.Component {
             </div>
 
             <div>
+              <label htmlFor="imageURL">
+                <small>Image URL:</small>
+              </label>
               <input
                 name="imageURL"
                 type="text"
@@ -89,22 +101,26 @@ class UpdateUser extends React.Component {
               />
             </div>
             <div>
-              <button type="submit" className="btn">
+              <button type="submit" className="button3">
                 Update
               </button>
-              {this.props.user.status === 'admin' ? (
-                ''
-              ) : (
-                <button
-                  className="btn"
-                  onClick={() => this.props.deleteUser(this.props.user.id)}
-                >
-                  Delete Acoount
-                </button>
-              )}
             </div>
-          </div>
-        </form>
+          </form>
+
+          {this.props.user.status === 'admin' ? (
+            ''
+          ) : (
+            <div>
+              <p className="price"> Not satisfied with our services?</p>
+              <button
+                className="button3"
+                onClick={() => this.props.deleteUser(this.props.user.id)}
+              >
+                Delete Acoount
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     )
   }
