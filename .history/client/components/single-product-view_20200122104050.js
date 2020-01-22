@@ -152,8 +152,8 @@ class SingleProduct extends React.Component {
     if (product === undefined) return <h1>Loading...</h1>
     return (
       <div id="main">
-        <div id={status === 'admin' ? 'update' : 'main'}>
-          <div className="cards">
+        <div id={status === 'admin' ? 'update' : 'mainP'}>
+          <div>
             <li className="card-item" key={product.id}>
               <div className={status === 'admin' ? 'updateView' : 'card'}>
                 <div className="card_image">
