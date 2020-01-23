@@ -82,9 +82,9 @@ const createApp = () => {
   }
 
   //COMMENT HERE TO BE ABLE TO TEST ROUTES!
-  // app.use('/api', auth, function(req, res, next) {
-  //   next()
-  // })
+  app.use('/api', auth, function(req, res, next) {
+    next()
+  })
 
   // auth and api routes
   app.use('/auth', require('./auth'))
