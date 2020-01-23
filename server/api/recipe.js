@@ -46,37 +46,30 @@ router.delete('/:id', async (req, res, next) => {
 // req.body.ids is an array of all ingredients in the recipe
 // req.body.weight
 // req.body.quantity
-router.put('/add', async (req, res, next) => {
+router.put('/', async (req, res, next) => {
   try {
-    console.log('BODYYYY ', req.body.ingredients)
-    const recipe = await Recipe.create({
-      name: req.body.recipeName,
-      description: req.body.description,
-      time: req.body.time,
-      imageURL:
-        req.body.imageURL === ''
-          ? 'https://homemadeandyummy.com/wp-content/uploads/2019/08/lolgoagain.png'
-          : req.body.imageURL
+    const recipe = await Product.create({
+      name: req.body.recipe.name,
+      description: req.body.recipe.description,
+      time: req.body.recipe.time,
+      imageURL: req.body.recipe.imageURL
     })
     if (recipe === null) res.sendStatus(404)
-    const currentRecipeId = parseInt(recipe.dataValues.id, 10)
+    const currentRecipeId = parseInt(recipe[0].dataValues.id, 10)
     const currentRecipe = await Recipe.findByPk(currentRecipeId)
-    const idsForIngredients = req.body.ingredients.map(
-      ingredient => ingredient.id
-    )
-    await currentRecipe.addProduct(idsForIngredients)
+    await currentRecipe.addProduct(req.body.ids) //req.body.ids should be an array
+
     //adding quantity and weight for RecipeProduct join table
-    req.body.ingredients.map(async product => {
+    req.body.ids.map(async productId => {
       const productInRecipe = await RecipeProduct.findOne({
         where: {
-          productId: product.id,
-          recipeId: recipe.dataValues.id
+          producId: productId,
+          recipeId: recipe[0].dataValues.id
         }
       })
-      console.log('productInRecipe', productInRecipe)
       await productInRecipe.update({
-        quantity: product.quantity,
-        weight: product.weight
+        quantity: req.body.quantity,
+        weight: req.body.weight
       })
     })
 
@@ -87,7 +80,9 @@ router.put('/add', async (req, res, next) => {
   }
 })
 
-//Update the recipe
+// update recipe table in process below
+// req.body.weight
+// req.body.quantity
 router.post('/:id', async (req, res, next) => {
   try {
     const recipe = await Recipe.findOne({
