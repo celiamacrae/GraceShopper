@@ -97,7 +97,12 @@ export default function(state = initialState, action) {
   console.log(action)
   switch (action.type) {
     case GOT_SAVED_CART:
-      return {...state, items: action.items}
+      let dummy = action.items.slice()
+      let cm = {}
+      dummy.forEach(item => {
+        cm[item.id] = item.ProductOrder.quantity
+      })
+      return {...state, items: action.items, cartMap: cm}
 
     case GET_ITEMS:
       return state

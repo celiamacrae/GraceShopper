@@ -30,21 +30,12 @@ class Routes extends Component {
     const {isLoggedIn, user} = this.props
     return (
       <Switch>
-        {/* Routes placed here are available to all visitors */}
-        <Route path="/products/:productId" component={SingleProduct} />
-        <Route path="/products" component={AllProductsContainer} />
-        <Route path="/recipies/:recipeId" component={SingleRecipeContainer} />
-        <Route path="/recipies" component={AllRecipiesContainer} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/cart" component={CartContainer} />
-        <Route path="/checkout" component={CheckoutForm} />
-        <Route path="/home" component={HomePage} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/products/:productId" component={SingleProduct} />
             <Route path="/products" component={AllProductsContainer} />
+            <Route path="/recipies/add" component={AddRecipe} />
             <Route
               path="/recipies/:recipeId"
               component={SingleRecipeContainer}
@@ -64,6 +55,16 @@ class Routes extends Component {
                 <Route exact path="/recepies/add" component={AddRecipe} />
               </div>
             )}
+            {/* Routes placed here are available to all visitors */}
+            <Route path="/products/:productId" component={SingleProduct} />
+            <Route path="/products" component={AllProductsContainer} />
+            <Route path="/recipies/:recipeId" component={SingleRecipeContainer} />
+            <Route path="/recipies" component={AllRecipiesContainer} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/cart" component={CartContainer} />
+            <Route path="/checkout" component={CheckoutForm} />
+            <Route path="/home" component={HomePage} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import {loadAllRecipies, deleteRecipe} from '../store/recipies'
 import {addToCart, gotSavedCart} from '../store/cart'
 import {guestSession} from './all-products'
@@ -19,9 +19,9 @@ class Recipies extends React.Component {
           </button>
         ) : null}
         <ul className="cards">
-          {recipies.map(recipe => {
+          {recipies.map((recipe, indx) => {
             return (
-              <li key={recipe.id}>
+              <li key={indx}>
                 <div className="card">
                   <img src={recipe.imageURL} height="500px" width="350px" />
                   <div className="card_content">

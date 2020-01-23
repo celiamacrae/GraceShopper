@@ -1,5 +1,4 @@
 import axios from 'axios'
-import history from '../history'
 
 //ACTION TYPE
 const GET_ALL_RECIPIES = 'GET_ALL_RECIPIES'
@@ -39,7 +38,14 @@ export const deleteRecipe = id => async dispatch => {
   }
 }
 
-// export const addRecipe
+export const addRecipe = recipe => async dispatch => {
+  try {
+    const {data} = await axios.put(`/api/recipies/add`, recipe)
+    dispatch(getSingleRecipe(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 export const updateRecipe = (id, recipe) => async dispatch => {
   try {
