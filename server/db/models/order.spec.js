@@ -55,5 +55,9 @@ describe('Order model', () => {
         expect(order1.orderInfo).to.be.equal(null)
       })
 
+      // it('expects email to be order info to be null', () => {
+      //   expect().to.be.equal(null)
+      // })
+
     })
 })
