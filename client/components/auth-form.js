@@ -11,37 +11,39 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div className="modal-login modal-box">
-      <form onSubmit={handleSubmit} name={name}>
-        <div className="modal-header">
-          <h4 className="modal-title">Member Login</h4>
-        </div>
-        <div className="modal-body">
-          <div>
-            <input name="email" type="text" placeholder="Email" required />
+    <div id="main">
+      <div className="modal-login modal-box">
+        <form onSubmit={handleSubmit} name={name}>
+          <div className="modal-header">
+            <h4 className="modal-title">Member Login</h4>
           </div>
+          <div className="modal-body">
+            <div>
+              <input name="email" type="text" placeholder="Email" required />
+            </div>
 
-          <div>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
-          </div>
+            <div>
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+            </div>
 
-          <div>
-            <button type="submit" className="btn">
-              {displayName}
-            </button>
-            <a href="/auth/google" className="btn">
-              {' '}
-              Login with Google+
-            </a>
+            <div>
+              <button type="submit" className="btn">
+                {displayName}
+              </button>
+              <a href="/auth/google" className="btn">
+                {' '}
+                Login with Google+
+              </a>
+            </div>
           </div>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      </div>
     </div>
   )
 }
@@ -49,62 +51,71 @@ const SignupForm = props => {
   const {name, handleSubmit, error} = props
 
   return (
-    <div className="modal-login modal-box modal-signUp">
-      <form onSubmit={handleSubmit} name={name}>
-        <div className="modal-header">
-          <h4 className="modal-title">Become a member</h4>
+    <div id="main">
+      <div className="card">
+        <div className="modal-login modal-box modal-signUp">
+          <form onSubmit={handleSubmit} name={name}>
+            <div className="modal-header">
+              <h4 className="modal-title">Become a member</h4>
+            </div>
+            <div className="modal-body">
+              <div>
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder="First Name"
+                  required
+                />
+              </div>
+
+              <div>
+                <input
+                  name="lastName"
+                  type="text"
+                  placeholder="Last Name"
+                  required
+                />
+              </div>
+
+              <div>
+                <input name="email" type="text" placeholder="Email" required />
+              </div>
+
+              <div>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+
+              <div>
+                <input
+                  name="address"
+                  type="text"
+                  placeholder="Address"
+                  required
+                />
+              </div>
+
+              <div>
+                <input name="imageURL" type="text" placeholder="https://..." />
+              </div>
+              <div>
+                <button type="submit" className="btn">
+                  Signup
+                </button>
+                <a href="/auth/google" className="btn">
+                  Sign Up in with Google+
+                </a>
+              </div>
+            </div>
+
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
         </div>
-        <div className="modal-body">
-          <div>
-            <input
-              name="firstName"
-              type="text"
-              placeholder="First Name"
-              required
-            />
-          </div>
-
-          <div>
-            <input
-              name="lastName"
-              type="text"
-              placeholder="Last Name"
-              required
-            />
-          </div>
-
-          <div>
-            <input name="email" type="text" placeholder="Email" required />
-          </div>
-
-          <div>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-
-          <div>
-            <input name="address" type="text" placeholder="Address" required />
-          </div>
-
-          <div>
-            <input name="imageURL" type="text" placeholder="https://..." />
-          </div>
-          <div>
-            <button type="submit" className="btn">
-              Signup
-            </button>
-            <a href="/auth/google" className="btn">
-              Sign Up in with Google+
-            </a>
-          </div>
-        </div>
-
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+      </div>
     </div>
   )
 }

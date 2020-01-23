@@ -340,11 +340,44 @@ const products = [
 
 const recipies = [
   {
+    id: 1,
     name: 'Onion and mushrooms omelette',
     description:
-      'Crack the eggs into a bowl and add a pinch of salt. Whisk until well beaten, then set aside. Sauté the onion until soft and translucent, about 3 to 5 minutes. Add the mushrooms and sauté until they release their juices and become soft, about 3 minutes more. Transfer the onions and mushrooms to bowl and set aside.Pour in the beaten eggs. When the edges begin to set, run a silicone or rubber spatula around the circumference, pushing the edge aside slightly, and tilting the pan to let any uncooked egg run under the omelet. When the surface of the egg is almost entirely set, top one side of the omelet with the reserved sautéed mushrooms and onions. Sprinkle evenly with cheese, if using. Use a spatula to carefully fold the other side of the omelet over the filling. Gently flip the stuffed omelet and cook for another minute, until the cheese melts and the egg is set. Transfer to a plate and garnish with freshly snipped chives, if desired. Serve immediately.',
+      ' Crack the eggs into a bowl and add a pinch of salt. Whisk until well beaten,then set aside. Sauté the onion until soft and translucent, about 3 to 5 minutes. Add the mushrooms and sauté until they release their juices and become soft, about 3 minutes more. Transfer the onions and mushrooms to bowl and set aside.Pour in the beaten eggs. When the edges begin to set, run a silicone or rubber spatula around the circumference, pushing the edge aside slightly, and tilting the pan to let any uncooked egg run under the omelet. When the surface of the egg is almost entirely set, top one side of the omelet with the reserved sautéed mushrooms and onions. Sprinkle evenly with cheese, if using. Use a spatula to carefully fold the other side of the omelet over the filling. Gently flip the stuffed omelet and cook for another minute, until the cheese melts and the egg is set. Transfer to a plate and garnish with freshly snipped chives, if desired. Serve immediately.',
     imageURL:
       'https://www.seriouseats.com/recipes/images/2016/04/20160418-american-omelet-ham-and-cheese-21-1500x1125.jpg'
+  },
+  {
+    id: 2,
+    name: 'Mushroom Soup',
+    description: ` To large stock pot, add 1 tbsp butter with diced onion and celery root (or celery). Stir over medium heat until vegetables sweat and soften, approx. 6-8 minutes. Add mushrooms and dried onions and stir to coat. Continue cooking for approx. 3 minutes to soften mushrooms.
+      Add roasted garlic, dried herbs, nutmeg, stock and sherry.
+      Gently simmer for 40 minutes.
+      When soup is nearly done, lightly sauté sliced oyster and shiitake mushrooms in butter and set aside.
+      Remove soup from heat and puree using an immersion blender or blender of your choice.
+      Serve in bowls and top with oyster and shiitake mushrooms.`,
+    imageURL:
+      'https://producemadesimple.ca/wp-content/uploads/2019/01/Maren.can_.MUSHROOMS-8-600x450.jpg'
+  },
+  {
+    id: 3,
+    name: 'Baked lemon herb chicken & potatoes',
+    description: ` Preheat oven to 400 degrees and grease a large baking dish.
+      Season chicken on both sides with salt and pepper to taste. Arrange chicken and chopped potatoes on baking dish. Thinly slice one lemon and slide lemon slices between some of the potatoes and chicken.
+      Whisk together melted butter, Italian seasoning, garlic powder, onion powder, lemon juice (from remaining two lemons), and butter. Drizzle mixture over chicken and potatoes.
+      Bake for 25-30 minutes until chicken is cooked through and potatoes are fork-tender. Garnish with fresh herbs if desired and serve.`,
+    imageURL:
+      'https://latourangelle.com/wp-content/uploads/cc_resize/shutterstock_260238005-600x450.jpg'
+  },
+  {
+    id: 4,
+    name: 'Maple Syrup Fruit Dip',
+    description: ` In a bowl, put the maple spread, maple sugar or maple syrup.
+      Gradually add the sour cream and stir until you have obtained a smooth mixture.
+      Sprinkle with cinnamon and refrigerate until serving time.
+      Try it with fresh fruit (apples, pears, pineapple, peaches, strawberries, orange, etc.), cookies, cake, etc.`,
+    imageURL:
+      'https://maplefromquebec.ca/uploads/2018/09/recette-trempette-pour-fruits-a-lerable-600x450.jpg'
   }
 ]
 
@@ -372,6 +405,72 @@ const recipeProduct = [
     productId: 2,
     quantity: 1,
     weight: '0.2oz'
+  },
+  {
+    recipeId: 2,
+    productId: 3,
+    quantity: 2,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 2,
+    productId: 25,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 2,
+    productId: 7,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 2,
+    productId: 6,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 3,
+    productId: 4,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 3,
+    productId: 8,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 3,
+    productId: 7,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 4,
+    productId: 16,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 4,
+    productId: 12,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 4,
+    productId: 1,
+    quantity: 1,
+    weight: '0.1oz'
+  },
+  {
+    recipeId: 4,
+    productId: 13,
+    quantity: 1,
+    weight: '0.1oz'
   }
 ]
 

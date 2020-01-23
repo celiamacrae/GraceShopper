@@ -43,6 +43,7 @@ export const loadCart = id => async dispatch => {
 
     console.log('CARTMAO', cartMap)
     dispatch(getCartMap(cartMap))
+    dispatch(getCartAmount())
   } catch (error) {
     console.error(error)
   }
@@ -57,6 +58,7 @@ export const fulfillCart = (id, info, items) => async dispatch => {
 
     sessionStorage.clear()
     dispatch(emptyCart())
+    dispatch(getCartAmount())
   } catch (error) {
     console.error(error)
   }
@@ -76,6 +78,7 @@ export const addToCart = (product, userId) => async dispatch => {
 
     console.log('CARTMAO', cartMap)
     dispatch(getCartMap(cartMap))
+    dispatch(getCartAmount())
   } catch (error) {
     console.error(error)
   }
@@ -87,6 +90,7 @@ export const removeFromCart = (product, userId) => async dispatch => {
       data: product
     })
     dispatch(removedFromCart(data))
+    dispatch(getCartAmount())
   } catch (error) {
     console.error(error)
   }
@@ -121,11 +125,13 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case GOT_SAVED_CART:
       let dummy = action.items.slice()
+      let qty = 0
       let cm = {}
       dummy.forEach(item => {
         cm[item.id] = item.ProductOrder.quantity
+        qty += item.ProductOrder.quantity
       })
-      return {...state, items: action.items, cartMap: cm}
+      return {...state, items: action.items, cartMap: cm, amount: qty}
 
     case GET_ITEMS:
       return state

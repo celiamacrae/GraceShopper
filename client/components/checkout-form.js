@@ -139,12 +139,8 @@ class CheckoutForm extends React.Component {
             <div>
               <div>
                 {!this.state.isSubmit ? (
-                  <button
-                    disabled={!isEnabled}
-                    type="submit"
-                    className="button3"
-                  >
-                    'Fill Checkout'
+                  <button disabled={!isEnabled} type="submit" className="btn1">
+                    Fill Checkout
                   </button>
                 ) : (
                   <div>
