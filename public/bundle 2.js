@@ -93,7 +93,7 @@
     /******/ var getter =
       module && module.__esModule
         ? /******/ function getDefault() {
-            return module['default']
+            return module.default
           }
         : /******/ function getModuleExports() {
             return module
@@ -141,17 +141,17 @@
             'div',
             null,
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              _components__WEBPACK_IMPORTED_MODULE_1__['Navbar'],
+              _components__WEBPACK_IMPORTED_MODULE_1__.Navbar,
               null
             ),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              _routes__WEBPACK_IMPORTED_MODULE_2__['default'],
+              _routes__WEBPACK_IMPORTED_MODULE_2__.default,
               null
             )
           )
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = App
+        /* harmony default export */ __webpack_exports__.default = App
 
         /***/
       },
@@ -265,9 +265,7 @@
           )
         }
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = AddIngredients
+        /* harmony default export */ __webpack_exports__.default = AddIngredients
 
         /***/
       },
@@ -323,27 +321,27 @@
           return {
             onLoadAllProducts: function onLoadAllProducts() {
               var thunk = Object(
-                _store_products__WEBPACK_IMPORTED_MODULE_1__['loadAllProducts']
+                _store_products__WEBPACK_IMPORTED_MODULE_1__.loadAllProducts
               )()
               dispatch(thunk)
             },
             add: function add(product, userId, quantity) {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_2__['addToCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_2__.addToCart
               )(product, userId, quantity)
               dispatch(thunk)
             },
             delete: function _delete(id) {
               return dispatch(
                 Object(
-                  _store_products__WEBPACK_IMPORTED_MODULE_1__['deletedProduct']
+                  _store_products__WEBPACK_IMPORTED_MODULE_1__.deletedProduct
                 )(id)
               )
             },
             addGuestCart: function addGuestCart(items) {
               return dispatch(
                 Object(
-                  _store_cart__WEBPACK_IMPORTED_MODULE_2__['gotSavedCart']
+                  _store_cart__WEBPACK_IMPORTED_MODULE_2__.gotSavedCart
                 )(items)
               )
             }
@@ -351,13 +349,11 @@
         }
 
         var allProductsContainer = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_0__['connect']
+          react_redux__WEBPACK_IMPORTED_MODULE_0__.connect
         )(mapStateToProps, mapDispatchToProps)(
-          _all_products__WEBPACK_IMPORTED_MODULE_3__['default']
+          _all_products__WEBPACK_IMPORTED_MODULE_3__.default
         )
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = allProductsContainer
+        /* harmony default export */ __webpack_exports__.default = allProductsContainer
 
         /***/
       },
@@ -568,9 +564,7 @@
                               className: 'btn'
                             },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                              react_router_dom__WEBPACK_IMPORTED_MODULE_1__[
-                                'Link'
-                              ],
+                              react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link,
                               {
                                 to: '/add'
                               },
@@ -609,9 +603,7 @@
                                 className: 'card_content'
                               },
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_1__[
-                                  'Link'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link,
                                 {
                                   to: '/products/'.concat(product.id)
                                 },
@@ -645,7 +637,7 @@
                                       'button',
                                       {
                                         onClick: function onClick() {
-                                          _this.props['delete'](product.id)
+                                          _this.props.delete(product.id)
                                         },
                                         type: 'submit'
                                       },
@@ -860,9 +852,7 @@
                             className: 'button3'
                           },
                           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                            react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                              'Link'
-                            ],
+                            react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link,
                             {
                               to: '/recipies/add'
                             },
@@ -900,9 +890,7 @@
                                 className: 'card_content'
                               },
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Link'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link,
                                 {
                                   to: '/recipies/'.concat(recipe.id)
                                 },
@@ -964,9 +952,7 @@
                                                 i++
                                               ) {
                                                 Object(
-                                                  _all_products__WEBPACK_IMPORTED_MODULE_5__[
-                                                    'guestSession'
-                                                  ]
+                                                  _all_products__WEBPACK_IMPORTED_MODULE_5__.guestSession
                                                 )(
                                                   _this.props.addGuestCart,
                                                   product
@@ -1005,24 +991,24 @@
           return {
             addingToCart: function addingToCart(product, userId) {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_4__['addToCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_4__.addToCart
               )(product, userId)
               dispatch(thunk)
             },
             onLoadAllRecipies: function onLoadAllRecipies() {
               var thunk = Object(
-                _store_recipies__WEBPACK_IMPORTED_MODULE_3__['loadAllRecipies']
+                _store_recipies__WEBPACK_IMPORTED_MODULE_3__.loadAllRecipies
               )()
               dispatch(thunk)
             },
             addGuestCart: function addGuestCart(items) {
-              Object(_store_cart__WEBPACK_IMPORTED_MODULE_4__['gotSavedCart'])(
+              Object(_store_cart__WEBPACK_IMPORTED_MODULE_4__.gotSavedCart)(
                 items
               )
             },
             deletingRecipe: function deletingRecipe(id) {
               var thunk = Object(
-                _store_recipies__WEBPACK_IMPORTED_MODULE_3__['deleteRecipe']
+                _store_recipies__WEBPACK_IMPORTED_MODULE_3__.deleteRecipe
               )(id)
               dispatch(thunk)
             } //addRecipe
@@ -1030,11 +1016,9 @@
         }
 
         var allRecipiesContainer = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(mapStateToProps, mapDispatchToProps)(Recipies)
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = allRecipiesContainer
+        /* harmony default export */ __webpack_exports__.default = allRecipiesContainer
 
         /***/
       },
@@ -1355,7 +1339,7 @@
               var email = evt.target.email.value
               var password = evt.target.password.value
               dispatch(
-                Object(_store__WEBPACK_IMPORTED_MODULE_3__['auth'])(
+                Object(_store__WEBPACK_IMPORTED_MODULE_3__.auth)(
                   email,
                   password,
                   formName
@@ -1391,7 +1375,7 @@
                 password: password
               }
               dispatch(
-                Object(_store__WEBPACK_IMPORTED_MODULE_3__['createUser'])(
+                Object(_store__WEBPACK_IMPORTED_MODULE_3__.createUser)(
                   user,
                   formName
                 )
@@ -1400,12 +1384,12 @@
           }
         }
 
-        var Login = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__['connect'])(
+        var Login = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(
           mapLogin,
           mapDispatch
         )(AuthForm)
         var Signup = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(mapSignup, mapDispatchSignUp)(SignupForm)
         /**
          * PROP TYPES
@@ -1813,9 +1797,7 @@
                                   className: 'card_content'
                                 },
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                  react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                    'Link'
-                                  ],
+                                  react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link,
                                   {
                                     to: '/products/'.concat(product.id)
                                   },
@@ -1838,9 +1820,7 @@
                                         )
                                       else {
                                         Object(
-                                          _all_products__WEBPACK_IMPORTED_MODULE_5__[
-                                            'guestSession'
-                                          ]
+                                          _all_products__WEBPACK_IMPORTED_MODULE_5__.guestSession
                                         )(_this2.props.addGuestCart, product)
                                       }
 
@@ -1900,7 +1880,7 @@
                         },
                         ' ',
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Link'],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link,
                           {
                             to: '/checkout',
                             className: 'button'
@@ -1930,61 +1910,59 @@
           return {
             getCartItems: function getCartItems(id) {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_3__['loadCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_3__.loadCart
               )(id)
               dispatch(thunk)
             },
             remove: function remove(product, userId) {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_3__['removeFromCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_3__.removeFromCart
               )(product, userId)
               dispatch(thunk)
             },
             add: function add(product, userId) {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_3__['addToCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_3__.addToCart
               )(product, userId)
               dispatch(thunk)
             },
             empty: function empty() {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_3__['emptyCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_3__.emptyCart
               )()
               dispatch(thunk)
             },
             getAmount: function getAmount() {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_3__['getCartAmount']
+                _store_cart__WEBPACK_IMPORTED_MODULE_3__.getCartAmount
               )()
               dispatch(thunk)
             },
             getTotal: function getTotal() {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_3__['getCartTotal']
+                _store_cart__WEBPACK_IMPORTED_MODULE_3__.getCartTotal
               )()
               dispatch(thunk)
             },
             addGuestCart: function addGuestCart(items) {
               return dispatch(
                 Object(
-                  _store_cart__WEBPACK_IMPORTED_MODULE_3__['gotSavedCart']
+                  _store_cart__WEBPACK_IMPORTED_MODULE_3__.gotSavedCart
                 )(items)
               )
             },
             getUser: function getUser() {
               return dispatch(
-                Object(_store_user__WEBPACK_IMPORTED_MODULE_4__['me'])()
+                Object(_store_user__WEBPACK_IMPORTED_MODULE_4__.me)()
               )
             }
           }
         }
 
         var CartContainer = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(mapStateToProps, mapDispatchToProps)(Cart)
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = CartContainer
+        /* harmony default export */ __webpack_exports__.default = CartContainer
 
         /***/
       },
@@ -2196,9 +2174,7 @@
                         item.stockQuantity - item.ProductOrder.quantity
                     }
                     Object(
-                      _store_products__WEBPACK_IMPORTED_MODULE_4__[
-                        'subtractFromProductStock'
-                      ]
+                      _store_products__WEBPACK_IMPORTED_MODULE_4__.subtractFromProductStock
                     )(newitem)
                   })
 
@@ -2347,9 +2323,7 @@
                                     'Thank You. Please Pay.'
                                   ),
                                   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                    _credit_card_payment__WEBPACK_IMPORTED_MODULE_3__[
-                                      'default'
-                                    ],
+                                    _credit_card_payment__WEBPACK_IMPORTED_MODULE_3__.default,
                                     {
                                       checkout: this.props.checkout,
                                       checkProps: this.state.checkProps
@@ -2380,7 +2354,7 @@
           return {
             checkout: function checkout(id, info, items) {
               return dispatch(
-                Object(_store_cart__WEBPACK_IMPORTED_MODULE_1__['fulfillCart'])(
+                Object(_store_cart__WEBPACK_IMPORTED_MODULE_1__.fulfillCart)(
                   id,
                   info,
                   items
@@ -2390,8 +2364,8 @@
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(mapState, mapDispatchToProps)(CheckoutForm)
 
         /***/
@@ -2406,9 +2380,7 @@
         'use strict'
         __webpack_require__.r(__webpack_exports__)
         var PAYMENT_SERVER_URL = false ? undefined : 'http://localhost:8080'
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = PAYMENT_SERVER_URL
+        /* harmony default export */ __webpack_exports__.default = PAYMENT_SERVER_URL
 
         /***/
       },
@@ -2427,9 +2399,7 @@
           var STRIPE_PUBLISHABLE = false
             ? undefined
             : process.env.STRIPE_PUBLISHABLE_KEY
-          /* harmony default export */ __webpack_exports__[
-            'default'
-          ] = STRIPE_PUBLISHABLE
+          /* harmony default export */ __webpack_exports__.default = STRIPE_PUBLISHABLE
           /* WEBPACK VAR INJECTION */
         }.call(
           this,
@@ -2611,7 +2581,7 @@
                     )
 
                     alert('Thank You for Shopping With Us!')
-                    _history__WEBPACK_IMPORTED_MODULE_5__['default'].push(
+                    _history__WEBPACK_IMPORTED_MODULE_5__.default.push(
                       '/products'
                     )
                   } catch (err) {
@@ -2636,9 +2606,7 @@
                       amount: this.props.checkProps.total * 100,
                       token: this.onToken,
                       stripeKey:
-                        _constants_stripe__WEBPACK_IMPORTED_MODULE_3__[
-                          'default'
-                        ]
+                        _constants_stripe__WEBPACK_IMPORTED_MODULE_3__.default
                     }
                   )
                 }
@@ -2648,9 +2616,7 @@
             return CreditCardCheckout
           })(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component)
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = CreditCardCheckout
+        /* harmony default export */ __webpack_exports__.default = CreditCardCheckout
 
         /***/
       },
@@ -2820,7 +2786,7 @@
                           'Welcome to Mushroom App'
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_1__['Link'],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link,
                           {
                             to: 'products',
                             className: 'homeBtn'
@@ -2855,7 +2821,7 @@
           __webpack_exports__,
           'Navbar',
           function() {
-            return _navbar__WEBPACK_IMPORTED_MODULE_0__['default']
+            return _navbar__WEBPACK_IMPORTED_MODULE_0__.default
           }
         )
 
@@ -2866,7 +2832,7 @@
           __webpack_exports__,
           'UserHome',
           function() {
-            return _user_home__WEBPACK_IMPORTED_MODULE_1__['default']
+            return _user_home__WEBPACK_IMPORTED_MODULE_1__.default
           }
         )
 
@@ -2877,9 +2843,7 @@
           __webpack_exports__,
           'AllProductsContainer',
           function() {
-            return _all_products_container__WEBPACK_IMPORTED_MODULE_2__[
-              'default'
-            ]
+            return _all_products_container__WEBPACK_IMPORTED_MODULE_2__.default
           }
         )
 
@@ -2890,7 +2854,7 @@
           __webpack_exports__,
           'AllRecipiesContainer',
           function() {
-            return _all_recipies__WEBPACK_IMPORTED_MODULE_3__['default']
+            return _all_recipies__WEBPACK_IMPORTED_MODULE_3__.default
           }
         )
 
@@ -2901,7 +2865,7 @@
           __webpack_exports__,
           'Login',
           function() {
-            return _auth_form__WEBPACK_IMPORTED_MODULE_4__['Login']
+            return _auth_form__WEBPACK_IMPORTED_MODULE_4__.Login
           }
         )
 
@@ -2909,7 +2873,7 @@
           __webpack_exports__,
           'Signup',
           function() {
-            return _auth_form__WEBPACK_IMPORTED_MODULE_4__['Signup']
+            return _auth_form__WEBPACK_IMPORTED_MODULE_4__.Signup
           }
         )
 
@@ -2968,7 +2932,7 @@
                 className: 'navbar-header'
               },
               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                 {
                   to: '/home',
                   className: 'navbar-brand items'
@@ -2985,7 +2949,7 @@
                 ' '
               ),
               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                 {
                   to: '/products',
                   className: 'items active'
@@ -2993,7 +2957,7 @@
                 'Groceries'
               ),
               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                 {
                   to: '/recipies',
                   className: 'items'
@@ -3008,7 +2972,7 @@
                     className: 'nav navbar-nav navbar-right'
                   },
                   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                     {
                       to: '/user',
                       className: 'items'
@@ -3025,7 +2989,7 @@
                   ),
                   status !== 'admin'
                     ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                        react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                        react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                         {
                           to: '/cart',
                           className: 'items'
@@ -3040,7 +3004,7 @@
                     className: 'nav navbar-nav navbar-right'
                   },
                   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                     {
                       to: '/login',
                       className: 'items'
@@ -3048,7 +3012,7 @@
                     'Login'
                   ),
                   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                     {
                       to: '/signup',
                       className: 'items'
@@ -3056,7 +3020,7 @@
                     'Sign Up'
                   ),
                   react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                     {
                       to: '/cart',
                       className: 'items'
@@ -3080,13 +3044,13 @@
         var mapDispatch = function mapDispatch(dispatch) {
           return {
             handleClick: function handleClick() {
-              dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_4__['logout'])())
+              dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_4__.logout)())
             }
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(mapState, mapDispatch)(Navbar)
         /**
          * PROP TYPES
@@ -3435,15 +3399,15 @@
             add: function add(product) {
               return dispatch(
                 Object(
-                  _store_products__WEBPACK_IMPORTED_MODULE_2__['addProduct']
+                  _store_products__WEBPACK_IMPORTED_MODULE_2__.addProduct
                 )(product)
               )
             }
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(null, mapDispatchToProp)(CreateProduct)
 
         /***/
@@ -3633,9 +3597,7 @@
                               date[0]
                             ),
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                              react_router_dom__WEBPACK_IMPORTED_MODULE_3__[
-                                'Link'
-                              ],
+                              react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                               {
                                 to: '/user/orders/'.concat(order.id)
                               },
@@ -3671,15 +3633,15 @@
             onLoadUserOrders: function onLoadUserOrders() {
               var userId = ownProps.userid
               var thunk = Object(
-                _store_orders__WEBPACK_IMPORTED_MODULE_1__['loadUserOrders']
+                _store_orders__WEBPACK_IMPORTED_MODULE_1__.loadUserOrders
               )(userId)
               dispatch(thunk)
             }
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(mapStateToProps, mapDispatchToProps)(OrderHistory)
 
         /***/
@@ -3943,7 +3905,7 @@
           return {
             updateUser: function updateUser(user, id) {
               return dispatch(
-                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__['updateUser'])(
+                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__.updateUser)(
                   user,
                   id
                 )
@@ -3951,7 +3913,7 @@
             },
             checkUser: function checkUser(email, password) {
               return dispatch(
-                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__['me'])(
+                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__.me)(
                   email,
                   password
                 )
@@ -3960,8 +3922,8 @@
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(null, mapDispatchToProps)(PasswordForm)
 
         /***/
@@ -4310,17 +4272,15 @@
 
               var orderId = ownProps.match.params.orderId
               var thunk = Object(
-                _store_singleorder__WEBPACK_IMPORTED_MODULE_1__[
-                  'loadSingleOrder'
-                ]
+                _store_singleorder__WEBPACK_IMPORTED_MODULE_1__.loadSingleOrder
               )(orderId)
               dispatch(thunk)
             }
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(mapStateToProps, mapDispatchToProps)(SingleOrderHistory) // export default SingleOrderHistory
 
         /***/
@@ -4850,9 +4810,7 @@
                                 className: 'card_content'
                               },
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Link'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link,
                                 {
                                   to: '/products/'.concat(product.id)
                                 },
@@ -4929,9 +4887,7 @@
                                             )
                                           } else {
                                             Object(
-                                              _all_products__WEBPACK_IMPORTED_MODULE_5__[
-                                                'guestSession'
-                                              ]
+                                              _all_products__WEBPACK_IMPORTED_MODULE_5__.guestSession
                                             )(
                                               _this2.props.addGuestCart,
                                               product
@@ -4980,44 +4936,40 @@
             loadSingleProduct: function loadSingleProduct(id) {
               return dispatch(
                 Object(
-                  _store_products__WEBPACK_IMPORTED_MODULE_3__[
-                    'loadSingleProduct'
-                  ]
+                  _store_products__WEBPACK_IMPORTED_MODULE_3__.loadSingleProduct
                 )(id)
               )
             },
             update: function update(id, product) {
               return dispatch(
                 Object(
-                  _store_products__WEBPACK_IMPORTED_MODULE_3__[
-                    'updateSingleProduct'
-                  ]
+                  _store_products__WEBPACK_IMPORTED_MODULE_3__.updateSingleProduct
                 )(id, product)
               )
             },
             add: function add(product, userId) {
               var thunk = Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_4__['addToCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_4__.addToCart
               )(product, userId)
               dispatch(thunk)
             },
             addGuestCart: function addGuestCart(items) {
               return dispatch(
                 Object(
-                  _store_cart__WEBPACK_IMPORTED_MODULE_4__['gotSavedCart']
+                  _store_cart__WEBPACK_IMPORTED_MODULE_4__.gotSavedCart
                 )(items)
               )
             },
             getUser: function getUser() {
               return dispatch(
-                Object(_store_user__WEBPACK_IMPORTED_MODULE_6__['me'])()
+                Object(_store_user__WEBPACK_IMPORTED_MODULE_6__.me)()
               )
             }
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(mapStateToProps, mapDispatchToProp)(SingleProduct)
 
         /***/
@@ -5274,9 +5226,7 @@
                         'div',
                         null,
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Redirect'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Redirect,
                           {
                             exact: true,
                             from: '/recipies/'.concat(recipe.id),
@@ -5284,16 +5234,12 @@
                           }
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/recipies/'.concat(recipe.id, '/update')
                           },
                           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                            _update_recipe_container__WEBPACK_IMPORTED_MODULE_6__[
-                              'default'
-                            ],
+                            _update_recipe_container__WEBPACK_IMPORTED_MODULE_6__.default,
                             this.props
                           )
                         )
@@ -5388,9 +5334,7 @@
                                             i++
                                           ) {
                                             Object(
-                                              _all_products__WEBPACK_IMPORTED_MODULE_4__[
-                                                'guestSession'
-                                              ]
+                                              _all_products__WEBPACK_IMPORTED_MODULE_4__.guestSession
                                             )(
                                               _this.props.addProductToGuestCart,
                                               product
@@ -5427,9 +5371,7 @@
                                             )
                                           } else {
                                             Object(
-                                              _all_products__WEBPACK_IMPORTED_MODULE_4__[
-                                                'guestSession'
-                                              ]
+                                              _all_products__WEBPACK_IMPORTED_MODULE_4__.guestSession
                                             )(
                                               _this.props.addProductToGuestCart,
                                               product
@@ -5444,9 +5386,7 @@
                                       'ol',
                                       null,
                                       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                        react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                          'Link'
-                                        ],
+                                        react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link,
                                         {
                                           to: '/products/'.concat(product.id)
                                         },
@@ -5506,9 +5446,7 @@
             onLoadSingleRecipe: function onLoadSingleRecipe(id) {
               return dispatch(
                 Object(
-                  _store_recipies__WEBPACK_IMPORTED_MODULE_3__[
-                    'loadSingleRecipe'
-                  ]
+                  _store_recipies__WEBPACK_IMPORTED_MODULE_3__.loadSingleRecipe
                 )(id)
               )
             },
@@ -5517,7 +5455,7 @@
               userId
             ) {
               return dispatch(
-                Object(_store_cart__WEBPACK_IMPORTED_MODULE_5__['addToCart'])(
+                Object(_store_cart__WEBPACK_IMPORTED_MODULE_5__.addToCart)(
                   product,
                   userId
                 )
@@ -5525,18 +5463,16 @@
             },
             addProductToGuestCart: function addProductToGuestCart(items) {
               return Object(
-                _store_cart__WEBPACK_IMPORTED_MODULE_5__['gotSavedCart']
+                _store_cart__WEBPACK_IMPORTED_MODULE_5__.gotSavedCart
               )(items)
             }
           }
         }
 
         var SingleRecipeContainer = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(mapStateToProps, mapDispatchToProps)(SingleRecipe)
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = SingleRecipeContainer
+        /* harmony default export */ __webpack_exports__.default = SingleRecipeContainer
 
         /***/
       },
@@ -5943,7 +5879,7 @@
                   ) {
                     this.props.updateRecipe(this.props.recipe.id, this.state)
                     this.props.onLoadAllRecipies()
-                    _history__WEBPACK_IMPORTED_MODULE_5__['default'].push(
+                    _history__WEBPACK_IMPORTED_MODULE_5__.default.push(
                       '/recipies'
                     )
                   }
@@ -6176,9 +6112,7 @@
                             }
                           ),
                           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                            _add_ingredients__WEBPACK_IMPORTED_MODULE_4__[
-                              'default'
-                            ],
+                            _add_ingredients__WEBPACK_IMPORTED_MODULE_4__.default,
                             {
                               products: this.props.products,
                               ingredients: this.state.ingredients,
@@ -6221,42 +6155,36 @@
             onLoadSingleRecipe: function onLoadSingleRecipe(id) {
               return dispatch(
                 Object(
-                  _store_recipies__WEBPACK_IMPORTED_MODULE_2__[
-                    'loadSingleRecipe'
-                  ]
+                  _store_recipies__WEBPACK_IMPORTED_MODULE_2__.loadSingleRecipe
                 )(id)
               )
             },
             onLoadAllRecipies: function onLoadAllRecipies() {
               return dispatch(
                 Object(
-                  _store_recipies__WEBPACK_IMPORTED_MODULE_2__[
-                    'loadAllRecipies'
-                  ]
+                  _store_recipies__WEBPACK_IMPORTED_MODULE_2__.loadAllRecipies
                 )()
               )
             },
             loadAllProducts: function loadAllProducts() {
               return dispatch(
                 Object(
-                  _store_products__WEBPACK_IMPORTED_MODULE_3__[
-                    'loadAllProducts'
-                  ]
+                  _store_products__WEBPACK_IMPORTED_MODULE_3__.loadAllProducts
                 )()
               )
             },
             updateRecipe: function updateRecipe(id, recipe) {
               return dispatch(
                 Object(
-                  _store_recipies__WEBPACK_IMPORTED_MODULE_2__['updateRecipe']
+                  _store_recipies__WEBPACK_IMPORTED_MODULE_2__.updateRecipe
                 )(id, recipe)
               )
             }
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_1__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_1__.connect
         )(mapStateToProps, mapDispatchToProps)(UpdateRecipe)
 
         /***/
@@ -6595,7 +6523,7 @@
           return {
             updateUser: function updateUser(user, id) {
               return dispatch(
-                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__['updateUser'])(
+                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__.updateUser)(
                   user,
                   id
                 )
@@ -6603,7 +6531,7 @@
             },
             deleteUser: function deleteUser(userId) {
               return dispatch(
-                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__['deleteUser'])(
+                Object(_store_user__WEBPACK_IMPORTED_MODULE_1__.deleteUser)(
                   userId
                 )
               )
@@ -6611,8 +6539,8 @@
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(null, mapDispatchToProps)(UpdateUser)
 
         /***/
@@ -6732,7 +6660,7 @@
                       className: 'menu_item'
                     },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                       {
                         to: '/user',
                         className: 'button1'
@@ -6746,7 +6674,7 @@
                       className: 'menu_item'
                     },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                       {
                         to: '/user/orders'
                       },
@@ -6759,7 +6687,7 @@
                       className: 'menu_item'
                     },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Link'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
                       {
                         to: '/user/settings'
                       },
@@ -6839,9 +6767,7 @@
                           'div',
                           null,
                           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                            _password_change__WEBPACK_IMPORTED_MODULE_7__[
-                              'default'
-                            ],
+                            _password_change__WEBPACK_IMPORTED_MODULE_7__.default,
                             {
                               user: user_profile
                             }
@@ -6853,20 +6779,16 @@
                       'div',
                       null,
                       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                        react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Switch'],
+                        react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Switch,
                         null,
                         props.location.pathname === '/user/orders'
                           ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                              react_router_dom__WEBPACK_IMPORTED_MODULE_3__[
-                                'Route'
-                              ],
+                              react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route,
                               {
                                 path: ''.concat(props.match.path, '/orders'),
                                 render: function render() {
                                   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                    _order_history__WEBPACK_IMPORTED_MODULE_5__[
-                                      'default'
-                                    ],
+                                    _order_history__WEBPACK_IMPORTED_MODULE_5__.default,
                                     {
                                       userid: id
                                     }
@@ -6876,9 +6798,7 @@
                             )
                           : props.location.pathname === '/user/settings'
                             ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_3__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route,
                                 {
                                   path: ''.concat(
                                     props.match.path,
@@ -6886,9 +6806,7 @@
                                   ),
                                   render: function render() {
                                     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                      _update_user__WEBPACK_IMPORTED_MODULE_4__[
-                                        'default'
-                                      ],
+                                      _update_user__WEBPACK_IMPORTED_MODULE_4__.default,
                                       {
                                         user: user_profile
                                       }
@@ -6897,18 +6815,14 @@
                                 }
                               )
                             : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_3__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route,
                                 {
                                   path: ''.concat(
                                     props.match.path,
                                     '/orders/:orderId'
                                   ),
                                   component:
-                                    _single_order_history__WEBPACK_IMPORTED_MODULE_6__[
-                                      'default'
-                                    ]
+                                    _single_order_history__WEBPACK_IMPORTED_MODULE_6__.default
                                 }
                               )
                       )
@@ -6933,8 +6847,8 @@
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_redux__WEBPACK_IMPORTED_MODULE_2__['connect']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_redux__WEBPACK_IMPORTED_MODULE_2__.connect
         )(mapState)(UserHome)
         /**
          * PROP TYPES
@@ -6962,9 +6876,9 @@
         var history = false
           ? undefined
           : Object(
-              history__WEBPACK_IMPORTED_MODULE_0__['createBrowserHistory']
+              history__WEBPACK_IMPORTED_MODULE_0__.createBrowserHistory
             )()
-        /* harmony default export */ __webpack_exports__['default'] = history
+        /* harmony default export */ __webpack_exports__.default = history
 
         /***/
       },
@@ -7012,17 +6926,17 @@
 
         react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            react_redux__WEBPACK_IMPORTED_MODULE_2__['Provider'],
+            react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider,
             {
-              store: _store__WEBPACK_IMPORTED_MODULE_5__['default']
+              store: _store__WEBPACK_IMPORTED_MODULE_5__.default
             },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              react_router_dom__WEBPACK_IMPORTED_MODULE_3__['Router'],
+              react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Router,
               {
-                history: _history__WEBPACK_IMPORTED_MODULE_4__['default']
+                history: _history__WEBPACK_IMPORTED_MODULE_4__.default
               },
               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                _app__WEBPACK_IMPORTED_MODULE_6__['default'],
+                _app__WEBPACK_IMPORTED_MODULE_6__.default,
                 null
               )
             )
@@ -7217,168 +7131,130 @@
                     isLoggedIn = _this$props.isLoggedIn,
                     user = _this$props.user
                   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Switch'],
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch,
                     null,
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/products/:productId',
                         component:
-                          _components_single_product_view__WEBPACK_IMPORTED_MODULE_5__[
-                            'default'
-                          ]
+                          _components_single_product_view__WEBPACK_IMPORTED_MODULE_5__.default
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/products',
                         component:
-                          _components__WEBPACK_IMPORTED_MODULE_4__[
-                            'AllProductsContainer'
-                          ]
+                          _components__WEBPACK_IMPORTED_MODULE_4__.AllProductsContainer
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/recipies/:recipeId',
                         component:
-                          _components_single_recipe_view__WEBPACK_IMPORTED_MODULE_6__[
-                            'default'
-                          ]
+                          _components_single_recipe_view__WEBPACK_IMPORTED_MODULE_6__.default
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/recipies',
                         component:
-                          _components__WEBPACK_IMPORTED_MODULE_4__[
-                            'AllRecipiesContainer'
-                          ]
+                          _components__WEBPACK_IMPORTED_MODULE_4__.AllRecipiesContainer
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/login',
                         component:
-                          _components__WEBPACK_IMPORTED_MODULE_4__['Login']
+                          _components__WEBPACK_IMPORTED_MODULE_4__.Login
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/signup',
                         component:
-                          _components__WEBPACK_IMPORTED_MODULE_4__['Signup']
+                          _components__WEBPACK_IMPORTED_MODULE_4__.Signup
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/cart',
                         component:
-                          _components_cart_container__WEBPACK_IMPORTED_MODULE_7__[
-                            'default'
-                          ]
+                          _components_cart_container__WEBPACK_IMPORTED_MODULE_7__.default
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/checkout',
                         component:
-                          _components_checkout_form__WEBPACK_IMPORTED_MODULE_9__[
-                            'default'
-                          ]
+                          _components_checkout_form__WEBPACK_IMPORTED_MODULE_9__.default
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         path: '/home',
                         component:
-                          _components_homepage__WEBPACK_IMPORTED_MODULE_13__[
-                            'default'
-                          ]
+                          _components_homepage__WEBPACK_IMPORTED_MODULE_13__.default
                       }
                     ),
                     isLoggedIn &&
                       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                        react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Switch'],
+                        react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Switch,
                         null,
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/products/:productId',
                             component:
-                              _components_single_product_view__WEBPACK_IMPORTED_MODULE_5__[
-                                'default'
-                              ]
+                              _components_single_product_view__WEBPACK_IMPORTED_MODULE_5__.default
                           }
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/products',
                             component:
-                              _components__WEBPACK_IMPORTED_MODULE_4__[
-                                'AllProductsContainer'
-                              ]
+                              _components__WEBPACK_IMPORTED_MODULE_4__.AllProductsContainer
                           }
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/recipies/:recipeId',
                             component:
-                              _components_single_recipe_view__WEBPACK_IMPORTED_MODULE_6__[
-                                'default'
-                              ]
+                              _components_single_recipe_view__WEBPACK_IMPORTED_MODULE_6__.default
                           }
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/recipies',
                             component:
-                              _components__WEBPACK_IMPORTED_MODULE_4__[
-                                'AllRecipiesContainer'
-                              ]
+                              _components__WEBPACK_IMPORTED_MODULE_4__.AllRecipiesContainer
                           }
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/user',
                             component:
-                              _components__WEBPACK_IMPORTED_MODULE_4__[
-                                'UserHome'
-                              ]
+                              _components__WEBPACK_IMPORTED_MODULE_4__.UserHome
                           }
                         ),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                            'Route'
-                          ],
+                          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                           {
                             path: '/home',
                             component:
-                              _components_homepage__WEBPACK_IMPORTED_MODULE_13__[
-                                'default'
-                              ]
+                              _components_homepage__WEBPACK_IMPORTED_MODULE_13__.default
                           }
                         ),
                         user.status !== 'admin'
@@ -7386,39 +7262,27 @@
                               'div',
                               null,
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                                 {
                                   path: '/cart',
                                   component:
-                                    _components_cart_container__WEBPACK_IMPORTED_MODULE_7__[
-                                      'default'
-                                    ]
+                                    _components_cart_container__WEBPACK_IMPORTED_MODULE_7__.default
                                 }
                               ),
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                                 {
                                   path: '/checkout',
                                   component:
-                                    _components_checkout_form__WEBPACK_IMPORTED_MODULE_9__[
-                                      'default'
-                                    ]
+                                    _components_checkout_form__WEBPACK_IMPORTED_MODULE_9__.default
                                 }
                               ),
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                                 {
                                   path: '/payment',
                                   component:
-                                    _components_credit_card_payment__WEBPACK_IMPORTED_MODULE_11__[
-                                      'default'
-                                    ]
+                                    _components_credit_card_payment__WEBPACK_IMPORTED_MODULE_11__.default
                                 }
                               )
                             )
@@ -7426,43 +7290,33 @@
                               'div',
                               null,
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                                 {
                                   exact: true,
                                   path: '/add',
                                   component:
-                                    _components_new_product__WEBPACK_IMPORTED_MODULE_10__[
-                                      'default'
-                                    ]
+                                    _components_new_product__WEBPACK_IMPORTED_MODULE_10__.default
                                 }
                               ),
                               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                                  'Route'
-                                ],
+                                react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                                 {
                                   exact: true,
                                   path: '/recepies/add',
                                   component:
-                                    _components_add_recipe__WEBPACK_IMPORTED_MODULE_12__[
-                                      'default'
-                                    ]
+                                    _components_add_recipe__WEBPACK_IMPORTED_MODULE_12__.default
                                 }
                               )
                             )
                       ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Route'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route,
                       {
                         exact: true,
                         path: '/',
                         render: function render() {
                           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                            react_router_dom__WEBPACK_IMPORTED_MODULE_2__[
-                              'Redirect'
-                            ],
+                            react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Redirect,
                             {
                               to: '/home'
                             }
@@ -7471,7 +7325,7 @@
                       }
                     ),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__['Redirect'],
+                      react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Redirect,
                       {
                         to: '/home'
                       }
@@ -7482,7 +7336,7 @@
             ])
 
             return Routes
-          })(react__WEBPACK_IMPORTED_MODULE_0__['Component'])
+          })(react__WEBPACK_IMPORTED_MODULE_0__.Component)
         /**
          * CONTAINER
          */
@@ -7499,16 +7353,16 @@
         var mapDispatch = function mapDispatch(dispatch) {
           return {
             loadInitialData: function loadInitialData() {
-              dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_8__['me'])())
+              dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_8__.me)())
             }
           }
         } // The `withRouter` wrapper makes sure that updates are not blocked
         // when the url changes
 
-        /* harmony default export */ __webpack_exports__['default'] = Object(
-          react_router_dom__WEBPACK_IMPORTED_MODULE_2__['withRouter']
+        /* harmony default export */ __webpack_exports__.default = Object(
+          react_router_dom__WEBPACK_IMPORTED_MODULE_2__.withRouter
         )(
-          Object(react_redux__WEBPACK_IMPORTED_MODULE_1__['connect'])(
+          Object(react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(
             mapState,
             mapDispatch
           )(Routes)
@@ -7548,7 +7402,7 @@
         socket.on('connect', function() {
           console.log('Connected!')
         })
-        /* harmony default export */ __webpack_exports__['default'] = socket
+        /* harmony default export */ __webpack_exports__.default = socket
 
         /***/
       },
@@ -7851,7 +7705,7 @@
 
                           case 8:
                             _context.prev = 8
-                            _context.t0 = _context['catch'](0)
+                            _context.t0 = _context.catch(0)
                             console.error(_context.t0)
 
                           case 11:
@@ -7903,7 +7757,7 @@
 
                           case 7:
                             _context2.prev = 7
-                            _context2.t0 = _context2['catch'](0)
+                            _context2.t0 = _context2.catch(0)
                             console.error(_context2.t0)
 
                           case 10:
@@ -7955,7 +7809,7 @@
 
                           case 8:
                             _context3.prev = 8
-                            _context3.t0 = _context3['catch'](0)
+                            _context3.t0 = _context3.catch(0)
                             console.error(_context3.t0)
 
                           case 11:
@@ -7993,9 +7847,7 @@
                           case 0:
                             _context4.prev = 0
                             _context4.next = 3
-                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a[
-                              'delete'
-                            ]('api/users/'.concat(userId, '/cart'), {
+                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete('api/users/'.concat(userId, '/cart'), {
                               data: product
                             })
 
@@ -8008,7 +7860,7 @@
 
                           case 8:
                             _context4.prev = 8
-                            _context4.t0 = _context4['catch'](0)
+                            _context4.t0 = _context4.catch(0)
                             console.error(_context4.t0)
 
                           case 11:
@@ -8051,9 +7903,7 @@
           else return 0
         } //PRODUCTS REDUCER
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = function() {
+        /* harmony default export */ __webpack_exports__.default = function() {
           var state =
             arguments.length > 0 && arguments[0] !== undefined
               ? arguments[0]
@@ -8151,7 +8001,7 @@
           __webpack_exports__,
           'me',
           function() {
-            return _user__WEBPACK_IMPORTED_MODULE_4__['me']
+            return _user__WEBPACK_IMPORTED_MODULE_4__.me
           }
         )
 
@@ -8159,7 +8009,7 @@
           __webpack_exports__,
           'auth',
           function() {
-            return _user__WEBPACK_IMPORTED_MODULE_4__['auth']
+            return _user__WEBPACK_IMPORTED_MODULE_4__.auth
           }
         )
 
@@ -8167,7 +8017,7 @@
           __webpack_exports__,
           'createUser',
           function() {
-            return _user__WEBPACK_IMPORTED_MODULE_4__['createUser']
+            return _user__WEBPACK_IMPORTED_MODULE_4__.createUser
           }
         )
 
@@ -8175,7 +8025,7 @@
           __webpack_exports__,
           'updateUser',
           function() {
-            return _user__WEBPACK_IMPORTED_MODULE_4__['updateUser']
+            return _user__WEBPACK_IMPORTED_MODULE_4__.updateUser
           }
         )
 
@@ -8183,7 +8033,7 @@
           __webpack_exports__,
           'logout',
           function() {
-            return _user__WEBPACK_IMPORTED_MODULE_4__['logout']
+            return _user__WEBPACK_IMPORTED_MODULE_4__.logout
           }
         )
 
@@ -8191,37 +8041,35 @@
           __webpack_exports__,
           'deleteUser',
           function() {
-            return _user__WEBPACK_IMPORTED_MODULE_4__['deleteUser']
+            return _user__WEBPACK_IMPORTED_MODULE_4__.deleteUser
           }
         )
 
         var reducer = Object(
-          redux__WEBPACK_IMPORTED_MODULE_0__['combineReducers']
+          redux__WEBPACK_IMPORTED_MODULE_0__.combineReducers
         )({
-          user: _user__WEBPACK_IMPORTED_MODULE_4__['default'],
-          orders: _orders__WEBPACK_IMPORTED_MODULE_7__['default'],
-          products: _products__WEBPACK_IMPORTED_MODULE_5__['default'],
-          cart: _cart__WEBPACK_IMPORTED_MODULE_6__['default'],
-          recipies: _recipies__WEBPACK_IMPORTED_MODULE_8__['default'],
-          singleorder: _singleorder__WEBPACK_IMPORTED_MODULE_9__['default']
+          user: _user__WEBPACK_IMPORTED_MODULE_4__.default,
+          orders: _orders__WEBPACK_IMPORTED_MODULE_7__.default,
+          products: _products__WEBPACK_IMPORTED_MODULE_5__.default,
+          cart: _cart__WEBPACK_IMPORTED_MODULE_6__.default,
+          recipies: _recipies__WEBPACK_IMPORTED_MODULE_8__.default,
+          singleorder: _singleorder__WEBPACK_IMPORTED_MODULE_9__.default
         })
         var middleware = Object(
-          redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__[
-            'composeWithDevTools'
-          ]
+          redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__.composeWithDevTools
         )(
-          Object(redux__WEBPACK_IMPORTED_MODULE_0__['applyMiddleware'])(
-            redux_thunk__WEBPACK_IMPORTED_MODULE_2__['default'],
-            Object(redux_logger__WEBPACK_IMPORTED_MODULE_1__['createLogger'])({
+          Object(redux__WEBPACK_IMPORTED_MODULE_0__.applyMiddleware)(
+            redux_thunk__WEBPACK_IMPORTED_MODULE_2__.default,
+            Object(redux_logger__WEBPACK_IMPORTED_MODULE_1__.createLogger)({
               collapsed: true
             })
           )
         )
-        var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__['createStore'])(
+        var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__.createStore)(
           reducer,
           middleware
         )
-        /* harmony default export */ __webpack_exports__['default'] = store
+        /* harmony default export */ __webpack_exports__.default = store
 
         /***/
       },
@@ -8348,7 +8196,7 @@
 
                           case 8:
                             _context.prev = 8
-                            _context.t0 = _context['catch'](0)
+                            _context.t0 = _context.catch(0)
                             console.error(_context.t0)
 
                           case 11:
@@ -8371,9 +8219,7 @@
           )
         } //reducer
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = function() {
+        /* harmony default export */ __webpack_exports__.default = function() {
           var state =
             arguments.length > 0 && arguments[0] !== undefined
               ? arguments[0]
@@ -8622,7 +8468,7 @@
 
                         case 5:
                           _context.prev = 5
-                          _context.t0 = _context['catch'](0)
+                          _context.t0 = _context.catch(0)
                           console.error(_context.t0)
 
                         case 8:
@@ -8670,7 +8516,7 @@
 
                           case 7:
                             _context2.prev = 7
-                            _context2.t0 = _context2['catch'](0)
+                            _context2.t0 = _context2.catch(0)
                             console.error(_context2.t0)
 
                           case 10:
@@ -8724,7 +8570,7 @@
 
                           case 7:
                             _context3.prev = 7
-                            _context3.t0 = _context3['catch'](0)
+                            _context3.t0 = _context3.catch(0)
                             console.error(_context3.t0)
 
                           case 10:
@@ -8775,7 +8621,7 @@
 
                           case 8:
                             _context4.prev = 8
-                            _context4.t0 = _context4['catch'](0)
+                            _context4.t0 = _context4.catch(0)
                             console.error(_context4.t0)
 
                           case 11:
@@ -8811,9 +8657,7 @@
                           case 0:
                             _context5.prev = 0
                             _context5.next = 3
-                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a[
-                              'delete'
-                            ]('/api/products/'.concat(id))
+                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete('/api/products/'.concat(id))
 
                           case 3:
                             dispatch(deleteProduct(id))
@@ -8822,7 +8666,7 @@
 
                           case 6:
                             _context5.prev = 6
-                            _context5.t0 = _context5['catch'](0)
+                            _context5.t0 = _context5.catch(0)
                             console.error(_context5.t0)
 
                           case 9:
@@ -8874,7 +8718,7 @@
 
                           case 8:
                             _context6.prev = 8
-                            _context6.t0 = _context6['catch'](0)
+                            _context6.t0 = _context6.catch(0)
                             console.error(_context6.t0)
 
                           case 11:
@@ -8897,9 +8741,7 @@
           )
         } //PRODUCTS REDUCER
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = function() {
+        /* harmony default export */ __webpack_exports__.default = function() {
           var state =
             arguments.length > 0 && arguments[0] !== undefined
               ? arguments[0]
@@ -9105,7 +8947,7 @@
 
                           case 8:
                             _context.prev = 8
-                            _context.t0 = _context['catch'](0)
+                            _context.t0 = _context.catch(0)
                             console.error(_context.t0)
 
                           case 11:
@@ -9156,7 +8998,7 @@
 
                           case 8:
                             _context2.prev = 8
-                            _context2.t0 = _context2['catch'](0)
+                            _context2.t0 = _context2.catch(0)
                             console.error(_context2.t0)
 
                           case 11:
@@ -9194,9 +9036,7 @@
                           case 0:
                             _context3.prev = 0
                             _context3.next = 3
-                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a[
-                              'delete'
-                            ]('/api/recipies/'.concat(id))
+                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete('/api/recipies/'.concat(id))
 
                           case 3:
                             _ref6 = _context3.sent
@@ -9207,7 +9047,7 @@
 
                           case 8:
                             _context3.prev = 8
-                            _context3.t0 = _context3['catch'](0)
+                            _context3.t0 = _context3.catch(0)
                             console.error(_context3.t0)
 
                           case 11:
@@ -9260,7 +9100,7 @@
 
                           case 8:
                             _context4.prev = 8
-                            _context4.t0 = _context4['catch'](0)
+                            _context4.t0 = _context4.catch(0)
                             console.error(_context4.t0)
 
                           case 11:
@@ -9285,9 +9125,7 @@
 
         var defaultRecipies = [] //RECIPIES REDUCER
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = function() {
+        /* harmony default export */ __webpack_exports__.default = function() {
           var state =
             arguments.length > 0 && arguments[0] !== undefined
               ? arguments[0]
@@ -9434,7 +9272,7 @@
 
                           case 8:
                             _context.prev = 8
-                            _context.t0 = _context['catch'](0)
+                            _context.t0 = _context.catch(0)
                             console.error(_context.t0)
 
                           case 11:
@@ -9457,9 +9295,7 @@
           )
         } //reducer
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = function() {
+        /* harmony default export */ __webpack_exports__.default = function() {
           var state =
             arguments.length > 0 && arguments[0] !== undefined
               ? arguments[0]
@@ -9661,7 +9497,7 @@
 
                           case 7:
                             _context.prev = 7
-                            _context.t0 = _context['catch'](0)
+                            _context.t0 = _context.catch(0)
                             console.error(_context.t0)
 
                           case 10:
@@ -9713,7 +9549,7 @@
 
                           case 6:
                             _context2.prev = 6
-                            _context2.t0 = _context2['catch'](0)
+                            _context2.t0 = _context2.catch(0)
                             return _context2.abrupt(
                               'return',
                               dispatch(
@@ -9729,14 +9565,12 @@
 
                               if (res.data.status !== 'admin') {
                                 thunk = Object(
-                                  _cart__WEBPACK_IMPORTED_MODULE_2__['loadCart']
+                                  _cart__WEBPACK_IMPORTED_MODULE_2__.loadCart
                                 )(res.data.id)
                                 dispatch(thunk)
                               }
 
-                              _history__WEBPACK_IMPORTED_MODULE_1__[
-                                'default'
-                              ].push('/products')
+                              _history__WEBPACK_IMPORTED_MODULE_1__.default.push('/products')
                             } catch (dispatchOrHistoryErr) {
                               console.error(dispatchOrHistoryErr)
                             }
@@ -9787,7 +9621,7 @@
 
                           case 6:
                             _context3.prev = 6
-                            _context3.t0 = _context3['catch'](0)
+                            _context3.t0 = _context3.catch(0)
                             return _context3.abrupt(
                               'return',
                               dispatch(
@@ -9800,9 +9634,7 @@
                           case 9:
                             try {
                               dispatch(getUser(res.data))
-                              _history__WEBPACK_IMPORTED_MODULE_1__[
-                                'default'
-                              ].push('/user')
+                              _history__WEBPACK_IMPORTED_MODULE_1__.default.push('/user')
                             } catch (dispatchOrHistoryErr) {
                               console.error(dispatchOrHistoryErr)
                             }
@@ -9853,7 +9685,7 @@
 
                           case 6:
                             _context4.prev = 6
-                            _context4.t0 = _context4['catch'](0)
+                            _context4.t0 = _context4.catch(0)
                             return _context4.abrupt(
                               'return',
                               dispatch(
@@ -9866,9 +9698,7 @@
                           case 9:
                             try {
                               dispatch(getUser(res.data))
-                              _history__WEBPACK_IMPORTED_MODULE_1__[
-                                'default'
-                              ].push('/user')
+                              _history__WEBPACK_IMPORTED_MODULE_1__.default.push('/user')
                             } catch (dispatchOrHistoryErr) {
                               console.error(dispatchOrHistoryErr)
                             }
@@ -9914,18 +9744,16 @@
                             dispatch(removeUser())
                             dispatch(
                               Object(
-                                _cart__WEBPACK_IMPORTED_MODULE_2__['emptyCart']
+                                _cart__WEBPACK_IMPORTED_MODULE_2__.emptyCart
                               )()
                             )
-                            _history__WEBPACK_IMPORTED_MODULE_1__[
-                              'default'
-                            ].push('/login')
+                            _history__WEBPACK_IMPORTED_MODULE_1__.default.push('/login')
                             _context5.next = 11
                             break
 
                           case 8:
                             _context5.prev = 8
-                            _context5.t0 = _context5['catch'](0)
+                            _context5.t0 = _context5.catch(0)
                             console.error(_context5.t0)
 
                           case 11:
@@ -9961,15 +9789,13 @@
                           case 0:
                             _context6.prev = 0
                             _context6.next = 3
-                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a[
-                              'delete'
-                            ]('/api/users/'.concat(userId))
+                            return axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete('/api/users/'.concat(userId))
 
                           case 3:
                             dispatch(removeUser())
                             dispatch(
                               Object(
-                                _cart__WEBPACK_IMPORTED_MODULE_2__['emptyCart']
+                                _cart__WEBPACK_IMPORTED_MODULE_2__.emptyCart
                               )()
                             )
                             _context6.next = 10
@@ -9977,7 +9803,7 @@
 
                           case 7:
                             _context6.prev = 7
-                            _context6.t0 = _context6['catch'](0)
+                            _context6.t0 = _context6.catch(0)
                             console.error(_context6.t0)
 
                           case 10:
@@ -10003,9 +9829,7 @@
          * REDUCER
          */
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = function() {
+        /* harmony default export */ __webpack_exports__.default = function() {
           var state =
             arguments.length > 0 && arguments[0] !== undefined
               ? arguments[0]
@@ -10050,7 +9874,7 @@
         }
 
         if (
-          _global['default']._babelPolyfill &&
+          _global.default._babelPolyfill &&
           typeof console !== 'undefined' &&
           console.warn
         ) {
@@ -10062,7 +9886,7 @@
           )
         }
 
-        _global['default']._babelPolyfill = true
+        _global.default._babelPolyfill = true
 
         /***/
       },
@@ -15697,7 +15521,7 @@
         )
         module.exports = __webpack_require__(
           /*! ../../modules/_core */ './node_modules/core-js/modules/_core.js'
-        ).Promise['finally']
+        ).Promise.finally
 
         /***/
       },
@@ -17079,7 +16903,7 @@
                 if (!isObject(key)) return false
                 var data = getWeak(key)
                 if (data === true)
-                  return uncaughtFrozenStore(validate(this, NAME))['delete'](
+                  return uncaughtFrozenStore(validate(this, NAME)).delete(
                     key
                   )
                 return data && $has(data, this._i) && delete data[this._i]
@@ -18281,7 +18105,7 @@
             return entries ? fn(anObject(value)[0], value[1]) : fn(value)
             // 7.4.6 IteratorClose(iterator, completion)
           } catch (e) {
-            var ret = iterator['return']
+            var ret = iterator.return
             if (ret !== undefined) anObject(ret.call(iterator))
             throw e
           }
@@ -18481,7 +18305,7 @@
 
         try {
           var riter = [7][ITERATOR]()
-          riter['return'] = function() {
+          riter.return = function() {
             SAFE_CLOSING = true
           }
           // eslint-disable-next-line no-throw-literal
@@ -24588,7 +24412,7 @@
                 __webpack_require__(
                   /*! ./_iter-detect */ './node_modules/core-js/modules/_iter-detect.js'
                 )(function(iter) {
-                  $Promise.all(iter)['catch'](empty)
+                  $Promise.all(iter).catch(empty)
                 })
               ),
           PROMISE,
@@ -32397,9 +32221,7 @@
           } else {
             // One-arg form: push(location)
             location = Object(
-              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
             )({}, path)
             if (location.pathname === undefined) location.pathname = ''
 
@@ -32444,7 +32266,7 @@
               location.pathname = currentLocation.pathname
             } else if (location.pathname.charAt(0) !== '/') {
               location.pathname = Object(
-                resolve_pathname__WEBPACK_IMPORTED_MODULE_1__['default']
+                resolve_pathname__WEBPACK_IMPORTED_MODULE_1__.default
               )(location.pathname, currentLocation.pathname)
             }
           } else {
@@ -32462,7 +32284,7 @@
             a.search === b.search &&
             a.hash === b.hash &&
             a.key === b.key &&
-            Object(value_equal__WEBPACK_IMPORTED_MODULE_2__['default'])(
+            Object(value_equal__WEBPACK_IMPORTED_MODULE_2__.default)(
               a.state,
               b.state
             )
@@ -32474,7 +32296,7 @@
 
           function setPrompt(nextPrompt) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   prompt == null,
                   'A history supports only one prompt at a time'
                 )
@@ -32504,7 +32326,7 @@
                 } else {
                   true
                     ? Object(
-                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default']
+                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default
                       )(
                         false,
                         'A history needs a getUserConfirmation function in order to use a prompt message'
@@ -32641,7 +32463,7 @@
 
           !canUseDOM
             ? true
-              ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_4__.default)(
                   false,
                   'Browser history needs a DOM'
                 )
@@ -32676,7 +32498,7 @@
               hash = _window$location.hash
             var path = pathname + search + hash
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   !basename || hasBasename(path, basename),
                   'You are attempting to use a basename on a page whose URL path does not begin ' +
                     'with the basename. Expected path "' +
@@ -32700,9 +32522,7 @@
 
           function setState(nextState) {
             Object(
-              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
             )(history, nextState)
 
             history.length = globalHistory.length
@@ -32771,7 +32591,7 @@
 
           function push(path, state) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   !(
                     typeof path === 'object' &&
                     path.state !== undefined &&
@@ -32823,7 +32643,7 @@
                 } else {
                   true
                     ? Object(
-                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default']
+                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default
                       )(
                         state === undefined,
                         'Browser history cannot push state in browsers that do not support HTML5 history'
@@ -32837,7 +32657,7 @@
 
           function replace(path, state) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   !(
                     typeof path === 'object' &&
                     path.state !== undefined &&
@@ -32887,7 +32707,7 @@
                 } else {
                   true
                     ? Object(
-                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default']
+                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default
                       )(
                         state === undefined,
                         'Browser history cannot replace state in browsers that do not support HTML5 history'
@@ -33026,7 +32846,7 @@
 
           !canUseDOM
             ? true
-              ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_4__.default)(
                   false,
                   'Hash history needs a DOM'
                 )
@@ -33052,7 +32872,7 @@
           function getDOMLocation() {
             var path = decodePath(getHashPath())
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   !basename || hasBasename(path, basename),
                   'You are attempting to use a basename on a page whose URL path does not begin ' +
                     'with the basename. Expected path "' +
@@ -33070,9 +32890,7 @@
 
           function setState(nextState) {
             Object(
-              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
             )(history, nextState)
 
             history.length = globalHistory.length
@@ -33170,7 +32988,7 @@
 
           function push(path, state) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   state === undefined,
                   'Hash history cannot push state; it is ignored'
                 )
@@ -33211,7 +33029,7 @@
                 } else {
                   true
                     ? Object(
-                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default']
+                        tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default
                       )(
                         false,
                         'Hash history cannot PUSH the same path; a new entry will not be added to the history stack'
@@ -33225,7 +33043,7 @@
 
           function replace(path, state) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   state === undefined,
                   'Hash history cannot replace state; it is ignored'
                 )
@@ -33267,7 +33085,7 @@
 
           function go(n) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   canGoWithoutReload,
                   'Hash history go(n) causes a full page reload in this browser'
                 )
@@ -33370,9 +33188,7 @@
 
           function setState(nextState) {
             Object(
-              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
             )(history, nextState)
 
             history.length = history.entries.length
@@ -33396,7 +33212,7 @@
 
           function push(path, state) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   !(
                     typeof path === 'object' &&
                     path.state !== undefined &&
@@ -33445,7 +33261,7 @@
 
           function replace(path, state) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__.default)(
                   !(
                     typeof path === 'object' &&
                     path.state !== undefined &&
@@ -33615,7 +33431,7 @@
           if (ReactIs.isMemo(component)) {
             return MEMO_STATICS
           }
-          return TYPE_STATICS[component['$$typeof']] || REACT_STATICS
+          return TYPE_STATICS[component.$$typeof] || REACT_STATICS
         }
 
         var defineProperty = Object.defineProperty
@@ -34010,7 +33826,7 @@
 
                     if (true) {
                       Object(
-                        tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default']
+                        tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default
                       )(
                         (changedBits & MAX_SIGNED_31_BIT_INT) === changedBits,
                         'calculateChangedBits: Expected the return value to be a ' +
@@ -34033,7 +33849,7 @@
               }
 
               return Provider
-            })(react__WEBPACK_IMPORTED_MODULE_0__['Component'])
+            })(react__WEBPACK_IMPORTED_MODULE_0__.Component)
 
           Provider.childContextTypes = ((_Provider$childContex = {}),
           (_Provider$childContex[contextProp] =
@@ -34112,7 +33928,7 @@
               }
 
               return Consumer
-            })(react__WEBPACK_IMPORTED_MODULE_0__['Component'])
+            })(react__WEBPACK_IMPORTED_MODULE_0__.Component)
 
           Consumer.contextTypes = ((_Consumer$contextType = {}),
           (_Consumer$contextType[contextProp] =
@@ -34128,7 +33944,7 @@
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext ||
           createReactContext
 
-        /* harmony default export */ __webpack_exports__['default'] = index
+        /* harmony default export */ __webpack_exports__.default = index
 
         /***/
       },
@@ -35800,7 +35616,7 @@ object-assign
               pluginModule,
               eventName
             ) {
-              if (!!eventNameDispatchConfigs.hasOwnProperty(eventName)) {
+              if (eventNameDispatchConfigs.hasOwnProperty(eventName)) {
                 {
                   throw Error(
                     'EventPluginHub: More than one plugin attempted to publish the same event name, `' +
@@ -35852,7 +35668,7 @@ object-assign
               pluginModule,
               eventName
             ) {
-              if (!!registrationNameModules[registrationName]) {
+              if (registrationNameModules[registrationName]) {
                 {
                   throw Error(
                     'EventPluginHub: More than one plugin attempted to publish the same registration name, `' +
@@ -35921,7 +35737,7 @@ object-assign
              */
 
             function injectEventPluginOrder(injectedEventPluginOrder) {
-              if (!!eventPluginOrder) {
+              if (eventPluginOrder) {
                 {
                   throw Error(
                     'EventPluginRegistry: Cannot inject event plugin ordering more than once. You are likely trying to load more than one copy of React.'
@@ -35959,7 +35775,7 @@ object-assign
                   !namesToPlugins.hasOwnProperty(pluginName) ||
                   namesToPlugins[pluginName] !== pluginModule
                 ) {
-                  if (!!namesToPlugins[pluginName]) {
+                  if (namesToPlugins[pluginName]) {
                     {
                       throw Error(
                         'EventPluginRegistry: Cannot inject two different event plugins using the same name, `' +
@@ -36584,7 +36400,7 @@ object-assign
                 executeDispatchesAndReleaseTopLevel
               )
 
-              if (!!eventQueue) {
+              if (eventQueue) {
                 {
                   throw Error(
                     'processEventQueue(): Additional events were enqueued while processing an event queue. Support for this has not yet been implemented.'
@@ -38020,7 +37836,7 @@ object-assign
                 rootEventTypesSet = eventResponderInstance.rootEventTypes = new Set()
               }
 
-              if (!!rootEventTypesSet.has(rootEventType)) {
+              if (rootEventTypesSet.has(rootEventType)) {
                 {
                   throw Error(
                     'addRootEventTypes() found a duplicate root event type of "' +
@@ -38582,7 +38398,7 @@ object-assign
 
             function sanitizeURL(url) {
               if (disableJavaScriptURLs) {
-                if (!!isJavaScriptProtocol.test(url)) {
+                if (isJavaScriptProtocol.test(url)) {
                   {
                     throw Error(
                       'React has blocked a javascript: URL as a security precaution.' +
@@ -41779,13 +41595,11 @@ object-assign
 
                 if (normalize) {
                   this[propName] = normalize(nativeEvent)
-                } else {
-                  if (propName === 'target') {
+                } else if (propName === 'target') {
                     this.target = nativeEventTarget
                   } else {
                     this[propName] = nativeEvent[propName]
                   }
-                }
               }
 
               var defaultPrevented =
@@ -46552,7 +46366,7 @@ object-assign
 
                 case 'select':
                   restoreControlledState$2(domElement, props)
-                  return
+                  
               }
             }
             function listenToEventResponderEventTypes(eventTypes, element) {
@@ -50493,7 +50307,7 @@ object-assign
               maskedContext
             ) {
               if (disableLegacyContext) {
-                return
+                
               } else {
                 var instance = workInProgress.stateNode
                 instance.__reactInternalMemoizedUnmaskedChildContext = unmaskedContext
@@ -50571,7 +50385,7 @@ object-assign
 
             function popContext(fiber) {
               if (disableLegacyContext) {
-                return
+                
               } else {
                 pop(didPerformWorkStackCursor, fiber)
                 pop(contextStackCursor, fiber)
@@ -50580,7 +50394,7 @@ object-assign
 
             function popTopLevelContextObject(fiber) {
               if (disableLegacyContext) {
-                return
+                
               } else {
                 pop(didPerformWorkStackCursor, fiber)
                 pop(contextStackCursor, fiber)
@@ -50589,7 +50403,7 @@ object-assign
 
             function pushTopLevelContextObject(fiber, context, didChange) {
               if (disableLegacyContext) {
-                return
+                
               } else {
                 if (!(contextStackCursor.current === emptyContextObject)) {
                   {
@@ -50713,7 +50527,7 @@ object-assign
               didChange
             ) {
               if (disableLegacyContext) {
-                return
+                
               } else {
                 var instance = workInProgress.stateNode
 
@@ -52379,7 +52193,7 @@ object-assign
               {
                 // This warning would fire if you read context inside a Hook like useMemo.
                 // Unlike the class check below, it's not enforced in production for perf.
-                !!isDisallowedContextReadInDEV
+                isDisallowedContextReadInDEV
                   ? warning$1(
                       false,
                       'Context can only be read while React is rendering. ' +
@@ -52627,14 +52441,12 @@ object-assign
                     // Only one fiber has an update queue. Clone to create a new one.
                     queue1 = fiber.updateQueue = cloneUpdateQueue(queue2)
                   }
-                } else {
-                  if (queue2 === null) {
+                } else if (queue2 === null) {
                     // Only one fiber has an update queue. Clone to create a new one.
                     queue2 = alternate.updateQueue = cloneUpdateQueue(queue1)
                   } else {
                     // Both owners have an update queue.
                   }
-                }
               }
 
               if (queue2 === null || queue1 === queue2) {
@@ -56636,7 +56448,7 @@ object-assign
               // renderPhaseUpdates = null;
               // numberOfReRenders = 0;
 
-              if (!!didRenderTooFewHooks) {
+              if (didRenderTooFewHooks) {
                 {
                   throw Error(
                     'Rendered fewer hooks than expected. This may be caused by an accidental early return statement.'
@@ -58109,7 +57921,7 @@ object-assign
 
             function warnIfHydrating() {
               {
-                !!isHydrating
+                isHydrating
                   ? warning$1(
                       false,
                       'We should not be hydrating here. This is a bug in React. Please file a bug.'
@@ -58259,7 +58071,7 @@ object-assign
                   }
 
                   default:
-                    return
+                    
                 }
               }
             }
@@ -59873,7 +59685,7 @@ object-assign
 
             function validateFunctionComponentInDev(workInProgress, Component) {
               if (Component) {
-                !!Component.childContextTypes
+                Component.childContextTypes
                   ? warningWithoutStack$1(
                       false,
                       '%s(...): childContextTypes cannot be defined on a function component.',
@@ -62294,7 +62106,7 @@ object-assign
 
                 while (node !== null) {
                   // eslint-disable-next-line no-labels
-                  branches: if (node.tag === HostComponent) {
+                  if (node.tag === HostComponent) {
                     var instance = node.stateNode
 
                     if (needsVisibilityToggle && isHidden) {
@@ -62419,7 +62231,7 @@ object-assign
 
                 while (node !== null) {
                   // eslint-disable-next-line no-labels
-                  branches: if (node.tag === HostComponent) {
+                  if (node.tag === HostComponent) {
                     var instance = node.stateNode
 
                     if (needsVisibilityToggle && isHidden) {
@@ -63505,11 +63317,9 @@ object-assign
                         ) {
                           markUpdate(workInProgress)
                         }
-                      } else {
-                        if (workInProgress.ref !== null) {
+                      } else if (workInProgress.ref !== null) {
                           markUpdate(workInProgress)
                         }
-                      }
 
                       if (current.ref !== workInProgress.ref) {
                         markRef$1(workInProgress)
@@ -64867,13 +64677,11 @@ object-assign
                     } else {
                       insertBefore(parent, stateNode, before)
                     }
-                  } else {
-                    if (isContainer) {
+                  } else if (isContainer) {
                       appendChildToContainer(parent, stateNode)
                     } else {
                       appendChild(parent, stateNode)
                     }
-                  }
                 } else if (node.tag === HostPortal) {
                   // If the insertion itself is a portal, then we don't want to traverse
                   // down its children. Instead, we'll get insertions from each child in
@@ -65311,11 +65119,9 @@ object-assign
                   if (thenables !== null) {
                     suspenseCallback(new Set(thenables))
                   }
-                } else {
-                  if (suspenseCallback !== undefined) {
+                } else if (suspenseCallback !== undefined) {
                     warning$1(false, 'Unexpected type for suspenseCallback.')
                   }
-                }
               }
             }
 
@@ -70867,7 +70673,7 @@ object-assign
                   var rootEl = getReactRootElementInContainer(container)
                   var renderedByDifferentReact =
                     rootEl && !getInstanceFromNode$1(rootEl)
-                  !!renderedByDifferentReact
+                  renderedByDifferentReact
                     ? warningWithoutStack$1(
                         false,
                         "unmountComponentAtNode(): The node you're attempting to unmount " +
@@ -70903,7 +70709,7 @@ object-assign
                     container.nodeType === ELEMENT_NODE &&
                     isValidContainer(container.parentNode) &&
                     !!container.parentNode._reactRootContainer
-                  !!hasNonRootReactChild
+                  hasNonRootReactChild
                     ? warningWithoutStack$1(
                         false,
                         "unmountComponentAtNode(): The node you're attempting to unmount " +
@@ -71493,9 +71299,7 @@ object-assign
         var ReactReduxContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext(
           null
         )
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = ReactReduxContext
+        /* harmony default export */ __webpack_exports__.default = ReactReduxContext
 
         /***/
       },
@@ -71532,12 +71336,10 @@ object-assign
             context = _ref.context,
             children = _ref.children
           var contextValue = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useMemo']
+            react__WEBPACK_IMPORTED_MODULE_0__.useMemo
           )(
             function() {
-              var subscription = new _utils_Subscription__WEBPACK_IMPORTED_MODULE_3__[
-                'default'
-              ](store)
+              var subscription = new _utils_Subscription__WEBPACK_IMPORTED_MODULE_3__.default(store)
               subscription.onStateChange = subscription.notifyNestedSubs
               return {
                 store: store,
@@ -71547,14 +71349,14 @@ object-assign
             [store]
           )
           var previousState = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useMemo']
+            react__WEBPACK_IMPORTED_MODULE_0__.useMemo
           )(
             function() {
               return store.getState()
             },
             [store]
           )
-          Object(react__WEBPACK_IMPORTED_MODULE_0__['useEffect'])(
+          Object(react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
             function() {
               var subscription = contextValue.subscription
               subscription.trySubscribe()
@@ -71572,7 +71374,7 @@ object-assign
           )
           var Context =
             context ||
-            _Context__WEBPACK_IMPORTED_MODULE_2__['ReactReduxContext']
+            _Context__WEBPACK_IMPORTED_MODULE_2__.ReactReduxContext
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
             Context.Provider,
             {
@@ -71594,7 +71396,7 @@ object-assign
           context: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
           children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any
         }
-        /* harmony default export */ __webpack_exports__['default'] = Provider
+        /* harmony default export */ __webpack_exports__.default = Provider
 
         /***/
       },
@@ -71728,12 +71530,10 @@ object-assign
             _ref2$context = _ref2.context,
             context =
               _ref2$context === void 0
-                ? _Context__WEBPACK_IMPORTED_MODULE_8__['ReactReduxContext']
+                ? _Context__WEBPACK_IMPORTED_MODULE_8__.ReactReduxContext
                 : _ref2$context,
             connectOptions = Object(
-              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__.default
             )(_ref2, [
               'getDisplayName',
               'methodName',
@@ -71768,7 +71568,7 @@ object-assign
             if (true) {
               invariant__WEBPACK_IMPORTED_MODULE_3___default()(
                 Object(
-                  react_is__WEBPACK_IMPORTED_MODULE_5__['isValidElementType']
+                  react_is__WEBPACK_IMPORTED_MODULE_5__.isValidElementType
                 )(WrappedComponent),
                 'You must pass a component to the function returned by ' +
                   (methodName +
@@ -71784,9 +71584,7 @@ object-assign
             var displayName = getDisplayName(wrappedComponentName)
 
             var selectorFactoryOptions = Object(
-              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
             )({}, connectOptions, {
               getDisplayName: getDisplayName,
               methodName: methodName,
@@ -71807,14 +71605,14 @@ object-assign
             // that just executes the given callback immediately.
 
             var usePureOnlyMemo = pure
-              ? react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+              ? react__WEBPACK_IMPORTED_MODULE_4__.useMemo
               : function(callback) {
                   return callback()
                 }
 
             function ConnectFunction(props) {
               var _useMemo = Object(
-                  react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                  react__WEBPACK_IMPORTED_MODULE_4__.useMemo
                 )(
                   function() {
                     // Distinguish between actual "data" props that were passed to the wrapper component,
@@ -71822,9 +71620,7 @@ object-assign
                     // To maintain the wrapperProps object reference, memoize this destructuring.
                     var forwardedRef = props.forwardedRef,
                       wrapperProps = Object(
-                        _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__[
-                          'default'
-                        ]
+                        _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__.default
                       )(props, ['forwardedRef'])
 
                     return [props.context, forwardedRef, wrapperProps]
@@ -71836,7 +71632,7 @@ object-assign
                 wrapperProps = _useMemo[2]
 
               var ContextToUse = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                react__WEBPACK_IMPORTED_MODULE_4__.useMemo
               )(
                 function() {
                   // Users may optionally pass in a custom context instance to use instead of our ReactReduxContext.
@@ -71844,7 +71640,7 @@ object-assign
                   return propsContext &&
                     propsContext.Consumer &&
                     Object(
-                      react_is__WEBPACK_IMPORTED_MODULE_5__['isContextConsumer']
+                      react_is__WEBPACK_IMPORTED_MODULE_5__.isContextConsumer
                     )(
                       react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(
                         propsContext.Consumer,
@@ -71858,7 +71654,7 @@ object-assign
               ) // Retrieve the store and ancestor subscription via context, if available
 
               var contextValue = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useContext']
+                react__WEBPACK_IMPORTED_MODULE_4__.useContext
               )(ContextToUse) // The store _must_ exist as either a prop or in context.
               // We'll check to see if it _looks_ like a Redux store first.
               // This allows us to pass through a `store` prop that is just a plain value.
@@ -71885,7 +71681,7 @@ object-assign
                 ? props.store
                 : contextValue.store
               var childPropsSelector = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                react__WEBPACK_IMPORTED_MODULE_4__.useMemo
               )(
                 function() {
                   // The child props selector needs the store reference as an input.
@@ -71896,15 +71692,13 @@ object-assign
               )
 
               var _useMemo2 = Object(
-                  react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                  react__WEBPACK_IMPORTED_MODULE_4__.useMemo
                 )(
                   function() {
                     if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY // This Subscription's source should match where store came from: props vs. context. A component
                     // connected to the store via props shouldn't use subscription from context, or vice versa.
 
-                    var subscription = new _utils_Subscription__WEBPACK_IMPORTED_MODULE_6__[
-                      'default'
-                    ](
+                    var subscription = new _utils_Subscription__WEBPACK_IMPORTED_MODULE_6__.default(
                       store,
                       didStoreComeFromProps ? null : contextValue.subscription
                     ) // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
@@ -71924,7 +71718,7 @@ object-assign
               // and memoize that value to avoid unnecessary context updates.
 
               var overriddenContextValue = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                react__WEBPACK_IMPORTED_MODULE_4__.useMemo
               )(
                 function() {
                   if (didStoreComeFromProps) {
@@ -71936,9 +71730,7 @@ object-assign
                   // connected descendants won't update until after this component is done
 
                   return Object(
-                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                      'default'
-                    ]
+                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
                   )({}, contextValue, {
                     subscription: subscription
                   })
@@ -71948,7 +71740,7 @@ object-assign
               // causes a change to the calculated child component props (or we caught an error in mapState)
 
               var _useReducer = Object(
-                  react__WEBPACK_IMPORTED_MODULE_4__['useReducer']
+                  react__WEBPACK_IMPORTED_MODULE_4__.useReducer
                 )(storeStateUpdatesReducer, EMPTY_ARRAY, initStateUpdates),
                 _useReducer$ = _useReducer[0],
                 previousStateUpdateResult = _useReducer$[0],
@@ -71962,16 +71754,16 @@ object-assign
               } // Set up refs to coordinate values between the subscription effect and the render logic
 
               var lastChildProps = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useRef']
+                react__WEBPACK_IMPORTED_MODULE_4__.useRef
               )()
               var lastWrapperProps = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useRef']
+                react__WEBPACK_IMPORTED_MODULE_4__.useRef
               )(wrapperProps)
               var childPropsFromStoreUpdate = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useRef']
+                react__WEBPACK_IMPORTED_MODULE_4__.useRef
               )()
               var renderIsScheduled = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useRef']
+                react__WEBPACK_IMPORTED_MODULE_4__.useRef
               )(false)
               var actualChildProps = usePureOnlyMemo(
                 function() {
@@ -71999,9 +71791,7 @@ object-assign
               // just useEffect instead to avoid the warning, since neither will run anyway.
 
               Object(
-                _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_7__[
-                  'useIsomorphicLayoutEffect'
-                ]
+                _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_7__.useIsomorphicLayoutEffect
               )(function() {
                 // We want to capture the wrapper props and child props we used for later comparisons
                 lastWrapperProps.current = wrapperProps
@@ -72015,9 +71805,7 @@ object-assign
               }) // Our re-subscribe logic only runs when the store/subscription setup changes
 
               Object(
-                _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_7__[
-                  'useIsomorphicLayoutEffect'
-                ]
+                _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_7__.useIsomorphicLayoutEffect
               )(
                 function() {
                   // If we're not subscribed to the store, nothing to do here
@@ -72102,15 +71890,13 @@ object-assign
               // We memoize the elements for the rendered child component as an optimization.
 
               var renderedWrappedComponent = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                react__WEBPACK_IMPORTED_MODULE_4__.useMemo
               )(
                 function() {
                   return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(
                     WrappedComponent,
                     Object(
-                      _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                        'default'
-                      ]
+                      _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
                     )({}, actualChildProps, {
                       ref: forwardedRef
                     })
@@ -72121,7 +71907,7 @@ object-assign
               // that child, same as if it was wrapped in React.memo() or returned false from shouldComponentUpdate.
 
               var renderedChild = Object(
-                react__WEBPACK_IMPORTED_MODULE_4__['useMemo']
+                react__WEBPACK_IMPORTED_MODULE_4__.useMemo
               )(
                 function() {
                   if (shouldHandleStateChanges) {
@@ -72158,9 +71944,7 @@ object-assign
                   return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(
                     Connect,
                     Object(
-                      _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                        'default'
-                      ]
+                      _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
                     )({}, props, {
                       forwardedRef: ref
                     })
@@ -72271,29 +72055,27 @@ object-assign
             _ref$connectHOC = _ref.connectHOC,
             connectHOC =
               _ref$connectHOC === void 0
-                ? _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_2__[
-                    'default'
-                  ]
+                ? _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_2__.default
                 : _ref$connectHOC,
             _ref$mapStateToPropsF = _ref.mapStateToPropsFactories,
             mapStateToPropsFactories =
               _ref$mapStateToPropsF === void 0
-                ? _mapStateToProps__WEBPACK_IMPORTED_MODULE_5__['default']
+                ? _mapStateToProps__WEBPACK_IMPORTED_MODULE_5__.default
                 : _ref$mapStateToPropsF,
             _ref$mapDispatchToPro = _ref.mapDispatchToPropsFactories,
             mapDispatchToPropsFactories =
               _ref$mapDispatchToPro === void 0
-                ? _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_4__['default']
+                ? _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_4__.default
                 : _ref$mapDispatchToPro,
             _ref$mergePropsFactor = _ref.mergePropsFactories,
             mergePropsFactories =
               _ref$mergePropsFactor === void 0
-                ? _mergeProps__WEBPACK_IMPORTED_MODULE_6__['default']
+                ? _mergeProps__WEBPACK_IMPORTED_MODULE_6__.default
                 : _ref$mergePropsFactor,
             _ref$selectorFactory = _ref.selectorFactory,
             selectorFactory =
               _ref$selectorFactory === void 0
-                ? _selectorFactory__WEBPACK_IMPORTED_MODULE_7__['default']
+                ? _selectorFactory__WEBPACK_IMPORTED_MODULE_7__.default
                 : _ref$selectorFactory
 
           return function connect(
@@ -72317,22 +72099,20 @@ object-assign
               _ref3$areOwnPropsEqua = _ref3.areOwnPropsEqual,
               areOwnPropsEqual =
                 _ref3$areOwnPropsEqua === void 0
-                  ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__['default']
+                  ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__.default
                   : _ref3$areOwnPropsEqua,
               _ref3$areStatePropsEq = _ref3.areStatePropsEqual,
               areStatePropsEqual =
                 _ref3$areStatePropsEq === void 0
-                  ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__['default']
+                  ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__.default
                   : _ref3$areStatePropsEq,
               _ref3$areMergedPropsE = _ref3.areMergedPropsEqual,
               areMergedPropsEqual =
                 _ref3$areMergedPropsE === void 0
-                  ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__['default']
+                  ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__.default
                   : _ref3$areMergedPropsE,
               extraOptions = Object(
-                _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__[
-                  'default'
-                ]
+                _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__.default
               )(_ref3, [
                 'pure',
                 'areStatesEqual',
@@ -72359,9 +72139,7 @@ object-assign
             return connectHOC(
               selectorFactory,
               Object(
-                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-                  'default'
-                ]
+                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
               )(
                 {
                   // used in error messages
@@ -72387,9 +72165,7 @@ object-assign
             )
           }
         }
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = createConnect()
+        /* harmony default export */ __webpack_exports__.default = createConnect()
 
         /***/
       },
@@ -72433,18 +72209,14 @@ object-assign
         function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
           return typeof mapDispatchToProps === 'function'
             ? Object(
-                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__[
-                  'wrapMapToPropsFunc'
-                ]
+                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__.wrapMapToPropsFunc
               )(mapDispatchToProps, 'mapDispatchToProps')
             : undefined
         }
         function whenMapDispatchToPropsIsMissing(mapDispatchToProps) {
           return !mapDispatchToProps
             ? Object(
-                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__[
-                  'wrapMapToPropsConstant'
-                ]
+                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__.wrapMapToPropsConstant
               )(function(dispatch) {
                 return {
                   dispatch: dispatch
@@ -72455,17 +72227,15 @@ object-assign
         function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
           return mapDispatchToProps && typeof mapDispatchToProps === 'object'
             ? Object(
-                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__[
-                  'wrapMapToPropsConstant'
-                ]
+                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__.wrapMapToPropsConstant
               )(function(dispatch) {
                 return Object(
-                  redux__WEBPACK_IMPORTED_MODULE_0__['bindActionCreators']
+                  redux__WEBPACK_IMPORTED_MODULE_0__.bindActionCreators
                 )(mapDispatchToProps, dispatch)
               })
             : undefined
         }
-        /* harmony default export */ __webpack_exports__['default'] = [
+        /* harmony default export */ __webpack_exports__.default = [
           whenMapDispatchToPropsIsFunction,
           whenMapDispatchToPropsIsMissing,
           whenMapDispatchToPropsIsObject
@@ -72503,24 +72273,20 @@ object-assign
         function whenMapStateToPropsIsFunction(mapStateToProps) {
           return typeof mapStateToProps === 'function'
             ? Object(
-                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__[
-                  'wrapMapToPropsFunc'
-                ]
+                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__.wrapMapToPropsFunc
               )(mapStateToProps, 'mapStateToProps')
             : undefined
         }
         function whenMapStateToPropsIsMissing(mapStateToProps) {
           return !mapStateToProps
             ? Object(
-                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__[
-                  'wrapMapToPropsConstant'
-                ]
+                _wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__.wrapMapToPropsConstant
               )(function() {
                 return {}
               })
             : undefined
         }
-        /* harmony default export */ __webpack_exports__['default'] = [
+        /* harmony default export */ __webpack_exports__.default = [
           whenMapStateToPropsIsFunction,
           whenMapStateToPropsIsMissing
         ]
@@ -72573,9 +72339,7 @@ object-assign
 
         function defaultMergeProps(stateProps, dispatchProps, ownProps) {
           return Object(
-            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[
-              'default'
-            ]
+            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default
           )({}, ownProps, {}, stateProps, {}, dispatchProps)
         }
         function wrapMergePropsFunc(mergeProps) {
@@ -72604,9 +72368,7 @@ object-assign
                 mergedProps = nextMergedProps
                 if (true)
                   Object(
-                    _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_1__[
-                      'default'
-                    ]
+                    _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_1__.default
                   )(mergedProps, displayName, 'mergeProps')
               }
 
@@ -72626,7 +72388,7 @@ object-assign
               }
             : undefined
         }
-        /* harmony default export */ __webpack_exports__['default'] = [
+        /* harmony default export */ __webpack_exports__.default = [
           whenMergePropsIsFunction,
           whenMergePropsIsOmitted
         ]
@@ -72767,9 +72529,7 @@ object-assign
             initMapDispatchToProps = _ref2.initMapDispatchToProps,
             initMergeProps = _ref2.initMergeProps,
             options = Object(
-              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(_ref2, [
               'initMapStateToProps',
               'initMapDispatchToProps',
@@ -72781,7 +72541,7 @@ object-assign
           var mergeProps = initMergeProps(dispatch, options)
 
           if (true) {
-            Object(_verifySubselectors__WEBPACK_IMPORTED_MODULE_1__['default'])(
+            Object(_verifySubselectors__WEBPACK_IMPORTED_MODULE_1__.default)(
               mapStateToProps,
               mapDispatchToProps,
               mergeProps,
@@ -72838,7 +72598,7 @@ object-assign
                 'dependsOnOwnProps'
               )
             ) {
-              Object(_utils_warning__WEBPACK_IMPORTED_MODULE_0__['default'])(
+              Object(_utils_warning__WEBPACK_IMPORTED_MODULE_0__.default)(
                 'The selector for ' +
                   methodName +
                   ' of ' +
@@ -72961,9 +72721,7 @@ object-assign
 
               if (true)
                 Object(
-                  _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_0__[
-                    'default'
-                  ]
+                  _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_0__.default
                 )(props, displayName, methodName)
               return props
             }
@@ -73014,19 +72772,15 @@ object-assign
         function createDispatchHook(context) {
           if (context === void 0) {
             context =
-              _components_Context__WEBPACK_IMPORTED_MODULE_0__[
-                'ReactReduxContext'
-              ]
+              _components_Context__WEBPACK_IMPORTED_MODULE_0__.ReactReduxContext
           }
 
           var useStore =
             context ===
-            _components_Context__WEBPACK_IMPORTED_MODULE_0__[
-              'ReactReduxContext'
-            ]
-              ? _useStore__WEBPACK_IMPORTED_MODULE_1__['useStore']
+            _components_Context__WEBPACK_IMPORTED_MODULE_0__.ReactReduxContext
+              ? _useStore__WEBPACK_IMPORTED_MODULE_1__.useStore
               : Object(
-                  _useStore__WEBPACK_IMPORTED_MODULE_1__['createStoreHook']
+                  _useStore__WEBPACK_IMPORTED_MODULE_1__.createStoreHook
                 )(context)
           return function useDispatch() {
             var store = useStore()
@@ -73110,11 +72864,9 @@ object-assign
 
         function useReduxContext() {
           var contextValue = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useContext']
+            react__WEBPACK_IMPORTED_MODULE_0__.useContext
           )(
-            _components_Context__WEBPACK_IMPORTED_MODULE_2__[
-              'ReactReduxContext'
-            ]
+            _components_Context__WEBPACK_IMPORTED_MODULE_2__.ReactReduxContext
           )
           invariant__WEBPACK_IMPORTED_MODULE_1___default()(
             contextValue,
@@ -73184,30 +72936,28 @@ object-assign
           contextSub
         ) {
           var _useReducer = Object(
-              react__WEBPACK_IMPORTED_MODULE_0__['useReducer']
+              react__WEBPACK_IMPORTED_MODULE_0__.useReducer
             )(function(s) {
               return s + 1
             }, 0),
             forceRender = _useReducer[1]
 
           var subscription = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useMemo']
+            react__WEBPACK_IMPORTED_MODULE_0__.useMemo
           )(
             function() {
-              return new _utils_Subscription__WEBPACK_IMPORTED_MODULE_3__[
-                'default'
-              ](store, contextSub)
+              return new _utils_Subscription__WEBPACK_IMPORTED_MODULE_3__.default(store, contextSub)
             },
             [store, contextSub]
           )
           var latestSubscriptionCallbackError = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useRef']
+            react__WEBPACK_IMPORTED_MODULE_0__.useRef
           )()
           var latestSelector = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useRef']
+            react__WEBPACK_IMPORTED_MODULE_0__.useRef
           )()
           var latestSelectedState = Object(
-            react__WEBPACK_IMPORTED_MODULE_0__['useRef']
+            react__WEBPACK_IMPORTED_MODULE_0__.useRef
           )()
           var selectedState
 
@@ -73237,18 +72987,14 @@ object-assign
           }
 
           Object(
-            _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_4__[
-              'useIsomorphicLayoutEffect'
-            ]
+            _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_4__.useIsomorphicLayoutEffect
           )(function() {
             latestSelector.current = selector
             latestSelectedState.current = selectedState
             latestSubscriptionCallbackError.current = undefined
           })
           Object(
-            _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_4__[
-              'useIsomorphicLayoutEffect'
-            ]
+            _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_4__.useIsomorphicLayoutEffect
           )(
             function() {
               function checkForUpdates() {
@@ -73296,20 +73042,16 @@ object-assign
         function createSelectorHook(context) {
           if (context === void 0) {
             context =
-              _components_Context__WEBPACK_IMPORTED_MODULE_5__[
-                'ReactReduxContext'
-              ]
+              _components_Context__WEBPACK_IMPORTED_MODULE_5__.ReactReduxContext
           }
 
           var useReduxContext =
             context ===
-            _components_Context__WEBPACK_IMPORTED_MODULE_5__[
-              'ReactReduxContext'
-            ]
-              ? _useReduxContext__WEBPACK_IMPORTED_MODULE_2__['useReduxContext']
+            _components_Context__WEBPACK_IMPORTED_MODULE_5__.ReactReduxContext
+              ? _useReduxContext__WEBPACK_IMPORTED_MODULE_2__.useReduxContext
               : function() {
                   return Object(
-                    react__WEBPACK_IMPORTED_MODULE_0__['useContext']
+                    react__WEBPACK_IMPORTED_MODULE_0__.useContext
                   )(context)
                 }
           return function useSelector(selector, equalityFn) {
@@ -73408,20 +73150,16 @@ object-assign
         function createStoreHook(context) {
           if (context === void 0) {
             context =
-              _components_Context__WEBPACK_IMPORTED_MODULE_1__[
-                'ReactReduxContext'
-              ]
+              _components_Context__WEBPACK_IMPORTED_MODULE_1__.ReactReduxContext
           }
 
           var useReduxContext =
             context ===
-            _components_Context__WEBPACK_IMPORTED_MODULE_1__[
-              'ReactReduxContext'
-            ]
-              ? _useReduxContext__WEBPACK_IMPORTED_MODULE_2__['useReduxContext']
+            _components_Context__WEBPACK_IMPORTED_MODULE_1__.ReactReduxContext
+              ? _useReduxContext__WEBPACK_IMPORTED_MODULE_2__.useReduxContext
               : function() {
                   return Object(
-                    react__WEBPACK_IMPORTED_MODULE_0__['useContext']
+                    react__WEBPACK_IMPORTED_MODULE_0__.useContext
                   )(context)
                 }
           return function useStore() {
@@ -73467,7 +73205,7 @@ object-assign
           __webpack_exports__,
           'Provider',
           function() {
-            return _components_Provider__WEBPACK_IMPORTED_MODULE_0__['default']
+            return _components_Provider__WEBPACK_IMPORTED_MODULE_0__.default
           }
         )
 
@@ -73478,9 +73216,7 @@ object-assign
           __webpack_exports__,
           'connectAdvanced',
           function() {
-            return _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_1__[
-              'default'
-            ]
+            return _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_1__.default
           }
         )
 
@@ -73491,9 +73227,7 @@ object-assign
           __webpack_exports__,
           'ReactReduxContext',
           function() {
-            return _components_Context__WEBPACK_IMPORTED_MODULE_2__[
-              'ReactReduxContext'
-            ]
+            return _components_Context__WEBPACK_IMPORTED_MODULE_2__.ReactReduxContext
           }
         )
 
@@ -73504,7 +73238,7 @@ object-assign
           __webpack_exports__,
           'connect',
           function() {
-            return _connect_connect__WEBPACK_IMPORTED_MODULE_3__['default']
+            return _connect_connect__WEBPACK_IMPORTED_MODULE_3__.default
           }
         )
 
@@ -73515,9 +73249,7 @@ object-assign
           __webpack_exports__,
           'useDispatch',
           function() {
-            return _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__[
-              'useDispatch'
-            ]
+            return _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__.useDispatch
           }
         )
 
@@ -73525,9 +73257,7 @@ object-assign
           __webpack_exports__,
           'createDispatchHook',
           function() {
-            return _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__[
-              'createDispatchHook'
-            ]
+            return _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__.createDispatchHook
           }
         )
 
@@ -73538,9 +73268,7 @@ object-assign
           __webpack_exports__,
           'useSelector',
           function() {
-            return _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__[
-              'useSelector'
-            ]
+            return _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__.useSelector
           }
         )
 
@@ -73548,9 +73276,7 @@ object-assign
           __webpack_exports__,
           'createSelectorHook',
           function() {
-            return _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__[
-              'createSelectorHook'
-            ]
+            return _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__.createSelectorHook
           }
         )
 
@@ -73561,7 +73287,7 @@ object-assign
           __webpack_exports__,
           'useStore',
           function() {
-            return _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__['useStore']
+            return _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__.useStore
           }
         )
 
@@ -73569,9 +73295,7 @@ object-assign
           __webpack_exports__,
           'createStoreHook',
           function() {
-            return _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__[
-              'createStoreHook'
-            ]
+            return _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__.createStoreHook
           }
         )
 
@@ -73585,9 +73309,7 @@ object-assign
           __webpack_exports__,
           'batch',
           function() {
-            return _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__[
-              'unstable_batchedUpdates'
-            ]
+            return _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__.unstable_batchedUpdates
           }
         )
 
@@ -73598,14 +73320,12 @@ object-assign
           __webpack_exports__,
           'shallowEqual',
           function() {
-            return _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_9__['default']
+            return _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_9__.default
           }
         )
 
-        Object(_utils_batch__WEBPACK_IMPORTED_MODULE_7__['setBatch'])(
-          _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__[
-            'unstable_batchedUpdates'
-          ]
+        Object(_utils_batch__WEBPACK_IMPORTED_MODULE_7__.setBatch)(
+          _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__.unstable_batchedUpdates
         )
 
         /***/
@@ -73639,7 +73359,7 @@ object-assign
         }
 
         function createListenerCollection() {
-          var batch = Object(_batch__WEBPACK_IMPORTED_MODULE_0__['getBatch'])() // the current/next pattern is copied from redux's createStore code.
+          var batch = Object(_batch__WEBPACK_IMPORTED_MODULE_0__.getBatch)() // the current/next pattern is copied from redux's createStore code.
           // TODO: refactor+expose that code to be reusable here?
 
           var current = []
@@ -73823,9 +73543,7 @@ object-assign
           __webpack_exports__,
           'unstable_batchedUpdates',
           function() {
-            return react_dom__WEBPACK_IMPORTED_MODULE_0__[
-              'unstable_batchedUpdates'
-            ]
+            return react_dom__WEBPACK_IMPORTED_MODULE_0__.unstable_batchedUpdates
           }
         )
 
@@ -73925,8 +73643,8 @@ object-assign
           typeof window.document !== 'undefined' &&
           typeof window.document.createElement !== 'undefined'
         var useIsomorphicLayoutEffect = isHopefullyDomEnvironment
-          ? react__WEBPACK_IMPORTED_MODULE_0__['useLayoutEffect']
-          : react__WEBPACK_IMPORTED_MODULE_0__['useEffect']
+          ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect
+          : react__WEBPACK_IMPORTED_MODULE_0__.useEffect
 
         /***/
       },
@@ -73955,11 +73673,11 @@ object-assign
 
         function verifyPlainObject(value, displayName, methodName) {
           if (
-            !Object(_isPlainObject__WEBPACK_IMPORTED_MODULE_0__['default'])(
+            !Object(_isPlainObject__WEBPACK_IMPORTED_MODULE_0__.default)(
               value
             )
           ) {
-            Object(_warning__WEBPACK_IMPORTED_MODULE_1__['default'])(
+            Object(_warning__WEBPACK_IMPORTED_MODULE_1__.default)(
               methodName +
                 '() in ' +
                 displayName +
@@ -74397,7 +74115,7 @@ object-assign
           __webpack_exports__,
           'MemoryRouter',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['MemoryRouter']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.MemoryRouter
           }
         )
 
@@ -74405,7 +74123,7 @@ object-assign
           __webpack_exports__,
           'Prompt',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['Prompt']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.Prompt
           }
         )
 
@@ -74413,7 +74131,7 @@ object-assign
           __webpack_exports__,
           'Redirect',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['Redirect']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.Redirect
           }
         )
 
@@ -74421,7 +74139,7 @@ object-assign
           __webpack_exports__,
           'Route',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['Route']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.Route
           }
         )
 
@@ -74429,7 +74147,7 @@ object-assign
           __webpack_exports__,
           'Router',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['Router']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.Router
           }
         )
 
@@ -74437,7 +74155,7 @@ object-assign
           __webpack_exports__,
           'StaticRouter',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['StaticRouter']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.StaticRouter
           }
         )
 
@@ -74445,7 +74163,7 @@ object-assign
           __webpack_exports__,
           'Switch',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['Switch']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.Switch
           }
         )
 
@@ -74453,7 +74171,7 @@ object-assign
           __webpack_exports__,
           '__RouterContext',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['__RouterContext']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.__RouterContext
           }
         )
 
@@ -74461,7 +74179,7 @@ object-assign
           __webpack_exports__,
           'generatePath',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['generatePath']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.generatePath
           }
         )
 
@@ -74469,7 +74187,7 @@ object-assign
           __webpack_exports__,
           'matchPath',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['matchPath']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.matchPath
           }
         )
 
@@ -74477,7 +74195,7 @@ object-assign
           __webpack_exports__,
           'useHistory',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['useHistory']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.useHistory
           }
         )
 
@@ -74485,7 +74203,7 @@ object-assign
           __webpack_exports__,
           'useLocation',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['useLocation']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.useLocation
           }
         )
 
@@ -74493,7 +74211,7 @@ object-assign
           __webpack_exports__,
           'useParams',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['useParams']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.useParams
           }
         )
 
@@ -74501,7 +74219,7 @@ object-assign
           __webpack_exports__,
           'useRouteMatch',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['useRouteMatch']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.useRouteMatch
           }
         )
 
@@ -74509,7 +74227,7 @@ object-assign
           __webpack_exports__,
           'withRouter',
           function() {
-            return react_router__WEBPACK_IMPORTED_MODULE_0__['withRouter']
+            return react_router__WEBPACK_IMPORTED_MODULE_0__.withRouter
           }
         )
 
@@ -74552,9 +74270,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__.default
             )(BrowserRouter, _React$Component)
 
             function BrowserRouter() {
@@ -74574,7 +74290,7 @@ object-assign
                   [this].concat(args)
                 ) || this
               _this.history = Object(
-                history__WEBPACK_IMPORTED_MODULE_3__['createBrowserHistory']
+                history__WEBPACK_IMPORTED_MODULE_3__.createBrowserHistory
               )(_this.props)
               return _this
             }
@@ -74583,7 +74299,7 @@ object-assign
 
             _proto.render = function render() {
               return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-                react_router__WEBPACK_IMPORTED_MODULE_0__['Router'],
+                react_router__WEBPACK_IMPORTED_MODULE_0__.Router,
                 {
                   history: this.history,
                   children: this.props.children
@@ -74607,7 +74323,7 @@ object-assign
 
           BrowserRouter.prototype.componentDidMount = function() {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_5__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_5__.default)(
                   !this.props.history,
                   '<BrowserRouter> ignores the history prop. To use a custom history, ' +
                     'use `import { Router }` instead of `import { BrowserRouter as Router }`.'
@@ -74624,9 +74340,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__.default
             )(HashRouter, _React$Component)
 
             function HashRouter() {
@@ -74646,7 +74360,7 @@ object-assign
                   [this].concat(args)
                 ) || this
               _this.history = Object(
-                history__WEBPACK_IMPORTED_MODULE_3__['createHashHistory']
+                history__WEBPACK_IMPORTED_MODULE_3__.createHashHistory
               )(_this.props)
               return _this
             }
@@ -74655,7 +74369,7 @@ object-assign
 
             _proto.render = function render() {
               return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-                react_router__WEBPACK_IMPORTED_MODULE_0__['Router'],
+                react_router__WEBPACK_IMPORTED_MODULE_0__.Router,
                 {
                   history: this.history,
                   children: this.props.children
@@ -74681,7 +74395,7 @@ object-assign
 
           HashRouter.prototype.componentDidMount = function() {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_5__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_5__.default)(
                   !this.props.history,
                   '<HashRouter> ignores the history prop. To use a custom history, ' +
                     'use `import { Router }` instead of `import { HashRouter as Router }`.'
@@ -74701,7 +74415,7 @@ object-assign
           currentLocation
         ) {
           return typeof to === 'string'
-            ? Object(history__WEBPACK_IMPORTED_MODULE_3__['createLocation'])(
+            ? Object(history__WEBPACK_IMPORTED_MODULE_3__.createLocation)(
                 to,
                 null,
                 null,
@@ -74734,17 +74448,13 @@ object-assign
             navigate = _ref.navigate,
             _onClick = _ref.onClick,
             rest = Object(
-              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__.default
             )(_ref, ['innerRef', 'navigate', 'onClick'])
 
           var target = rest.target
 
           var props = Object(
-            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__[
-              'default'
-            ]
+            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__.default
           )({}, rest, {
             onClick: function onClick(event) {
               try {
@@ -74793,20 +74503,18 @@ object-assign
             to = _ref2.to,
             innerRef = _ref2.innerRef,
             rest = Object(
-              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__.default
             )(_ref2, ['component', 'replace', 'to', 'innerRef'])
 
           return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-            react_router__WEBPACK_IMPORTED_MODULE_0__['__RouterContext']
+            react_router__WEBPACK_IMPORTED_MODULE_0__.__RouterContext
               .Consumer,
             null,
             function(context) {
               !context
                 ? true
                   ? Object(
-                      tiny_invariant__WEBPACK_IMPORTED_MODULE_8__['default']
+                      tiny_invariant__WEBPACK_IMPORTED_MODULE_8__.default
                     )(false, 'You should not use <Link> outside a <Router>')
                   : undefined
                 : void 0
@@ -74818,9 +74526,7 @@ object-assign
               var href = location ? history.createHref(location) : ''
 
               var props = Object(
-                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__[
-                  'default'
-                ]
+                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__.default
               )({}, rest, {
                 href: href,
                 navigate: function navigate() {
@@ -74918,9 +74624,7 @@ object-assign
             to = _ref.to,
             innerRef = _ref.innerRef,
             rest = Object(
-              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__.default
             )(_ref, [
               'aria-current',
               'activeClassName',
@@ -74936,14 +74640,14 @@ object-assign
             ])
 
           return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-            react_router__WEBPACK_IMPORTED_MODULE_0__['__RouterContext']
+            react_router__WEBPACK_IMPORTED_MODULE_0__.__RouterContext
               .Consumer,
             null,
             function(context) {
               !context
                 ? true
                   ? Object(
-                      tiny_invariant__WEBPACK_IMPORTED_MODULE_8__['default']
+                      tiny_invariant__WEBPACK_IMPORTED_MODULE_8__.default
                     )(false, 'You should not use <NavLink> outside a <Router>')
                   : undefined
                 : void 0
@@ -74958,7 +74662,7 @@ object-assign
                 path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1')
               var match = escapedPath
                 ? Object(
-                    react_router__WEBPACK_IMPORTED_MODULE_0__['matchPath']
+                    react_router__WEBPACK_IMPORTED_MODULE_0__.matchPath
                   )(currentLocation.pathname, {
                     path: escapedPath,
                     exact: exact,
@@ -74973,16 +74677,12 @@ object-assign
                 : classNameProp
               var style = isActive
                 ? Object(
-                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__[
-                      'default'
-                    ]
+                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__.default
                   )({}, styleProp, {}, activeStyle)
                 : styleProp
 
               var props = Object(
-                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__[
-                  'default'
-                ]
+                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__.default
               )(
                 {
                   'aria-current': (isActive && ariaCurrent) || null,
@@ -75013,9 +74713,7 @@ object-assign
             ['page', 'step', 'location', 'date', 'time', 'true']
           )
           NavLink.propTypes = Object(
-            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__[
-              'default'
-            ]
+            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__.default
           )({}, Link.propTypes, {
             'aria-current': ariaCurrentType,
             activeClassName:
@@ -75205,7 +74903,7 @@ object-assign
 
         var createNamedContext = function createNamedContext(name) {
           var context = Object(
-            mini_create_react_context__WEBPACK_IMPORTED_MODULE_5__['default']
+            mini_create_react_context__WEBPACK_IMPORTED_MODULE_5__.default
           )()
           context.displayName = name
           return context
@@ -75223,9 +74921,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(Router, _React$Component)
 
             Router.computeRootMatch = function computeRootMatch(pathname) {
@@ -75315,7 +75011,7 @@ object-assign
 
           Router.prototype.componentDidUpdate = function(prevProps) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   prevProps.history === this.props.history,
                   'You cannot change <Router history>'
                 )
@@ -75331,9 +75027,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(MemoryRouter, _React$Component)
 
             function MemoryRouter() {
@@ -75353,7 +75047,7 @@ object-assign
                   [this].concat(args)
                 ) || this
               _this.history = Object(
-                history__WEBPACK_IMPORTED_MODULE_3__['createMemoryHistory']
+                history__WEBPACK_IMPORTED_MODULE_3__.createMemoryHistory
               )(_this.props)
               return _this
             }
@@ -75387,7 +75081,7 @@ object-assign
 
           MemoryRouter.prototype.componentDidMount = function() {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !this.props.history,
                   '<MemoryRouter> ignores the history prop. To use a custom history, ' +
                     'use `import { Router }` instead of `import { MemoryRouter as Router }`.'
@@ -75400,9 +75094,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(Lifecycle, _React$Component)
 
             function Lifecycle() {
@@ -75446,7 +75138,7 @@ object-assign
               !context
                 ? true
                   ? Object(
-                      tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                      tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                     )(false, 'You should not use <Prompt> outside a <Router>')
                   : undefined
                 : void 0
@@ -75540,7 +75232,7 @@ object-assign
               !context
                 ? true
                   ? Object(
-                      tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                      tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                     )(false, 'You should not use <Redirect> outside a <Router>')
                   : undefined
                 : void 0
@@ -75548,15 +75240,13 @@ object-assign
                 staticContext = context.staticContext
               var method = push ? history.push : history.replace
               var location = Object(
-                history__WEBPACK_IMPORTED_MODULE_3__['createLocation']
+                history__WEBPACK_IMPORTED_MODULE_3__.createLocation
               )(
                 computedMatch
                   ? typeof to === 'string'
                     ? generatePath(to, computedMatch.params)
                     : Object(
-                        _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-                          'default'
-                        ]
+                        _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
                       )({}, to, {
                         pathname: generatePath(
                           to.pathname,
@@ -75580,20 +75270,16 @@ object-assign
                   },
                   onUpdate: function onUpdate(self, prevProps) {
                     var prevLocation = Object(
-                      history__WEBPACK_IMPORTED_MODULE_3__['createLocation']
+                      history__WEBPACK_IMPORTED_MODULE_3__.createLocation
                     )(prevProps.to)
 
                     if (
                       !Object(
-                        history__WEBPACK_IMPORTED_MODULE_3__[
-                          'locationsAreEqual'
-                        ]
+                        history__WEBPACK_IMPORTED_MODULE_3__.locationsAreEqual
                       )(
                         prevLocation,
                         Object(
-                          _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-                            'default'
-                          ]
+                          _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
                         )({}, location, {
                           key: prevLocation.key
                         })
@@ -75715,7 +75401,7 @@ object-assign
         function evalChildrenDev(children, props, path) {
           var value = children(props)
           true
-            ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+            ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                 value !== undefined,
                 'You returned `undefined` from the `children` function of ' +
                   ('<Route' +
@@ -75734,9 +75420,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(Route, _React$Component)
 
             function Route() {
@@ -75755,7 +75439,7 @@ object-assign
                   !context$1
                     ? true
                       ? Object(
-                          tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                          tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                         )(
                           false,
                           'You should not use <Route> outside a <Router>'
@@ -75770,9 +75454,7 @@ object-assign
                       : context$1.match
 
                   var props = Object(
-                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-                      'default'
-                    ]
+                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
                   )({}, context$1, {
                     location: location,
                     match: match
@@ -75831,7 +75513,7 @@ object-assign
               if (
                 props[propName] &&
                 !Object(
-                  react_is__WEBPACK_IMPORTED_MODULE_9__['isValidElementType']
+                  react_is__WEBPACK_IMPORTED_MODULE_9__.isValidElementType
                 )(props[propName])
               ) {
                 return new Error(
@@ -75854,7 +75536,7 @@ object-assign
 
           Route.prototype.componentDidMount = function() {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(
                     this.props.children &&
                     !isEmptyChildren(this.props.children) &&
@@ -75864,7 +75546,7 @@ object-assign
                 )
               : undefined
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(
                     this.props.children &&
                     !isEmptyChildren(this.props.children) &&
@@ -75874,7 +75556,7 @@ object-assign
                 )
               : undefined
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(this.props.component && this.props.render),
                   'You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored'
                 )
@@ -75883,13 +75565,13 @@ object-assign
 
           Route.prototype.componentDidUpdate = function(prevProps) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(this.props.location && !prevProps.location),
                   '<Route> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.'
                 )
               : undefined
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(!this.props.location && prevProps.location),
                   '<Route> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.'
                 )
@@ -75904,9 +75586,7 @@ object-assign
         function addBasename(basename, location) {
           if (!basename) return location
           return Object(
-            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-              'default'
-            ]
+            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
           )({}, location, {
             pathname: addLeadingSlash(basename) + location.pathname
           })
@@ -75917,9 +75597,7 @@ object-assign
           var base = addLeadingSlash(basename)
           if (location.pathname.indexOf(base) !== 0) return location
           return Object(
-            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-              'default'
-            ]
+            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
           )({}, location, {
             pathname: location.pathname.substr(base.length)
           })
@@ -75928,7 +75606,7 @@ object-assign
         function createURL(location) {
           return typeof location === 'string'
             ? location
-            : Object(history__WEBPACK_IMPORTED_MODULE_3__['createPath'])(
+            : Object(history__WEBPACK_IMPORTED_MODULE_3__.createPath)(
                 location
               )
         }
@@ -75936,7 +75614,7 @@ object-assign
         function staticHandler(methodName) {
           return function() {
             true
-              ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default'])(
+              ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default)(
                   false,
                   'You cannot %s with <StaticRouter>',
                   methodName
@@ -75957,9 +75635,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(StaticRouter, _React$Component)
 
             function StaticRouter() {
@@ -76011,7 +75687,7 @@ object-assign
               context.action = action
               context.location = addBasename(
                 basename,
-                Object(history__WEBPACK_IMPORTED_MODULE_3__['createLocation'])(
+                Object(history__WEBPACK_IMPORTED_MODULE_3__.createLocation)(
                   location
                 )
               )
@@ -76032,9 +75708,7 @@ object-assign
                     ? '/'
                     : _this$props2$location,
                 rest = Object(
-                  _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__[
-                    'default'
-                  ]
+                  _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__.default
                 )(_this$props2, ['basename', 'context', 'location'])
 
               var history = {
@@ -76045,7 +75719,7 @@ object-assign
                 location: stripBasename(
                   basename,
                   Object(
-                    history__WEBPACK_IMPORTED_MODULE_3__['createLocation']
+                    history__WEBPACK_IMPORTED_MODULE_3__.createLocation
                   )(location)
                 ),
                 push: this.handlePush,
@@ -76059,9 +75733,7 @@ object-assign
               return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(
                 Router,
                 Object(
-                  _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-                    'default'
-                  ]
+                  _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
                 )({}, rest, {
                   history: history,
                   staticContext: context
@@ -76086,7 +75758,7 @@ object-assign
 
           StaticRouter.prototype.componentDidMount = function() {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !this.props.history,
                   '<StaticRouter> ignores the history prop. To use a custom history, ' +
                     'use `import { Router }` instead of `import { StaticRouter as Router }`.'
@@ -76103,9 +75775,7 @@ object-assign
           /*#__PURE__*/
           (function(_React$Component) {
             Object(
-              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__[
-                'default'
-              ]
+              _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default
             )(Switch, _React$Component)
 
             function Switch() {
@@ -76124,7 +75794,7 @@ object-assign
                   !context
                     ? true
                       ? Object(
-                          tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                          tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                         )(
                           false,
                           'You should not use <Switch> outside a <Router>'
@@ -76152,9 +75822,7 @@ object-assign
                           ? matchPath(
                               location.pathname,
                               Object(
-                                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-                                  'default'
-                                ]
+                                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
                               )({}, child.props, {
                                 path: path
                               })
@@ -76187,13 +75855,13 @@ object-assign
 
           Switch.prototype.componentDidUpdate = function(prevProps) {
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(this.props.location && !prevProps.location),
                   '<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.'
                 )
               : undefined
             true
-              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__['default'])(
+              ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__.default)(
                   !(!this.props.location && prevProps.location),
                   '<Switch> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.'
                 )
@@ -76212,9 +75880,7 @@ object-assign
           var C = function C(props) {
             var wrappedComponentRef = props.wrappedComponentRef,
               remainingProps = Object(
-                _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__[
-                  'default'
-                ]
+                _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__.default
               )(props, ['wrappedComponentRef'])
 
             return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(
@@ -76224,7 +75890,7 @@ object-assign
                 !context
                   ? true
                     ? Object(
-                        tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                        tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                       )(
                         false,
                         'You should not use <' +
@@ -76236,9 +75902,7 @@ object-assign
                 return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(
                   Component,
                   Object(
-                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__[
-                      'default'
-                    ]
+                    _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__.default
                   )({}, remainingProps, context, {
                     ref: wrappedComponentRef
                   })
@@ -76274,7 +75938,7 @@ object-assign
             !(typeof useContext === 'function')
               ? true
                 ? Object(
-                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                   )(
                     false,
                     'You must use React >= 16.8 in order to use useHistory()'
@@ -76290,7 +75954,7 @@ object-assign
             !(typeof useContext === 'function')
               ? true
                 ? Object(
-                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                   )(
                     false,
                     'You must use React >= 16.8 in order to use useLocation()'
@@ -76306,7 +75970,7 @@ object-assign
             !(typeof useContext === 'function')
               ? true
                 ? Object(
-                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                   )(
                     false,
                     'You must use React >= 16.8 in order to use useParams()'
@@ -76323,7 +75987,7 @@ object-assign
             !(typeof useContext === 'function')
               ? true
                 ? Object(
-                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__['default']
+                    tiny_invariant__WEBPACK_IMPORTED_MODULE_6__.default
                   )(
                     false,
                     'You must use React >= 16.8 in order to use useRouteMatch()'
@@ -76349,7 +76013,7 @@ object-assign
 
             if (global[key] && global[key] !== 'esm') {
               var initialBuildName = buildNames[global[key]]
-              var secondaryBuildName = buildNames['esm'] // TODO: Add link to article that explains in detail how to avoid
+              var secondaryBuildName = buildNames.esm // TODO: Add link to article that explains in detail how to avoid
               // loading 2 different builds.
 
               throw new Error(
@@ -78893,7 +78557,7 @@ object-assign
              */
 
             function cloneElement(element, config, children) {
-              if (!!(element === null || element === undefined)) {
+              if (element === null || element === undefined) {
                 {
                   throw Error(
                     'React.cloneElement(...): The argument must be a React element, but you passed ' +
@@ -81330,7 +80994,7 @@ object-assign
         var thunk = createThunkMiddleware()
         thunk.withExtraArgument = createThunkMiddleware
 
-        /* harmony default export */ __webpack_exports__['default'] = thunk
+        /* harmony default export */ __webpack_exports__.default = thunk
 
         /***/
       },
@@ -81711,7 +81375,7 @@ object-assign
                 }
               }),
               (_ref[
-                symbol_observable__WEBPACK_IMPORTED_MODULE_0__['default']
+                symbol_observable__WEBPACK_IMPORTED_MODULE_0__.default
               ] = function() {
                 return this
               }),
@@ -81732,7 +81396,7 @@ object-assign
               replaceReducer: replaceReducer
             }),
             (_ref2[
-              symbol_observable__WEBPACK_IMPORTED_MODULE_0__['default']
+              symbol_observable__WEBPACK_IMPORTED_MODULE_0__.default
             ] = observable),
             _ref2
           )
@@ -82532,7 +82196,7 @@ object-assign
 
               if (context.method === 'throw') {
                 // Note: ["return"] must be used for ES3 parsing compatibility.
-                if (delegate.iterator['return']) {
+                if (delegate.iterator.return) {
                   // If the delegate iterator has a return method, give it a
                   // chance to clean up.
                   context.method = 'return'
@@ -83038,9 +82702,7 @@ object-assign
           return result
         }
 
-        /* harmony default export */ __webpack_exports__[
-          'default'
-        ] = resolvePathname
+        /* harmony default export */ __webpack_exports__.default = resolvePathname
 
         /***/
       },
@@ -87584,9 +87246,7 @@ object-assign
          * Expose `debug()` as the module.
          */
 
-        exports = module.exports = createDebug.debug = createDebug[
-          'default'
-        ] = createDebug
+        exports = module.exports = createDebug.debug = createDebug.default = createDebug
         exports.coerce = coerce
         exports.disable = disable
         exports.enable = enable
@@ -88003,9 +87663,9 @@ object-assign
           }
 
           var result = Object(
-            _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__['default']
+            _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__.default
           )(root)
-          /* harmony default export */ __webpack_exports__['default'] = result
+          /* harmony default export */ __webpack_exports__.default = result
 
           /* WEBPACK VAR INJECTION */
         }.call(
@@ -88079,7 +87739,7 @@ object-assign
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = invariant
+        /* harmony default export */ __webpack_exports__.default = invariant
 
         /***/
       },
@@ -88111,7 +87771,7 @@ object-assign
           }
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = warning
+        /* harmony default export */ __webpack_exports__.default = warning
 
         /***/
       },
@@ -88184,7 +87844,7 @@ object-assign
           return false
         }
 
-        /* harmony default export */ __webpack_exports__['default'] = valueEqual
+        /* harmony default export */ __webpack_exports__.default = valueEqual
 
         /***/
       },
