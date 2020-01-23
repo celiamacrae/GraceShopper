@@ -185,12 +185,12 @@ img {
   border: none;
   border-radius: 4px;
   margin: 5px 0;
-  opacity: 0.85;
+  text-align: center;
   display: inline-block;
   font-size: 17px;
   line-height: 20px;
   text-decoration: none;
-  background-color: #9eb19e;
+  background-color: #01202cbd;
   color: white;
   cursor: pointer;
 }

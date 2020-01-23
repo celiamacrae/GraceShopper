@@ -69,7 +69,7 @@ const products = [
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/Mango-600x600.jpg',
     category: 'Fruit',
-    stockQuantity: 100
+    stockQuantity: 3
   },
   {
     id: 2,
@@ -79,7 +79,7 @@ const products = [
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/10000200_16-fresho-tomato-hybrid-600x600.jpg',
     category: 'Vegetable',
-    stockQuantity: 150
+    stockQuantity: 10
   },
   {
     id: 3,
@@ -89,7 +89,7 @@ const products = [
     imgSrc:
       'https://www.myemarket.in/image/cache/data/Vegetables/MUSHRUMS-600x600.jpg',
     category: 'Vegetable',
-    stockQuantity: 200
+    stockQuantity: 100
   },
   {
     id: 4,

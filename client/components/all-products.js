@@ -45,9 +45,9 @@ export default class Products extends React.Component {
       <div id="main">
         {userStatus === 'admin' ? (
           <div className="addrecipe-btn">
-            <button className="button3">
-              <Link to="/add">Add Product</Link>
-            </button>
+            <Link to="/add" className="button3">
+              Add Product
+            </Link>
           </div>
         ) : null}
         <ul className="cards">
