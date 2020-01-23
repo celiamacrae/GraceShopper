@@ -15,9 +15,9 @@ class Recipies extends React.Component {
       <div id="main">
         {userStatus === 'admin' ? (
           <div className="addrecipe-btn">
-            <button className="button3">
-              <Link to="/recipies/add">Add Recipe</Link>
-            </button>{' '}
+            <Link to="/recipies/add" className="button3">
+              Add Recipe
+            </Link>
           </div>
         ) : null}
         <ul className="cards">
