@@ -5,7 +5,7 @@ const db = require('../index')
 const Order = db.model('order')
 const User = db.model('user')
 
-describe('User model', () => {
+describe('Order model', () => {
   beforeEach(() => {
     return db.sync({force: true})
   })
@@ -55,5 +55,5 @@ describe('User model', () => {
         expect(order1.orderInfo).to.be.equal(null)
       })
 
-    }) // end describe('correctPassword')
-}) // end describe('User model')
+    })
+})
