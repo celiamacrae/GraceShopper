@@ -31,12 +31,14 @@ export const guestSession = (addGuestCart, product) => {
   const guestCart = JSON.parse(sessionStorage.getItem('guest'))
   addGuestCart(guestCart)
 }
+
 export default class Products extends React.Component {
   componentDidMount() {
     this.props.onLoadAllProducts(this.props.userId)
   }
 
   render() {
+    console.log('PRODUCT PROPS', this.props)
     const userStatus = this.props.userStatus
     const products = this.props.products
     return (
@@ -50,6 +52,9 @@ export default class Products extends React.Component {
         ) : null}
         <ul className="cards">
           {products.map(product => {
+            let pid = product.id
+            let cartMapVal = this.props.cart.cartMap[pid] || 0
+            console.log('CARTMAPVAL', cartMapVal)
             return (
               <li key={product.id}>
                 <div className="card">
@@ -57,11 +62,35 @@ export default class Products extends React.Component {
                   <div className="card_content">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <h4 className="price"> ${product.price}</h4>
-                    {product.stockQuantity === 0 ? (
-                      <h4>Out of Stock!</h4>
+                    {/* {console.log("ERROR1")} */}
+                    {product.stockQuantity < 1 ? (
+                      <div>
+                        <h4>Out of Stock!</h4>
+                      </div>
                     ) : (
-                      <h4>In Stock: {product.stockQuantity}</h4>
+                      <div>
+                        <h4>In Stock: {product.stockQuantity}</h4>
+                      </div>
                     )}
+
+                    {!Array.isArray(this.props.cart.cartMap) ? (
+                      this.props.cart.cartMap[pid] === undefined ? (
+                        <div>
+                          <h4>In Cart: 0</h4>
+                        </div>
+                      ) : (
+                        <div>
+                          <h4>In Cart: {this.props.cart.cartMap[pid]}</h4>
+                        </div>
+                      )
+                    ) : (
+                      <div>
+                        <h4>In Cart: </h4>
+                      </div>
+                    )}
+
+                    {/* {this.props.cart.cartMap[pid].ProductOrder.quantity} */}
+                    {/* {console.log("ERROR3")} */}
 
                     {userStatus === 'admin' ? (
                       <div>
@@ -77,20 +106,29 @@ export default class Products extends React.Component {
                     ) : (
                       <div>
                         <button
-                          onClick={() => {
+                          onClick={async () => {
                             //checks for guest or user
+
                             if (this.props.userId) {
-                              this.props.add(
+                              await this.props.add(
                                 product,
                                 this.props.userId,
                                 products.length
                               )
                             } else {
-                              guestSession(this.props.addGuestCart, product)
+                              await guestSession(
+                                this.props.addGuestCart,
+                                product
+                              )
                             }
                           }}
                           type="submit"
-                          disabled={product.stockQuantity < 1}
+                          disabled={
+                            product.stockQuantity < 1 ||
+                            product.stockQuantity -
+                              this.props.cart.cartMap[pid] <
+                              1
+                          }
                         >
                           Add to Cart
                         </button>
