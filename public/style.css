@@ -15,6 +15,10 @@ body {
   justify-content: center;
 }
 
+.navleft {
+  padding-top: -20px;
+}
+
 a {
   text-decoration: none;
 }
@@ -34,14 +38,14 @@ form div {
   display: inline-block;
 }
 nav {
-  display: flex;
+  display: absolute;
   flex-direction: row;
+  opacity: 1;
   justify-content: space-around;
-  background-color: #b1cbbb;
+  background-color: #01202cbd;
   color: #c0c0c0;
   display: flex;
   height: 80px;
-  padding: 10px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -55,6 +59,12 @@ a.items {
 #main {
   margin: 100px;
 }
+
+.navrighte {
+  position: relative;
+  margin-top: 15px;
+}
+
 #one-product {
   display: flex;
   flex-direction: column;
@@ -77,7 +87,7 @@ img {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   flex: 0 0 215px;
   margin: 1em 15px;
@@ -94,7 +104,7 @@ img {
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: #000;
+  background-color: #01202c;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -137,14 +147,15 @@ img {
   text-decoration: none;
   font-size: 17px;
 }
+
 .profile_option {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 500px;
-  height: 650px;
   margin: auto;
   text-align: center;
   font-family: arial;
 }
+
 #mainP {
   display: flex;
   flex-direction: row;
@@ -169,7 +180,7 @@ img {
   font-family: 'Lato', 'sans-serif';
 }
 .button3 {
-  width: 100%;
+  width: 25%;
   padding: 12px;
   border: none;
   border-radius: 4px;
@@ -179,7 +190,7 @@ img {
   font-size: 17px;
   line-height: 20px;
   text-decoration: none;
-  background-color: #4caf50;
+  background-color: #9eb19e;
   color: white;
   cursor: pointer;
 }
@@ -197,6 +208,11 @@ button[disabled] {
 
 a {
   text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(253, 193, 193);
 }
 #update {
   display: flex;
@@ -233,6 +249,10 @@ a {
   outline: none;
 }
 
+.addrecipe-btn {
+  display: flex;
+  justify-content: center;
+}
 .modal-login {
   margin: auto;
   text-align: center;
@@ -255,7 +275,7 @@ a {
 .modal-login .btn {
   color: #fff;
   border-radius: 6px;
-  background: #60c7c1;
+  background: #01202c;
   text-decoration: none;
   transition: all 0.4s;
   line-height: normal;
@@ -265,7 +285,7 @@ a {
 
 .modal-login .btn:hover,
 .modal-login .btn:focus {
-  background: #45aba6;
+  background: #f4d8cd;
   outline: none;
 }
 .modal-login input {
@@ -361,17 +381,20 @@ a {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #01202ccb;
+  padding: 5em;
 }
 .container img {
   width: 100%;
 }
 .homeBtn {
   opacity: 0.7;
+  background-color: #f4d8cd;
   color: black !important;
   text-transform: uppercase;
   text-decoration: none;
   padding: 20px;
-  border: 4px solid black !important;
+  /* border: 1px solid black !important; */
   display: inline-block;
   transition: all 0.4s ease 0s;
   font-family: 'Quicksand';
@@ -382,8 +405,8 @@ a {
 }
 
 .container h2 {
-  color: black;
-  opacity: 0.7;
+  color: #f4d8cd;
+  opacity: 1;
   font-family: 'Quicksand';
   font-size: 32px;
 }
@@ -393,6 +416,7 @@ a {
 #cart .card {
   width: 220px;
 }
+
 #recipes {
   display: flex;
   flex-wrap: wrap;
@@ -462,7 +486,7 @@ h3 {
   display: inline-block;
   font-size: 15px;
   text-decoration: none;
-  background-color: #ff9f43;
+  background-color: #01202c;
   background-image: linear-gradient(215deg, #ff9f43 10%);
   color: white;
   font-style: bold;
@@ -487,4 +511,182 @@ h3 {
 .icon {
   height: 40px;
   width: 40px;
+}
+
+.cartContainer {
+  width: 60%;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 0.6em;
+}
+
+.heading {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+  color: #f7f7f7;
+  background: #ff9f43;
+}
+
+.table {
+  background: #ffffff;
+  border-radius: 0.6em;
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 1.8em;
+}
+
+.cartImg {
+  width: 50%;
+}
+
+.layout-inline > * {
+  display: inline-block;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.th {
+  background: #01202c;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.tf {
+  background: #01202c;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 1.2em;
+}
+
+.tf p {
+  color: #fff;
+  font-weight: bold;
+}
+
+.col {
+  padding: 1em;
+  width: 12%;
+}
+
+.col-pro {
+  width: 44%;
+}
+
+.col-pro > * {
+  vertical-align: middle;
+}
+
+.col-qty {
+  text-align: center;
+  width: 17%;
+}
+
+.col-numeric p {
+  font: bold 1.8em helvetica;
+}
+
+.col-total p {
+  color: #01202c;
+}
+
+.tf .col {
+  width: 20%;
+}
+
+.row > div {
+  vertical-align: middle;
+  height: 10%;
+}
+
+.row-bg2 {
+  background: #f7f7f7;
+}
+
+.visibility-cart {
+  position: absolute;
+  color: #fff;
+  top: 0.5em;
+  right: 0.5em;
+  font: bold 2em arial;
+  border: 0.16em solid #fff;
+  border-radius: 2.5em;
+  padding: 0 0.22em 0 0.25em;
+}
+
+.col-qty > * {
+  vertical-align: middle;
+}
+
+.col-qty > input {
+  max-width: 2.6em;
+}
+
+.qtybtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.qty {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  border-radius: 50%;
+  text-align: center;
+  background: #ff9f43;
+  outline: none;
+}
+
+a.qty:hover {
+  background: #3b9ac6;
+}
+
+.btn {
+  padding: 10px 30px;
+  border-radius: 0.3em;
+  font-size: 1.4em;
+  font-weight: bold;
+  background: #01202c;
+  color: #fff;
+  box-shadow: 0 3px 0 rgb(25, 24, 56);
+}
+
+.btn:hover {
+  box-shadow: 0 3px 0 rgba(59, 154, 198, 0);
+}
+
+.btn-update {
+  float: right;
+  margin: 0 0 1.5em 0;
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 755px) {
+  .container {
+    width: 98%;
+  }
+
+  .col-pro {
+    width: 35%;
+  }
+
+  .col-qty {
+    width: 22%;
+  }
+
+  img {
+    max-width: 100%;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 591px) {
 }

@@ -10,21 +10,24 @@ const Navbar = props => {
   return (
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="navbar-header">
-        <Link to="/home" className="navbar-brand items">
-          <img src="mushroom.png" className="icon" />
-          {'     '}
-          Mushroom{' '}
+        <Link to="/home" className="navbar-brand">
+          <div className="navleft">
+            {' '}
+            <img src="LOGO.png" />
+          </div>
+          {/* {'     '}
+          Mushroom{' '} */}
         </Link>
         <Link to="/products" className="items active">
-          Groceries
+          <div className="navleft">Groceries</div>
         </Link>
         <Link to="/recipies" className="items">
-          Recipies
+          <div className="navleft">Recipes</div>
         </Link>
       </div>
 
       {isLoggedIn ? (
-        <div className="nav navbar-nav navbar-right">
+        <div className="nav navbar-nav navbar-right navrighte">
           {/* The navbar will show these links after you log in */}
           <Link to="/user" className="items">
             User
@@ -34,7 +37,7 @@ const Navbar = props => {
           </a>
           {status !== 'admin' ? (
             <Link to="/cart" className="items">
-              🛒
+              🛒 {props.amount}
             </Link>
           ) : null}
         </div>
@@ -48,7 +51,7 @@ const Navbar = props => {
             Sign Up
           </Link>
           <Link to="/cart" className="items">
-            🛒
+            🛒 {props.amount}
           </Link>
         </div>
       )}
@@ -62,7 +65,8 @@ const Navbar = props => {
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
-    user: state.user
+    user: state.user,
+    amount: state.cart.amount
   }
 }
 

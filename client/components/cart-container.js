@@ -49,41 +49,39 @@ class Cart extends React.Component {
   }
 
   render() {
-    const amount = this.props.amount
-    const total = this.props.total
     this.props.getAmount()
     this.props.getTotal()
+    const amount = this.props.amount
+    const total = this.props.total
     return (
       <div id="main">
-        <div id="cart">
-          {this.props.items === null ? <h1>Nothing in Cart</h1> : null}
-          {this.props.items.length === 0 ? <h1>Nothing in Cart</h1> : null}
-          <ol>
+        <div className="cartContainer">
+          <div className="table">
+            <div className="layout-inline row th">
+              <div className="col col-pro">Product</div>
+              <div className="col col-price align-center " />
+              <div className="col col-qty align-center " />
+              <div className="col">Price</div>
+              <div className="col">QTY</div>
+            </div>
             {this.props.items.map(product => {
               return (
-                <li key={product.id}>
-                  <div className="card">
-                    <div className="card_image">
-                      <img src={product.imgSrc} height="100px" width="100px" />
-                    </div>
-                    <div className="card_content">
-                      <Link to={`/products/${product.id}`}>{product.name}</Link>
-                      <h3>Quantity: {product.ProductOrder.quantity}</h3>
+                <div className="layout-inline row" key={product.id}>
+                  <div className="col col-pro layout-inline">
+                    <img src={product.imgSrc} className="cartImg" />
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                  </div>
+
+                  <div className="col col-price col-numeric align-center " />
+                  <div className="col col-qty layout-inline" />
+                  <div className="col col-vat col-numeric">
+                    <p>{product.price}</p>
+                  </div>
+
+                  <div className="col col-total col-numeric">
+                    <div className="qtybtn">
                       <button
-                        onClick={() => {
-                          if (this.props.userId)
-                            this.props.add(product, this.props.userId)
-                          else {
-                            guestSession(this.props.addGuestCart, product)
-                          }
-                          this.props.getAmount()
-                          this.props.getTotal()
-                        }}
-                        type="submit"
-                      >
-                        Add to Cart
-                      </button>
-                      <button
+                        className="qty qty-minus"
                         onClick={() => {
                           if (this.props.userId) {
                             this.props.remove(product, this.props.userId)
@@ -96,23 +94,55 @@ class Cart extends React.Component {
                         }}
                         type="submit"
                       >
-                        Remove from Cart
+                        {' '}
+                        -{' '}
+                      </button>{' '}
+                      <p>{product.ProductOrder.quantity} </p>{' '}
+                      <button
+                        className="qty qty-plus"
+                        onClick={() => {
+                          if (this.props.userId)
+                            this.props.add(product, this.props.userId)
+                          else {
+                            guestSession(this.props.addGuestCart, product)
+                          }
+                          this.props.getAmount()
+                          this.props.getTotal()
+                        }}
+                        type="submit"
+                      >
+                        {' '}
+                        +{' '}
                       </button>
                     </div>
                   </div>
-                </li>
+                </div>
               )
             })}
-          </ol>
-          <h2>Amount of Products: {amount}</h2>
-          <h2>Total: {total.toFixed(2)} USD </h2>
 
-          <div className="card">
-            {' '}
-            <Link to="/checkout" className="button">
-              Proceed to checkout
-            </Link>
-          </div>
+            <div className="tf">
+              <div className="row layout-inline">
+                <div className="col">
+                  <p>Total Price: </p>
+                </div>
+                <div className="col">
+                  <p>{total.toFixed(2)}</p>
+                </div>
+              </div>
+
+              <div className="row layout-inline">
+                <div className="col">
+                  <p>Amount in Cart: </p>
+                </div>
+                <div className="col">
+                  <p>{amount}</p>
+                </div>
+              </div>
+            </div>
+          </div>{' '}
+          <Link to="/checkout" className="btn1">
+            Proceed to checkout
+          </Link>
         </div>
       </div>
     )
