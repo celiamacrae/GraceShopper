@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Mushroom Market is an eCommerce store that sells groceries and recipies!",
   "engines": {
-    "node": "12.x"
+    "node": "10.16.3"
   },
   "main": "index.js",
   "scripts": {

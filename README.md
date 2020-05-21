@@ -2,7 +2,7 @@
 
 ### Mushroom Market is an eCommerce grocery store that allows users and guests to purchase individual items, browse recipies, and purchase all the ingredients for a recipie in one click!
 
-Visit: https://graceshopper2020mushroom.herokuapp.com/ 👀
+Visit: https://graceshopper2020mushroom.herokuapp.com/home 👀
 
 Mushroom Market was built by a team of 4 software engineering students in January 2020 as part of the immersive Grace Hopper Program at Fullstack Academy of Code, in New York City.
 
