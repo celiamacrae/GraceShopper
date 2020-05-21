@@ -1,3 +1,5 @@
+### Mushroom Market is an eCommerce grocery store that allows users and guests to purchase individual items, browse recipies, and purchase all the ingredients for a recipie in one click!
+
 npm run start-dev# Boilermaker
 
 _Good things come in pairs_
