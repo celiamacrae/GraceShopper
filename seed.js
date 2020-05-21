@@ -66,8 +66,7 @@ const products = [
     name: 'Mango',
     price: 2.59,
     weight: '0.5oz',
-    imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/Mango-600x600.jpg',
+    imgSrc: 'https://jackscalisi.com/wp-content/uploads/2020/03/Mango-1.jpg',
     category: 'Fruit',
     stockQuantity: 3
   },
@@ -77,7 +76,7 @@ const products = [
     price: 1.89,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/10000200_16-fresho-tomato-hybrid-600x600.jpg',
+      'https://www.shopzonegh.com/wp-content/uploads/2018/06/large-red-cherry-tomato-pepper-joes.jpg',
     category: 'Vegetable',
     stockQuantity: 10
   },
@@ -87,7 +86,7 @@ const products = [
     price: 2.99,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/MUSHRUMS-600x600.jpg',
+      'https://5.imimg.com/data5/MB/GA/MY-3035565/fresh-champignon-mushroom-500x500.jpg',
     category: 'Vegetable',
     stockQuantity: 100
   },
@@ -97,7 +96,7 @@ const products = [
     price: 7.59,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/chicken-600x600.jpg',
+      'https://img3.exportersindia.com/product_images/bc-full/dir_111/3318737/full-halal-chicken-grade-a-certified-halal-1628356.jpg',
     category: 'Meat',
     stockQuantity: 80
   },
@@ -107,7 +106,7 @@ const products = [
     price: 3.29,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/eggs%20new-600x600.jpg',
+      'https://myplanet1051.com/wp-content/uploads/2019/01/bigstock-Brown-egg-on-white-background-27164300.jpg',
     category: 'Dairy',
     stockQuantity: 95
   },
@@ -117,7 +116,7 @@ const products = [
     price: 1.29,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/fresh-onion-red-v-1-kg-1-600x600.png',
+      'https://target.scene7.com/is/image/Target/GUEST_6e9b6bee-9320-4ddd-ae86-38d6c636ec63?wid=488&hei=488&fmt=pjpeg',
     category: 'Vegetable',
     stockQuantity: 125
   },
@@ -127,7 +126,7 @@ const products = [
     price: 1.99,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/Garlic-600x600.jpg',
+      'https://lh3.googleusercontent.com/proxy/qhifXiAhpyBvRWU_bFpAl2sQ43g0W4074kgukNsAhQyyK1tJ9XTR1X_tY0Mc0cXCNDApMjouceEnKAjpRcakl5oNYtSF718x_88ciTbYzMV1m66_PmnE7RY7VqOFyH1yf4JgoDTAwl4',
     category: 'Vegetable',
     stockQuantity: 190
   },
@@ -136,8 +135,7 @@ const products = [
     name: 'Potato',
     price: 2.99,
     weight: '0.5oz',
-    imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/Potato1-600x600.jpg',
+    imgSrc: 'https://i.redd.it/qi0r0pdbsgs31.jpg',
     category: 'Vegetable',
     stockQuantity: 240
   },
@@ -147,7 +145,7 @@ const products = [
     price: 1.99,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/fresh-cut-beetroot-600x600.gif',
+      'https://www.znaturalfoods.com/594-large_default/beet-root-powder-organic.jpg',
     category: 'Vegetable',
     stockQuantity: 60
   },
@@ -157,7 +155,7 @@ const products = [
     price: 0.99,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/sweet%20corn-600x600.jpg',
+      'https://www.thehonestcounter.com/wp-content/uploads/2017/10/Sweet-Corn-1000x1000.jpg?x29720',
     category: 'Vegetable',
     stockQuantity: 80
   },
@@ -167,7 +165,7 @@ const products = [
     price: 1.99,
     weight: '0.5oz',
     imgSrc:
-      'https://www.myemarket.in/image/cache/data/Vegetables/Beauregard-Sweet-Potato_0-600x600.png',
+      'https://www.lcsupplies.co.uk/pub/media/catalog/product/cache/c687aa7517cf01e65c009f6943c2b1e9/1/4/147071.jpg',
     category: 'Vegetable',
     stockQuantity: 165
   },
