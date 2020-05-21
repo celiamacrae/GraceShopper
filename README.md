@@ -1,4 +1,4 @@
-### MUSHROOM MARKET
+### 🍄 MUSHROOM MARKET 🍄
 
 ### Mushroom Market is an eCommerce grocery store that allows users and guests to purchase individual items, browse recipies, and purchase all the ingredients for a recipie in one click!
 
