@@ -126,7 +126,7 @@ const products = [
     price: 1.99,
     weight: '0.5oz',
     imgSrc:
-      'https://lh3.googleusercontent.com/proxy/qhifXiAhpyBvRWU_bFpAl2sQ43g0W4074kgukNsAhQyyK1tJ9XTR1X_tY0Mc0cXCNDApMjouceEnKAjpRcakl5oNYtSF718x_88ciTbYzMV1m66_PmnE7RY7VqOFyH1yf4JgoDTAwl4',
+      'https://www.chatelaine.com/wp-content/uploads/2013/10/Bulb-of-garlic-660x658.jpg',
     category: 'Vegetable',
     stockQuantity: 190
   },
