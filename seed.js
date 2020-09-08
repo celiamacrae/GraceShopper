@@ -298,44 +298,6 @@ const products = [
   }
 ]
 
-// const productOrder = [
-//   {
-//     productId: 1,
-//     quantity: 2,
-//     orderId: 2
-//   },
-//   {
-//     productId: 2,
-//     quantity: 1,
-//     orderId: 2
-//   },
-//   {
-//     productId: 3,
-//     quantity: 2,
-//     orderId: 1
-//   },
-//   {
-//     productId: 6,
-//     quantity: 1,
-//     orderId: 1
-//   },
-//   {
-//     productId: 3,
-//     quantity: 1,
-//     orderId: 4
-//   },
-//   {
-//     productId: 1,
-//     quantity: 1,
-//     orderId: 5
-//   },
-//   {
-//     productId: 1,
-//     quantity: 1,
-//     orderId: 3
-//   }
-// ]
-
 const recipies = [
   {
     id: 1,
